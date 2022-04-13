@@ -1,0 +1,87 @@
+<resources>
+    <string name="app_name">DoLearn</string>
+    <string name="topic">Topic</string>
+    <string name="translate">Translate</string>
+    <string name="note">Note</string>
+    <string name="test">Test</string>
+    <string name="notification">Notification</string>
+    <string name="do_learn">Do Learn</string>
+    <string name="learn_english_so_easy">Learn English so easy</string>
+    <string name="logo">logo</string>
+    <string-array name="topic_list">
+        <item>Tự nhiên</item>
+        <item>Con người</item>
+        <item>Các mối quan hệ</item>
+        <item>Sự vật xung quanh</item>
+        <item>Cuộc sống thường ngày</item>
+        <item>Công việc</item>
+        <item>Nghệ thuật</item>
+        <item>Truyền thông</item>
+        <item>Điện thoại và thư tín</item>
+        <item>Các từ chỉ trạng, mức độ</item>
+    </string-array>
+    <string-array name="tunhien_list">
+        <item>Động vật</item>
+        <item>Cây cối</item>
+        <item>Trái cây</item>
+        <item>Rau củ</item>
+        <item>Phong cảnh</item>
+        <item>Thời tiết</item>
+        <item>Môi trường</item>
+        <item>Màu sắc</item>
+    </string-array>
+    <string-array name="connguoi_list">
+        <item>Ngoại hình</item>
+        <item>Cơ thể</item>
+        <item>Tính cách</item>
+        <item> Cảm xúc và cảm giác"</item>
+    </string-array>
+    <string-array name="cacmoiquanhe_list">
+        <item>Gia đình</item>
+        <item>Các mối quan hệ</item>
+    </string-array>
+    <string-array name="suvatxungquanh_list">
+        <item>Trang phục</item>
+        <item>Đồ ăn và thức uống</item>
+        <item>Nhà cửa</item>
+        <item>Thể thao</item>
+        <item>Giao thông</item>
+        <item>Nhà bếp</item>
+        <item>Phòng khách</item>
+        <item>Phòng ngủ</item>
+        <item>Phòng tắm</item>
+        <item>Thành phố</item>
+    </string-array>
+    <string-array name="cuocsongthuongngay_list">
+        <item>Giáo dục</item>
+        <item>Sức khoẻ</item>
+        <item>Sở thích</item>
+        <item>Mua sắm</item>
+        <item>Du lịch</item>
+        <item>Ngày và giờ</item>
+        <item>Ngôn ngữ</item>
+        <item>Ngày lễ tết</item>
+    </string-array>
+    <string-array name="congviec_list">
+        <item>Công ty</item>
+        <item>Công việc</item>
+        <item>Đời sống công sở</item>
+    </string-array>
+    <string-array name="nghethuat_list">
+        <item>Nghệ thuật</item>
+    </string-array>
+    <string-array name="truyenthong_list">
+        <item>Máy tính và mạng internet</item>
+    </string-array>
+    <string-array name="dienthoaivathutin_list">
+        <item>Truyền hình và báo chí</item>
+    </string-array>
+    <string-array name="cactuchitrangthaimucdo_list">
+        <item>Đo lường</item>
+        <item>Tốc độ</item>
+        <item>Tần suất</item>
+        <item>Mức độ</item>
+        <item>Vị trí</item>
+        <item>Các từ chỉ sự tăng-giảm</item>
+    </string-array>
+</resources>
