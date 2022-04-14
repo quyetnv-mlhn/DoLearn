@@ -1,6 +1,8 @@
-package com.example.dolearn;
+package com.example.dolearn.topic;
 
-public class Item {
+import java.io.Serializable;
+
+public class Item implements Serializable {
     private String engName;
     private String vieName;
     private String pronoun;
@@ -10,7 +12,7 @@ public class Item {
     private int note;
     private int speak;
 
-    public Item(String engName, String pronoun, String vieName, String exampleEn, String exampleVi) {
+    public Item(String engName, String vieName, String pronoun, String exampleEn, String exampleVi) {
         this.engName = engName;
         this.vieName = vieName;
         this.pronoun = pronoun;
@@ -73,4 +75,5 @@ public class Item {
     public void setExampleVi(String exampleVi) {
         this.exampleVi = exampleVi;
     }
+
 }

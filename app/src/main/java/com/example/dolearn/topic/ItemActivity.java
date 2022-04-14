@@ -1,17 +1,23 @@
-package com.example.dolearn;
+package com.example.dolearn.topic;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
+import com.example.dolearn.R;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class ItemActivity extends AppCompatActivity {
     ListView listView_item;
-    Dictionary dictionary = new Dictionary();
+    public Dictionary dictionary = new Dictionary();
     ItemAdapter adapter;
 
     @Override
@@ -19,18 +25,25 @@ public class ItemActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_item);
         handle();
-        anhxa();
-        adapter = new ItemAdapter(this,R.layout.item, dictionary.natural);
-        listView_item.setAdapter(adapter);
-    }
-
-    private void anhxa(){
         listView_item = findViewById(R.id.listView_item);
-    }
+        adapter = new ItemAdapter(this,R.layout.item, dictionary.plants);
+        listView_item.setAdapter(adapter);
+        listView_item.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent_detailedItem = new Intent(ItemActivity.this,DetailedItem.class);
+                intent_detailedItem.putExtra("ItemNumber",i);
+                Bundle args = new Bundle();
+                args.putSerializable("ARRAYLIST",(Serializable)dictionary.plants);
+                intent_detailedItem.putExtra("BUNDLE",args);
+                startActivity(intent_detailedItem);
+            }
+        });
 
+        }
     public void handle() {
         try {
-            InputStream is = getAssets().open("Animals.txt");
+            InputStream is = getAssets().open("Plants.txt");
             int size = is.available();
             byte[] buffer = new byte[size];
             is.read(buffer);
@@ -41,7 +54,7 @@ public class ItemActivity extends AppCompatActivity {
                 String line = sc.nextLine();
                 String[] data = line.split("\t");
                 Item item = new Item(data[0], data[1], data[2], data[3], data[4]);
-                dictionary.natural.add(item);
+                dictionary.plants.add(item);
             }
         } catch (IOException e) {
             e.printStackTrace();

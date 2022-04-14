@@ -1,13 +1,16 @@
-package com.example.dolearn;
+package com.example.dolearn.topic;
 
 import android.content.Context;
-import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.CheckBox;
 import android.widget.TextView;
+
+import com.example.dolearn.R;
+
 import java.util.List;
 public class ItemAdapter extends BaseAdapter {
     private Context context;
@@ -47,6 +50,10 @@ public class ItemAdapter extends BaseAdapter {
         Item item = itemList.get(i);
         engName.setText(item.getEngName());
         vieName.setText(item.getVieName());
+        note.setFocusable(false);
+        note.setFocusableInTouchMode(false);
+        speak.setFocusable(false);
+        speak.setFocusableInTouchMode(false);
         return view;
     }
 }

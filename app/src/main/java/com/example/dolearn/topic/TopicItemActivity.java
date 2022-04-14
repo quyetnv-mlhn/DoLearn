@@ -1,4 +1,4 @@
-package com.example.dolearn;
+package com.example.dolearn.topic;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+
+import com.example.dolearn.R;
 
 public class TopicItemActivity extends AppCompatActivity {
             ListView listView_topic_item;

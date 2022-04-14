@@ -4,9 +4,9 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
+
+import com.example.dolearn.topic.TopicActivity;
 
 public class MainActivity extends AppCompatActivity {
     CardView cardView_topic;
@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
         cardView_topic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intentTopic = new Intent(MainActivity.this,TopicActivity.class);
+                Intent intentTopic = new Intent(MainActivity.this, TopicActivity.class);
                 startActivity(intentTopic);
 
             }

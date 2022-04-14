@@ -10,13 +10,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DoLearn">
         <activity
-            android:name=".ItemActivity"
+            android:name=".topic.DetailedItem"
             android:exported="false" />
         <activity
-            android:name=".TopicItemActivity"
+            android:name=".topic.ItemActivity"
             android:exported="false" />
         <activity
-            android:name=".TopicActivity"
+            android:name=".topic.TopicItemActivity"
+            android:exported="false" />
+        <activity
+            android:name=".topic.TopicActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

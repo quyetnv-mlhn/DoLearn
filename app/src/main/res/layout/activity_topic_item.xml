@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:weightSum="10"
     android:orientation="vertical"
-    tools:context=".TopicActivity">
+    tools:context=".topic.TopicActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
