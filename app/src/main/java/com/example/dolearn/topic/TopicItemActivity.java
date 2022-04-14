@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.dolearn.R;
 
@@ -44,7 +45,7 @@ public class TopicItemActivity extends AppCompatActivity {
                 topicItemAdapter = ArrayAdapter.createFromResource(this, R.array.truyenthong_list, android.R.layout.simple_list_item_1);
             }
             else if(numberTopic == 8){
-                topicItemAdapter = ArrayAdapter.createFromResource(this, R.array.dienthoaivathutin_list, android.R.layout.simple_list_item_1);
+                topicItemAdapter = ArrayAdapter.createFromResource(this, R.array.lienlactintuc_list, android.R.layout.simple_list_item_1);
             }
             else if(numberTopic == 9){
                 topicItemAdapter = ArrayAdapter.createFromResource(this, R.array.cactuchitrangthaimucdo_list, android.R.layout.simple_list_item_1);
@@ -54,6 +55,30 @@ public class TopicItemActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent intentItem = new Intent(TopicItemActivity.this,ItemActivity.class);
+                String sang = new String();
+               if(numberTopic== 0){
+                  sang = getResources().getStringArray(R.array.tunhien_eng_list)[i] ;
+               }else if(numberTopic == 1){
+                   sang = getResources().getStringArray(R.array.connguoi_eng_list)[i] ;
+               }else if(numberTopic == 2){
+                   sang = getResources().getStringArray(R.array.cacmoiquanhe_eng_list)[i] ;
+               }else if(numberTopic == 3){
+                   sang = getResources().getStringArray(R.array.suvatxungquanh_eng_list)[i] ;
+               }else if(numberTopic == 4){
+                   sang = getResources().getStringArray(R.array.cuocsongthuongngay_eng_list)[i] ;
+               }else if(numberTopic == 5){
+                   sang = getResources().getStringArray(R.array.congviec_eng_list)[i] ;
+               }else if(numberTopic == 6){
+                   sang = getResources().getStringArray(R.array.nghethuat_eng_list)[i] ;
+               }else if(numberTopic == 7){
+                   sang = getResources().getStringArray(R.array.truyenthong_eng_list)[i] ;
+               }else if(numberTopic == 8){
+                   sang = getResources().getStringArray(R.array.lienlactintuc_eng_list)[i] ;
+               }
+               else if(numberTopic == 9){
+                   sang = getResources().getStringArray(R.array.cactuchitrangthaimucdo_eng_list)[i] ;
+               }
+               intentItem.putExtra("filename",sang);
                 startActivity(intentItem);
             }
         });

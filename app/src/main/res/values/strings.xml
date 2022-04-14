@@ -17,7 +17,7 @@
         <item>Công việc</item>
         <item>Nghệ thuật</item>
         <item>Truyền thông</item>
-        <item>Điện thoại và thư tín</item>
+        <item>Liên Lạc, Tin tức</item>
         <item>Các từ chỉ trạng, mức độ</item>
     </string-array>
     <string-array name="tunhien_list">
@@ -35,22 +35,23 @@
         <item>Cơ thể</item>
         <item>Tính cách</item>
         <item> Cảm xúc và cảm giác"</item>
+
     </string-array>
     <string-array name="cacmoiquanhe_list">
         <item>Gia đình</item>
         <item>Các mối quan hệ</item>
     </string-array>
     <string-array name="suvatxungquanh_list">
-        <item>Trang phục</item>
-        <item>Đồ ăn và thức uống</item>
-        <item>Nhà cửa</item>
-        <item>Thể thao</item>
-        <item>Giao thông</item>
-        <item>Nhà bếp</item>
-        <item>Phòng khách</item>
-        <item>Phòng ngủ</item>
-        <item>Phòng tắm</item>
-        <item>Thành phố</item>
+    <item>Quần áo</item>
+    <item>Đồ ăn và thức uống</item>
+    <item>Nhà cửa</item>
+    <item>Thể thao</item>
+    <item>Giao thông</item>
+    <item>Phòng bếp</item>
+    <item>Phòng khách</item>
+    <item>Phòng ngủ</item>
+    <item>Phòng tắm</item>
+    <item>Thành phố</item>
     </string-array>
     <string-array name="cuocsongthuongngay_list">
         <item>Giáo dục</item>
@@ -73,8 +74,8 @@
     <string-array name="truyenthong_list">
         <item>Máy tính và mạng internet</item>
     </string-array>
-    <string-array name="dienthoaivathutin_list">
-        <item>Truyền hình và báo chí</item>
+    <string-array name="lienlactintuc_list">
+        <item>Điện thoại,thư tín, truyền hình, báo chí</item>
     </string-array>
     <string-array name="cactuchitrangthaimucdo_list">
         <item>Đo lường</item>
@@ -83,5 +84,69 @@
         <item>Mức độ</item>
         <item>Vị trí</item>
         <item>Các từ chỉ sự tăng-giảm</item>
+    </string-array>
+    <string-array name="tunhien_eng_list">
+        <item>Animals</item>
+        <item>Plants</item>
+        <item>Fruits</item>
+        <item>Vegetables</item>
+        <item>Landscape</item>
+        <item>Weather</item>
+        <item>Environment</item>
+        <item>Colors</item>
+    </string-array>
+    <string-array name="connguoi_eng_list">
+    <item>Appearrance</item>
+    <item>Body</item>
+    <item>Personality</item>
+    <item>Emotions and Feelings"</item>
+    </string-array>
+    <string-array name="cacmoiquanhe_eng_list">
+    <item>Family</item>
+    <item>Relationships</item>
+    </string-array>
+<string-array name="suvatxungquanh_eng_list">
+<item>Clothing</item>
+<item>Foods and Drinks</item>
+<item>Houses and Buildings</item>
+<item>Sports</item>
+<item>Transportation</item>
+<item>Kitchen</item>
+<item>Living room</item>
+<item>Bedroom</item>
+<item>Bathroom</item>
+<item>City</item>
+</string-array>
+    <string-array name="cuocsongthuongngay_eng_list">
+        <item>Education</item>
+        <item>Health</item>
+        <item>Hobbies</item>
+        <item>Shopping</item>
+        <item>Traveling</item>
+        <item>Dates and time</item>
+        <item>Language</item>
+        <item>Holiday</item>
+    </string-array>
+    <string-array name="congviec_eng_list">
+        <item>Company</item>
+        <item>Jobs</item>
+        <item>Working life</item>
+    </string-array>
+    <string-array name="nghethuat_eng_list">
+        <item>Arts</item>
+    </string-array>
+    <string-array name="truyenthong_eng_list">
+        <item>Computer and the internet</item>
+    </string-array>
+    <string-array name="lienlactintuc_eng_list">
+        <item>TVs and Newspaper</item>
+    </string-array>
+    <string-array name="cactuchitrangthaimucdo_eng_list">
+        <item>Measurement</item>
+        <item>Speed</item>
+        <item>Frequency</item>
+        <item>Degree</item>
+        <item>Places</item>
+        <item>Others</item>
     </string-array>
 </resources>

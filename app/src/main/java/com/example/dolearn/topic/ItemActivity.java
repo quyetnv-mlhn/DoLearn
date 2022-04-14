@@ -43,7 +43,9 @@ public class ItemActivity extends AppCompatActivity {
         }
     public void handle() {
         try {
-            InputStream is = getAssets().open("Plants.txt");
+            Intent intent = getIntent();
+            String filename = intent.getStringExtra("filename");
+            InputStream is = getAssets().open(filename+".txt");
             int size = is.available();
             byte[] buffer = new byte[size];
             is.read(buffer);
