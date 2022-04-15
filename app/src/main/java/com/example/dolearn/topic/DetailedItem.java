@@ -22,7 +22,6 @@ public class DetailedItem extends AppCompatActivity {
         int itemNumber = getI.getIntExtra("ItemNumber",0);
         Bundle args = getI.getBundleExtra("BUNDLE");
         ArrayList<Item> arrayList = (ArrayList<Item>) args.getSerializable("ARRAYLIST");
-        Toast.makeText(this, ""+itemNumber, Toast.LENGTH_SHORT).show();
         textView_engName.setText(arrayList.get(itemNumber).getEngName());
         textView_vieName.setText(arrayList.get(itemNumber).getVieName());
         textView_pronounce.setText(arrayList.get(itemNumber).getPronoun());
