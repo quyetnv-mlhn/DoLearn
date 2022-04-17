@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DoLearn">
         <activity
+            android:name=".translate.TranslateActivity"
+            android:exported="false" />
+        <activity
             android:name=".topic.DetailedItem"
             android:exported="false" />
         <activity

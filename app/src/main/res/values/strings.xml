@@ -42,16 +42,16 @@
         <item>Các mối quan hệ</item>
     </string-array>
     <string-array name="suvatxungquanh_list">
-    <item>Quần áo</item>
-    <item>Đồ ăn và thức uống</item>
-    <item>Nhà cửa</item>
-    <item>Thể thao</item>
-    <item>Giao thông</item>
-    <item>Phòng bếp</item>
-    <item>Phòng khách</item>
-    <item>Phòng ngủ</item>
-    <item>Phòng tắm</item>
-    <item>Thành phố</item>
+        <item>Quần áo</item>
+        <item>Đồ ăn và thức uống</item>
+        <item>Nhà cửa</item>
+        <item>Thể thao</item>
+        <item>Giao thông</item>
+        <item>Phòng bếp</item>
+        <item>Phòng khách</item>
+        <item>Phòng ngủ</item>
+        <item>Phòng tắm</item>
+        <item>Thành phố</item>
     </string-array>
     <string-array name="cuocsongthuongngay_list">
         <item>Giáo dục</item>
@@ -96,27 +96,27 @@
         <item>Colors</item>
     </string-array>
     <string-array name="connguoi_eng_list">
-    <item>Appearance</item>
-    <item>Body</item>
-    <item>Personality</item>
-    <item>Emotions and Feelings"</item>
+        <item>Appearance</item>
+        <item>Body</item>
+        <item>Personality</item>
+        <item>Emotions and Feelings"</item>
     </string-array>
     <string-array name="cacmoiquanhe_eng_list">
-    <item>Family</item>
-    <item>Relationships</item>
+        <item>Family</item>
+        <item>Relationships</item>
     </string-array>
-<string-array name="suvatxungquanh_eng_list">
-<item>Clothing</item>
-<item>Foods and Drinks</item>
-<item>Houses and Buildings</item>
-<item>Sports</item>
-<item>Transportation</item>
-<item>Kitchen</item>
-<item>Living room</item>
-<item>Bedroom</item>
-<item>Bathroom</item>
-<item>City</item>
-</string-array>
+    <string-array name="suvatxungquanh_eng_list">
+        <item>Clothing</item>
+        <item>Foods and Drinks</item>
+        <item>Houses and Buildings</item>
+        <item>Sports</item>
+        <item>Transportation</item>
+        <item>Kitchen</item>
+        <item>Living room</item>
+        <item>Bedroom</item>
+        <item>Bathroom</item>
+        <item>City</item>
+    </string-array>
     <string-array name="cuocsongthuongngay_eng_list">
         <item>Education</item>
         <item>Health</item>
