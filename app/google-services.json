@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "382882088988",
+    "project_id": "translator-app-e9371",
+    "storage_bucket": "translator-app-e9371.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:382882088988:android:ad3b5e76dddfc8a25d77d9",
+        "android_client_info": {
+          "package_name": "com.example.dolearn"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "382882088988-odtlabbrrs4vpjgp034on31p7rbge8ne.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCHmshjTRjAwQ5pseKa8SK_4W1EZGzUOXc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "382882088988-odtlabbrrs4vpjgp034on31p7rbge8ne.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
