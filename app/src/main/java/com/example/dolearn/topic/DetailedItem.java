@@ -2,7 +2,9 @@ package com.example.dolearn.topic;
 import android.content.Intent;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.TextView;
 
 import com.example.dolearn.R;
@@ -17,14 +19,12 @@ public class DetailedItem extends AppCompatActivity {
         anhxa();
         Intent getI = getIntent();
         int itemNumber = getI.getIntExtra("ItemNumber",0);
-        Bundle args = getI.getBundleExtra("BUNDLE");
         ArrayList<Item> arrayList = (ArrayList<Item>) Dictionary.listItem.clone();
         textView_engName.setText(arrayList.get(itemNumber).getEngName());
         textView_vieName.setText(arrayList.get(itemNumber).getVieName());
         textView_pronounce.setText(arrayList.get(itemNumber).getPronoun());
         textView_exampleEn.setText(arrayList.get(itemNumber).getExampleEn());
         textView_exampleVi.setText(arrayList.get(itemNumber).getExampleVi());
-
     }
 
     private void anhxa() {

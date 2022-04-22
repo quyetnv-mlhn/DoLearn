@@ -31,6 +31,7 @@ public class ItemActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent intent_detailedItem = new Intent(ItemActivity.this, DetailedItem.class);
+                intent_detailedItem.putExtra("ItemNumber", i);
                 startActivity(intent_detailedItem);
             }
         });
