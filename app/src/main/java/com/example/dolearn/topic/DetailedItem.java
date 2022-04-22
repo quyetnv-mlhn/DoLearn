@@ -10,8 +10,6 @@ import java.util.ArrayList;
 public class DetailedItem extends AppCompatActivity {
     TextView textView_engName,textView_vieName,textView_pronounce,textView_exampleEn,textView_exampleVi;
     CheckBox checkBox_star,checkBox_speaker;
-    Dictionary dictionary = new Dictionary();
-    ArrayList<Item> itemDetailedList = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,7 +18,7 @@ public class DetailedItem extends AppCompatActivity {
         Intent getI = getIntent();
         int itemNumber = getI.getIntExtra("ItemNumber",0);
         Bundle args = getI.getBundleExtra("BUNDLE");
-        ArrayList<Item> arrayList = (ArrayList<Item>) args.getSerializable("ARRAYLIST");
+        ArrayList<Item> arrayList = (ArrayList<Item>) Dictionary.listItem.clone();
         textView_engName.setText(arrayList.get(itemNumber).getEngName());
         textView_vieName.setText(arrayList.get(itemNumber).getVieName());
         textView_pronounce.setText(arrayList.get(itemNumber).getPronoun());

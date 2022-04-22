@@ -12,11 +12,11 @@ import com.example.dolearn.R;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class ItemActivity extends AppCompatActivity {
     ListView listView_item;
-    public Dictionary dictionary = new Dictionary();
     ItemAdapter adapter;
 
     @Override
@@ -25,22 +25,19 @@ public class ItemActivity extends AppCompatActivity {
         setContentView(R.layout.activity_item);
         handle();
         listView_item = findViewById(R.id.listView_item);
-        adapter = new ItemAdapter(this,R.layout.item, dictionary.plants);
+        adapter = new ItemAdapter(this,R.layout.item, Dictionary.listItem);
         listView_item.setAdapter(adapter);
         listView_item.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent_detailedItem = new Intent(ItemActivity.this,DetailedItem.class);
-                intent_detailedItem.putExtra("ItemNumber",i);
-                Bundle args = new Bundle();
-                args.putSerializable("ARRAYLIST",(Serializable)dictionary.plants);
-                intent_detailedItem.putExtra("BUNDLE",args);
+                Intent intent_detailedItem = new Intent(ItemActivity.this, DetailedItem.class);
                 startActivity(intent_detailedItem);
             }
         });
 
         }
     public void handle() {
+        ArrayList<Item> arrayList = new ArrayList<Item>();
         try {
             Intent intent = getIntent();
             String filename = intent.getStringExtra("filename");
@@ -55,8 +52,9 @@ public class ItemActivity extends AppCompatActivity {
                 String line = sc.nextLine();
                 String[] data = line.split("\t");
                 Item item = new Item(data[0], data[1], data[2], data[3], data[4]);
-                dictionary.plants.add(item);
+                arrayList.add(item);
             }
+            Dictionary.listItem = (ArrayList<Item>) arrayList.clone();
         } catch (IOException e) {
             e.printStackTrace();
         }
