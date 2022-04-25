@@ -1,4 +1,4 @@
-package com.example.dolearn.topic;
+package com.example.dolearn.note;
 
 import android.content.Context;
 import android.speech.tts.TextToSpeech;
@@ -11,21 +11,20 @@ import android.widget.CompoundButton;
 import android.widget.TextView;
 
 import com.example.dolearn.R;
-import com.example.dolearn.note.NoteActivity;
-
+import com.example.dolearn.topic.Item;
 
 import java.io.FileOutputStream;
 import java.io.OutputStreamWriter;
 import java.util.List;
 import java.util.Locale;
 
-public class ItemAdapter extends BaseAdapter {
+public class NoteAdapter extends BaseAdapter {
     private Context context;
     private int layout;
     private List<Item> itemList;
     private TextToSpeech textToSpeech;
 
-    public ItemAdapter(Context context, int layout, List<Item> itemList) {
+    public NoteAdapter(Context context, int layout, List<Item> itemList) {
         this.context = context;
         this.layout = layout;
         this.itemList = itemList;
@@ -79,7 +78,6 @@ public class ItemAdapter extends BaseAdapter {
         speak.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView,boolean isChecked) {
-                System.out.println(engName.getText().toString());
                 textToSpeech.speak(engName.getText().toString().split(" ")[0], TextToSpeech.QUEUE_FLUSH, null);
                 speak.setChecked(false);
             }

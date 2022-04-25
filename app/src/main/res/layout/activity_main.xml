@@ -121,6 +121,7 @@
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView_note"
                     android:layout_margin="25dp"
                     app:cardCornerRadius="12dp"
                     app:cardElevation="6dp"

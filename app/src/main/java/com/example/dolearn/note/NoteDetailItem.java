@@ -1,17 +1,19 @@
-package com.example.dolearn.topic;
-import android.content.Intent;
+package com.example.dolearn.note;
+
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.TextView;
 
 import com.example.dolearn.R;
-import com.example.dolearn.note.NoteActivity;
+import com.example.dolearn.topic.Dictionary;
+import com.example.dolearn.topic.Item;
 
 import java.util.ArrayList;
-public class DetailedItem extends AppCompatActivity {
+
+public class NoteDetailItem extends AppCompatActivity {
     TextView textView_engName,textView_vieName,textView_pronounce,textView_exampleEn,textView_exampleVi;
     CheckBox checkBox_star,checkBox_speaker;
     @Override
@@ -20,7 +22,7 @@ public class DetailedItem extends AppCompatActivity {
         setContentView(R.layout.activity_detailed_item);
         anhxa();
         Intent getI = getIntent();
-        int itemNumber = getI.getIntExtra("ItemNumber",0);
+        int itemNumber = getI.getIntExtra("NoteItemNumber", 0);
         ArrayList<Item> arrayList = (ArrayList<Item>) NoteActivity.listNote.clone();
         textView_engName.setText(arrayList.get(itemNumber).getEngName());
         textView_vieName.setText(arrayList.get(itemNumber).getVieName());
