@@ -33,7 +33,7 @@ public class NoteActivity extends AppCompatActivity {
         listView_item.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent_detailedItem = new Intent(NoteActivity.this, DetailedItem.class);
+                Intent intent_detailedItem = new Intent(NoteActivity.this, NoteDetailItem.class);
                 intent_detailedItem.putExtra("NoteItemNumber", i);
                 startActivity(intent_detailedItem);
             }

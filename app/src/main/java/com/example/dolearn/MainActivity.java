@@ -7,6 +7,7 @@ import androidx.cardview.widget.CardView;
 import android.view.View;
 
 import com.example.dolearn.note.NoteActivity;
+import com.example.dolearn.topic.Dictionary;
 import com.example.dolearn.topic.Item;
 import com.example.dolearn.translate.TranslateActivity;
 
@@ -37,6 +38,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, TranslateActivity.class);
                 startActivity(intent);
+                System.out.println(Dictionary.listItem.size());
+
             }
         });
 

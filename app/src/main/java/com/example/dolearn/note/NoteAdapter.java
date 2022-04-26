@@ -10,6 +10,7 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.TextView;
 
+import com.example.dolearn.HandleClass;
 import com.example.dolearn.R;
 import com.example.dolearn.topic.Item;
 
@@ -65,7 +66,7 @@ public class NoteAdapter extends BaseAdapter {
         speak.setFocusable(false);
         speak.setFocusableInTouchMode(false);
 
-        //Load note
+        //Load note from file to App
         for (int index = 0; index < NoteActivity.listNote.size(); index++) {
             Item itemNote = NoteActivity.listNote.get(index);
             if (itemNote.getEngName().equals(item.getEngName())) {
@@ -100,18 +101,19 @@ public class NoteAdapter extends BaseAdapter {
                 }
 
                 //overwrite listNote to file
-                try {
-                    FileOutputStream fos = context.openFileOutput("fileNote.txt", Context.MODE_PRIVATE);
-                    OutputStreamWriter osw = new OutputStreamWriter(fos);
-                    for (Item noteItem:NoteActivity.listNote) {
-                        osw.write(noteItem.getEngName() + "\t" + noteItem.getVieName() + "\t"
-                                + noteItem.getPronoun() + "\t" + noteItem.getExampleEn() + "\t"
-                                + noteItem.getExampleVi() + "\n");
-                    }
-                    osw.close();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+                HandleClass.loadDataToFile(context);
+//                try {
+//                    FileOutputStream fos = context.openFileOutput("fileNote.txt", Context.MODE_PRIVATE);
+//                    OutputStreamWriter osw = new OutputStreamWriter(fos);
+//                    for (Item noteItem:NoteActivity.listNote) {
+//                        osw.write(noteItem.getEngName() + "\t" + noteItem.getVieName() + "\t"
+//                                + noteItem.getPronoun() + "\t" + noteItem.getExampleEn() + "\t"
+//                                + noteItem.getExampleVi() + "\n");
+//                    }
+//                    osw.close();
+//                } catch (Exception e) {
+//                    e.printStackTrace();
+//                }
             }
         });
 
