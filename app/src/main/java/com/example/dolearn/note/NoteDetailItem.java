@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.TextView;
@@ -13,6 +14,8 @@ import com.example.dolearn.R;
 import com.example.dolearn.topic.DetailedItem;
 import com.example.dolearn.topic.Dictionary;
 import com.example.dolearn.topic.Item;
+import com.example.dolearn.topic.TopicActivity;
+import com.example.dolearn.topic.TopicItemActivity;
 
 import java.util.ArrayList;
 
@@ -68,5 +71,15 @@ public class NoteDetailItem extends AppCompatActivity {
                 break;
             // TODO: Veggie sandwich
         }
+    }
+
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            Intent intent = new Intent(NoteDetailItem.this, NoteActivity.class);
+            startActivity(intent);
+            return true;
+        }
+
+        return super.onKeyDown(keyCode, event);
     }
 }

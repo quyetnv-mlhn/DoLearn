@@ -39,7 +39,6 @@ public class HandleClass {
                 if (status == TextToSpeech.SUCCESS) {
                     tts.setLanguage(Locale.UK);
                     tts.setSpeechRate(1.0f);
-                    System.out.println(engName.getText().toString().split(" ")[0]);
                     tts.speak(engName.getText().toString().split(" ")[0], TextToSpeech.QUEUE_FLUSH, null);
                 }
             }

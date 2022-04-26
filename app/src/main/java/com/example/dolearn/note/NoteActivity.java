@@ -4,16 +4,20 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import com.example.dolearn.MainActivity;
 import com.example.dolearn.R;
 import com.example.dolearn.topic.DetailedItem;
 import com.example.dolearn.topic.Dictionary;
 import com.example.dolearn.topic.Item;
 import com.example.dolearn.topic.ItemActivity;
 import com.example.dolearn.topic.ItemAdapter;
+import com.example.dolearn.topic.TopicActivity;
+import com.example.dolearn.topic.TopicItemActivity;
 
 
 import java.util.ArrayList;
@@ -38,5 +42,15 @@ public class NoteActivity extends AppCompatActivity {
                 startActivity(intent_detailedItem);
             }
         });
+    }
+
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            Intent intent = new Intent(NoteActivity.this, MainActivity.class);
+            startActivity(intent);
+            return true;
+        }
+
+        return super.onKeyDown(keyCode, event);
     }
 }

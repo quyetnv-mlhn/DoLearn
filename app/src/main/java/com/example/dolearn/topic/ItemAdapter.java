@@ -70,8 +70,6 @@ public class ItemAdapter extends BaseAdapter {
             Item itemNote = NoteActivity.listNote.get(index);
             if (itemNote.getEngName().equals(item.getEngName())) {
                 note.setChecked(true);
-            } else {
-                note.setChecked(false);
             }
         }
 
