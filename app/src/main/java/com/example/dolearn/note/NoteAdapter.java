@@ -68,18 +68,14 @@ public class NoteAdapter extends BaseAdapter {
 
         //Load note from file to App
         for (int index = 0; index < NoteActivity.listNote.size(); index++) {
-            Item itemNote = NoteActivity.listNote.get(index);
-            if (itemNote.getEngName().equals(item.getEngName())) {
                 note.setChecked(true);
-            }
         }
 
         // Text to Speech
-        textToSpeech();
         speak.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView,boolean isChecked) {
-                textToSpeech.speak(engName.getText().toString().split(" ")[0], TextToSpeech.QUEUE_FLUSH, null);
+                HandleClass.textToSpeech(context, engName, speak);
                 speak.setChecked(false);
             }
         });
@@ -102,32 +98,9 @@ public class NoteAdapter extends BaseAdapter {
 
                 //overwrite listNote to file
                 HandleClass.loadDataToFile(context);
-//                try {
-//                    FileOutputStream fos = context.openFileOutput("fileNote.txt", Context.MODE_PRIVATE);
-//                    OutputStreamWriter osw = new OutputStreamWriter(fos);
-//                    for (Item noteItem:NoteActivity.listNote) {
-//                        osw.write(noteItem.getEngName() + "\t" + noteItem.getVieName() + "\t"
-//                                + noteItem.getPronoun() + "\t" + noteItem.getExampleEn() + "\t"
-//                                + noteItem.getExampleVi() + "\n");
-//                    }
-//                    osw.close();
-//                } catch (Exception e) {
-//                    e.printStackTrace();
-//                }
             }
         });
 
         return view;
-    }
-
-    public void textToSpeech() {
-        textToSpeech = new TextToSpeech(context.getApplicationContext(), new TextToSpeech.OnInitListener() {
-            @Override
-            public void onInit(int status) {
-                if (status != TextToSpeech.ERROR) {
-                    textToSpeech.setLanguage(Locale.UK);
-                }
-            }
-        });
     }
 }

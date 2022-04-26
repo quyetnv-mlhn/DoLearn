@@ -14,7 +14,7 @@
         android:layout_marginTop="10dp"
         android:button="@animator/checkbox"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <TextView
         android:id="@+id/textviewEnglish"
@@ -37,7 +37,7 @@
         android:textSize="15sp"
         android:textStyle="italic"
         app:layout_constraintLeft_toRightOf="@id/checkboxStar"
-        app:layout_constraintTop_toBottomOf="@id/textviewEnglish" />
+        app:layout_constraintTop_toBottomOf="@id/textviewEnglish"/>
 
     <CheckBox
         android:id="@+id/checkboxSpeaker"

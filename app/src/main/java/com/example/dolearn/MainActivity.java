@@ -26,8 +26,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        load();
         anhxa();
+        loadDataFromFile();
         Item item = new Item("Example (Noun)", "Ví dụ", "/ig´za:mp(ə)l/", "We study some examples.", "Chúng tôi nghiên cứu một số ví dụ.");
         if (NoteActivity.listNote.isEmpty()) {
             NoteActivity.listNote.add(item);
@@ -66,7 +66,8 @@ public class MainActivity extends AppCompatActivity {
         cardView_note = findViewById(R.id.cardView_note);
     }
 
-    public void load() {
+    public void loadDataFromFile() {
+        NoteActivity.listNote.clear();
         try {
             FileInputStream fis = openFileInput("fileNote.txt");
             InputStreamReader isr = new InputStreamReader(fis);

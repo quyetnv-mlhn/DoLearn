@@ -35,8 +35,7 @@ public class ItemActivity extends AppCompatActivity {
                 startActivity(intent_detailedItem);
             }
         });
-
-        }
+    }
     public void handle() {
         ArrayList<Item> arrayList = new ArrayList<Item>();
         try {

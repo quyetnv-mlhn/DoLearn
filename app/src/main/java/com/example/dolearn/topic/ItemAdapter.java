@@ -1,7 +1,6 @@
 package com.example.dolearn.topic;
 
 import android.content.Context;
-import android.speech.tts.TextToSpeech;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +9,7 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.TextView;
 
+import com.example.dolearn.HandleClass;
 import com.example.dolearn.R;
 import com.example.dolearn.note.NoteActivity;
 
@@ -23,7 +23,6 @@ public class ItemAdapter extends BaseAdapter {
     private Context context;
     private int layout;
     private List<Item> itemList;
-    private TextToSpeech textToSpeech;
 
     public ItemAdapter(Context context, int layout, List<Item> itemList) {
         this.context = context;
@@ -71,16 +70,16 @@ public class ItemAdapter extends BaseAdapter {
             Item itemNote = NoteActivity.listNote.get(index);
             if (itemNote.getEngName().equals(item.getEngName())) {
                 note.setChecked(true);
+            } else {
+                note.setChecked(false);
             }
         }
 
         // Text to Speech
-        textToSpeech();
         speak.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView,boolean isChecked) {
-                System.out.println(engName.getText().toString());
-                textToSpeech.speak(engName.getText().toString().split(" ")[0], TextToSpeech.QUEUE_FLUSH, null);
+                HandleClass.textToSpeech(context, engName, speak);
                 speak.setChecked(false);
             }
         });
@@ -102,32 +101,10 @@ public class ItemAdapter extends BaseAdapter {
                 }
 
                 //overwrite listNote to file
-                try {
-                    FileOutputStream fos = context.openFileOutput("fileNote.txt", Context.MODE_PRIVATE);
-                    OutputStreamWriter osw = new OutputStreamWriter(fos);
-                    for (Item noteItem:NoteActivity.listNote) {
-                        osw.write(noteItem.getEngName() + "\t" + noteItem.getVieName() + "\t"
-                                + noteItem.getPronoun() + "\t" + noteItem.getExampleEn() + "\t"
-                                + noteItem.getExampleVi() + "\n");
-                    }
-                    osw.close();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+                HandleClass.loadDataToFile(context);
             }
         });
 
         return view;
-    }
-
-    public void textToSpeech() {
-        textToSpeech = new TextToSpeech(context.getApplicationContext(), new TextToSpeech.OnInitListener() {
-            @Override
-            public void onInit(int status) {
-                if (status != TextToSpeech.ERROR) {
-                    textToSpeech.setLanguage(Locale.UK);
-                }
-            }
-        });
     }
 }
