@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DoLearn">
         <activity
+            android:name=".test.WordGame"
+            android:exported="false" />
+        <activity
             android:name=".note.NoteDetailItem"
             android:exported="false" />
         <activity
