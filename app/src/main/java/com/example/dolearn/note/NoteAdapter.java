@@ -1,10 +1,12 @@
 package com.example.dolearn.note;
 
 import android.content.Context;
+import android.content.Intent;
 import android.speech.tts.TextToSpeech;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Adapter;
 import android.widget.BaseAdapter;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
@@ -23,7 +25,6 @@ public class NoteAdapter extends BaseAdapter {
     private Context context;
     private int layout;
     private List<Item> itemList;
-    private TextToSpeech textToSpeech;
 
     public NoteAdapter(Context context, int layout, List<Item> itemList) {
         this.context = context;
@@ -48,8 +49,10 @@ public class NoteAdapter extends BaseAdapter {
 
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
-        LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        view = inflater.inflate(layout,null);
+        if (view == null) {
+            LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            view = inflater.inflate(layout,null);
+        }
 
         // ánh xạ View
         TextView engName = view.findViewById(R.id.textviewEnglish);
@@ -84,13 +87,12 @@ public class NoteAdapter extends BaseAdapter {
         note.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
-                    NoteActivity.listNote.add(item);
-                } else {
-                    for (int i = 0; i < NoteActivity.listNote.size(); i++) {
-                        Item itemNote = NoteActivity.listNote.get(i);
+                if (!isChecked) {
+                    for (int i = 0; i < itemList.size(); i++) {
+                        Item itemNote = itemList.get(i);
                         if (itemNote.getEngName().equals(item.getEngName())) {
-                            NoteActivity.listNote.remove(itemNote);
+                            itemList.remove(itemNote);
+                            notifyDataSetChanged();
                             break;
                         }
                     }
@@ -100,7 +102,6 @@ public class NoteAdapter extends BaseAdapter {
                 HandleClass.loadDataToFile(context);
             }
         });
-
         return view;
     }
 }

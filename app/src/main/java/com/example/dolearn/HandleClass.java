@@ -37,7 +37,7 @@ public class HandleClass {
             @Override
             public void onInit(int status) {
                 if (status == TextToSpeech.SUCCESS) {
-                    tts.setLanguage(Locale.UK);
+                    tts.setLanguage(Locale.US);
                     tts.setSpeechRate(1.0f);
                     tts.speak(engName.getText().toString().split(" ")[0], TextToSpeech.QUEUE_FLUSH, null);
                 }
