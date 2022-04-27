@@ -1,14 +1,20 @@
 package com.example.dolearn;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import androidx.cardview.widget.CardView;
+
+import android.view.KeyEvent;
 import android.view.View;
 
 import com.example.dolearn.note.NoteActivity;
 import com.example.dolearn.topic.Dictionary;
 import com.example.dolearn.topic.Item;
+import com.example.dolearn.topic.TopicItemActivity;
 import com.example.dolearn.translate.TranslateActivity;
 
 import com.example.dolearn.topic.TopicActivity;
@@ -27,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         anhxa();
+
         loadDataFromFile();
         Item item = new Item("Example (Noun)", "Ví dụ", "/ig´za:mp(ə)l/", "We study some examples.", "Chúng tôi nghiên cứu một số ví dụ.");
         if (NoteActivity.listNote.isEmpty()) {
@@ -66,6 +73,7 @@ public class MainActivity extends AppCompatActivity {
         cardView_note = findViewById(R.id.cardView_note);
     }
 
+    //Load data from file in device to listNote
     public void loadDataFromFile() {
         NoteActivity.listNote.clear();
         try {
@@ -83,5 +91,31 @@ public class MainActivity extends AppCompatActivity {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    //onclick Back --> Close App
+    public void onBackPressed() {
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+        alertDialogBuilder.setTitle("Exit Application?");
+        alertDialogBuilder
+                .setMessage("Click yes to exit!")
+                .setCancelable(false)
+                .setPositiveButton("Yes",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                finishAffinity();
+                                System.exit(0);
+                            }
+                        })
+
+                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+
+                        dialog.cancel();
+                    }
+                });
+
+        AlertDialog alertDialog = alertDialogBuilder.create();
+        alertDialog.show();
     }
 }

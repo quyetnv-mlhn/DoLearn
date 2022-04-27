@@ -32,14 +32,14 @@ public class HandleClass {
     }
 
     //Text to Speech
-    public static void textToSpeech(Context context, TextView engName, CheckBox speak) {
+    public static void textToSpeech(Context context, TextView engName) {
         tts = new TextToSpeech(context.getApplicationContext(), new TextToSpeech.OnInitListener() {
             @Override
             public void onInit(int status) {
                 if (status == TextToSpeech.SUCCESS) {
                     tts.setLanguage(Locale.US);
                     tts.setSpeechRate(1.0f);
-                    tts.speak(engName.getText().toString().split(" ")[0], TextToSpeech.QUEUE_FLUSH, null);
+                    tts.speak(engName.getText().toString().split(" ")[0], TextToSpeech.QUEUE_FLUSH, null, "");
                 }
             }
         });

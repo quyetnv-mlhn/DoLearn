@@ -78,7 +78,7 @@ public class NoteAdapter extends BaseAdapter {
         speak.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView,boolean isChecked) {
-                HandleClass.textToSpeech(context, engName, speak);
+                HandleClass.textToSpeech(context, engName);
                 speak.setChecked(false);
             }
         });

@@ -22,10 +22,11 @@
         android:layout_width="wrap_content"
         android:layout_height="25dp"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
         android:gravity="start"
         android:textSize="20sp"
         android:textStyle="bold"
+        android:text="EngName"
         app:layout_constraintLeft_toRightOf="@id/checkboxStar"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -34,9 +35,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="1dp"
+        android:layout_marginTop="4dp"
         android:textSize="15sp"
         android:textStyle="italic"
+        android:text="Example"
         app:layout_constraintLeft_toRightOf="@id/checkboxStar"
         app:layout_constraintTop_toBottomOf="@id/textviewEnglish"/>
 

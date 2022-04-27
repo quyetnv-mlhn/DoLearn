@@ -75,7 +75,7 @@ public class DetailedItem extends AppCompatActivity {
                 break;
             case R.id.checkBox_speaker:
                 if (checked) {
-                    HandleClass.textToSpeech(DetailedItem.this, textView_engName, checkBox_speaker);
+                    HandleClass.textToSpeech(DetailedItem.this, textView_engName);
                     checkBox_speaker.setChecked(false);
                 }
                 break;
