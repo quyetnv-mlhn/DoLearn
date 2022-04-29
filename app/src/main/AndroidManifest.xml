@@ -19,6 +19,9 @@
             android:name=".note.NoteActivity"
             android:exported="false" />
         <activity
+            android:name=".test.QuizActivity"
+            android:exported="false" />
+        <activity
             android:name=".translate.TranslateActivity"
             android:exported="false" />
         <activity

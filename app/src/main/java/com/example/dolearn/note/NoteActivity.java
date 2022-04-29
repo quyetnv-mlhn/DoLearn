@@ -14,14 +14,9 @@ import android.widget.ListView;
 
 import com.example.dolearn.MainActivity;
 import com.example.dolearn.R;
+import com.example.dolearn.test.QuizActivity;
 import com.example.dolearn.test.WordGame;
-import com.example.dolearn.topic.DetailedItem;
-import com.example.dolearn.topic.Dictionary;
 import com.example.dolearn.topic.Item;
-import com.example.dolearn.topic.ItemActivity;
-import com.example.dolearn.topic.ItemAdapter;
-import com.example.dolearn.topic.TopicActivity;
-import com.example.dolearn.topic.TopicItemActivity;
 
 
 import java.util.ArrayList;
@@ -30,6 +25,7 @@ public class NoteActivity extends AppCompatActivity {
     public static ArrayList<Item> listNote = new ArrayList<Item>();
     ListView listView_item;
     NoteAdapter adapter;
+    Button buttonPractice;
     Button buttonWordGame;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +33,7 @@ public class NoteActivity extends AppCompatActivity {
         actionBar();
         setContentView(R.layout.activity_note);
         listView_item = findViewById(R.id.listView_item);
+        buttonPractice = findViewById(R.id.buttonPractice);
         buttonWordGame = findViewById(R.id.buttonWordGame);
         adapter = new NoteAdapter(this, R.layout.item, listNote);
         listView_item.setAdapter(adapter);
@@ -46,6 +43,13 @@ public class NoteActivity extends AppCompatActivity {
                 Intent intent_detailedItem = new Intent(NoteActivity.this, NoteDetailItem.class);
                 intent_detailedItem.putExtra("NoteItemNumber", i);
                 startActivity(intent_detailedItem);
+            }
+        });
+        buttonPractice.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent practiceIntent = new Intent(NoteActivity.this, QuizActivity.class);
+                startActivity(practiceIntent);
             }
         });
         buttonWordGame.setOnClickListener(new View.OnClickListener() {
