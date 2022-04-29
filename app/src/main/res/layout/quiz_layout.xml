@@ -7,24 +7,43 @@
     >
 
     <TextView
+        android:id="@+id/total_question_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Total Questions"
         android:layout_centerHorizontal="true"
+        android:text="Total Questions"
         android:textSize="24sp"
-        android:id="@+id/total_question_tv"/>
+        android:fontFamily="@font/roboto_regular"
+        />
 
     <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/question_tv"
+        android:layout_centerHorizontal="true"
+        android:text="Chọn nghĩa đúng của từ:"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:fontFamily="@font/roboto_regular"
+        />
+
+    <TextView
+        android:id="@+id/question_tv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="This will be a question"
-        android:id="@+id/question_tv"
-        android:textColor="@color/white"
-        android:textSize="30sp"
-        android:textStyle="bold"
         android:layout_above="@id/choices_ll"
-        android:layout_margin="20dp"
-        android:textAlignment="center"/>
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:fontFamily="@font/roboto_regular"
+        android:text="This will be a question"
+        android:textAlignment="center"
+        android:textColor="#401D83"
+        android:textSize="30sp"
+        android:textStyle="bold" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -40,7 +59,8 @@
             android:id="@+id/ans_a_btn"
             android:background="@color/white"
             android:textColor="@color/black"
-            android:layout_margin="5dp"/>
+            android:layout_margin="5dp"
+            android:fontFamily="@font/roboto_regular"/>
 
         <Button
             android:layout_width="match_parent"
@@ -49,7 +69,8 @@
             android:id="@+id/ans_b_btn"
             android:background="@color/white"
             android:textColor="@color/black"
-            android:layout_margin="5dp"/>
+            android:layout_margin="5dp"
+            android:fontFamily="@font/roboto_regular"/>
 
         <Button
             android:layout_width="match_parent"
@@ -58,7 +79,8 @@
             android:id="@+id/ans_c_btn"
             android:background="@color/white"
             android:textColor="@color/black"
-            android:layout_margin="5dp"/>
+            android:layout_margin="5dp"
+            android:fontFamily="@font/roboto_regular"/>
 
         <Button
             android:layout_width="match_parent"
@@ -67,7 +89,8 @@
             android:id="@+id/ans_d_btn"
             android:background="@color/white"
             android:textColor="@color/black"
-            android:layout_margin="5dp"/>
+            android:layout_margin="5dp"
+            android:fontFamily="@font/roboto_regular"/>
     </LinearLayout>
 
 <!--    <Button-->

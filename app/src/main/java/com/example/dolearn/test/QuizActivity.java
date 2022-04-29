@@ -6,11 +6,13 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.util.Log;
 import android.util.TimeUtils;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.dolearn.R;
@@ -45,6 +47,7 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        actionBar();
         setContentView(R.layout.quiz_layout);
 
         total_question_tv = findViewById(R.id.total_question_tv);
@@ -176,7 +179,7 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
         ans_c_btn.setBackgroundColor(Color.WHITE);
         ans_d_btn.setBackgroundColor(Color.WHITE);
 
-        question_tv.setText(words.get(currentQuestionIndex) + " có nghĩa là gì?");
+        question_tv.setText(words.get(currentQuestionIndex));
 
         randomChoice();
         ans_a_btn.setText(choices.get(0));
@@ -230,5 +233,23 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
             addedChoice.set(randomPos, true);
         }
         Collections.shuffle(choices);
+    }
+
+    public void actionBar() {
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setTitle("Quiz");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+    }
+
+    //Handle click backIcon
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                onBackPressed();
+                return true;
+            default:
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
