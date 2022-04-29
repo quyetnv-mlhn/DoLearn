@@ -74,7 +74,8 @@
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox_star" />
+        app:layout_constraintTop_toBottomOf="@+id/checkBox_star"
+        />
 
     <ScrollView
         android:id="@+id/example"
@@ -97,7 +98,8 @@
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:justificationMode="inter_word"
-                android:textSize="25sp" />
+                android:textSize="25sp"
+                tools:ignore="UnusedAttribute" />
 
             <TextView
                 android:id="@+id/textView_exampleVi"
@@ -105,7 +107,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
                 android:justificationMode="inter_word"
-                android:textSize="25sp" />
+                android:textSize="25sp"
+                tools:ignore="UnusedAttribute" />
         </LinearLayout>
 
     </ScrollView>

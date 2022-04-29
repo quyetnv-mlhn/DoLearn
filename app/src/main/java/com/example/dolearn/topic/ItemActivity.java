@@ -1,9 +1,12 @@
 package com.example.dolearn.topic;
 
 import android.content.Intent;
+
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.KeyEvent;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -19,12 +22,14 @@ import java.util.Scanner;
 public class ItemActivity extends AppCompatActivity {
     ListView listView_item;
     ItemAdapter adapter;
+    String filename;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_item);
         handle();
+        actionBar();
         listView_item = findViewById(R.id.listView_item);
         adapter = new ItemAdapter(this,R.layout.item, Dictionary.listItem);
         listView_item.setAdapter(adapter);
@@ -41,7 +46,7 @@ public class ItemActivity extends AppCompatActivity {
         ArrayList<Item> arrayList = new ArrayList<Item>();
         try {
             Intent intent = getIntent();
-            String filename = intent.getStringExtra("filename");
+            filename = intent.getStringExtra("filename");
             InputStream is = getAssets().open(filename+".txt");
             int size = is.available();
             byte[] buffer = new byte[size];
@@ -61,13 +66,21 @@ public class ItemActivity extends AppCompatActivity {
         }
     }
 
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if (keyCode == KeyEvent.KEYCODE_BACK) {
-            Intent intent = new Intent(ItemActivity.this, TopicActivity.class);
-            startActivity(intent);
-            return true;
-        }
+    public void actionBar() {
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setTitle(filename);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+    }
 
-        return super.onKeyDown(keyCode, event);
+    //Handle click backIcon
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                onBackPressed();
+                return true;
+            default:
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

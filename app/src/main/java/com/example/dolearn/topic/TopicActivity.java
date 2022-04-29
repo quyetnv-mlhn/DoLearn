@@ -1,9 +1,12 @@
 package com.example.dolearn.topic;
 
 import android.content.Intent;
+
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.KeyEvent;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -16,19 +19,22 @@ import java.util.ArrayList;
 
 public class TopicActivity extends AppCompatActivity {
     ListView listView_topic;
-    ArrayList<String> topicList = new ArrayList<>();
+    Intent intent, intentTopicItem;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        actionBar();
         setContentView(R.layout.activity_topic);
+
         anhxa();
         ArrayAdapter<CharSequence> topicAdapter = ArrayAdapter.createFromResource(this,R.array.topic_list, android.R.layout.simple_list_item_1);
         listView_topic.setAdapter(topicAdapter);
         listView_topic.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intentTopicItem = new Intent(TopicActivity.this,TopicItemActivity.class);
-                intentTopicItem.putExtra("NumberTopic",i);
+                intentTopicItem = new Intent(TopicActivity.this, TopicItemActivity.class);
+                intentTopicItem.putExtra("NumberTopic", i);
                 startActivity(intentTopicItem);
             }
         });
@@ -38,14 +44,33 @@ public class TopicActivity extends AppCompatActivity {
         listView_topic = findViewById(R.id.listView_topic);
     }
 
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if (keyCode == KeyEvent.KEYCODE_BACK) {
-            Intent intent = new Intent(TopicActivity.this, MainActivity.class);
-            startActivity(intent);
-            return true;
-        }
+    //Handle click back in device
+//    public boolean onKeyDown(int keyCode, KeyEvent event) {
+//        if (keyCode == KeyEvent.KEYCODE_BACK) {
+//            intent = new Intent(TopicActivity.this, MainActivity.class);
+//            startActivity(intent);
+//            return true;
+//        }
+//        return super.onKeyDown(keyCode, event);
+//    }
 
-        return super.onKeyDown(keyCode, event);
+    public void actionBar() {
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setTitle("Topic");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
+    //Handle click backIcon
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId())
+        {
+            case android.R.id.home:
+//                intent = new Intent(TopicActivity.this, MainActivity.class);
+//                startActivity(intent);
+                onBackPressed();
+                return true;
+            default:break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 }

@@ -1,10 +1,12 @@
 package com.example.dolearn.note;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.KeyEvent;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -32,6 +34,7 @@ public class NoteActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        actionBar();
         setContentView(R.layout.activity_note);
         listView_item = findViewById(R.id.listView_item);
         buttonWordGame = findViewById(R.id.buttonWordGame);
@@ -63,5 +66,25 @@ public class NoteActivity extends AppCompatActivity {
         }
 
         return super.onKeyDown(keyCode, event);
+    }
+
+    public void actionBar() {
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setTitle("Note");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+    }
+
+    //Handle click backIcon
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                Intent intent = new Intent(NoteActivity.this, MainActivity.class);
+                intent.putExtra("flags",1);
+                startActivity(intent);
+                return true;
+            default:
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

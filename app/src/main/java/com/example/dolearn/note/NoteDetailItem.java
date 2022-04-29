@@ -1,15 +1,18 @@
 package com.example.dolearn.note;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.KeyEvent;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.TextView;
 
 import com.example.dolearn.HandleClass;
+import com.example.dolearn.MainActivity;
 import com.example.dolearn.R;
 import com.example.dolearn.topic.DetailedItem;
 import com.example.dolearn.topic.Dictionary;
@@ -36,6 +39,7 @@ public class NoteDetailItem extends AppCompatActivity {
         textView_pronounce.setText(arrayList.get(itemNumber).getPronoun());
         textView_exampleEn.setText(arrayList.get(itemNumber).getExampleEn());
         textView_exampleVi.setText(arrayList.get(itemNumber).getExampleVi());
+        actionBar();
         checkBox_star.setChecked(true);
     }
 
@@ -73,13 +77,32 @@ public class NoteDetailItem extends AppCompatActivity {
         }
     }
 
+    public void actionBar() {
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setTitle(textView_engName.getText().toString().split("\\(")[0]);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+    }
+
+    //Handle click backIcon
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                Intent intent = new Intent(NoteDetailItem.this, NoteActivity.class);
+                startActivity(intent);
+                return true;
+            default:
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    //Handle click back in device
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK) {
             Intent intent = new Intent(NoteDetailItem.this, NoteActivity.class);
             startActivity(intent);
             return true;
         }
-
         return super.onKeyDown(keyCode, event);
     }
 }

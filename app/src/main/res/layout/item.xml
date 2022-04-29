@@ -1,56 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="4dp"
+    android:padding="5dp"
     >
 
     <CheckBox
         android:id="@+id/checkboxStar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginStart="7dp"
         android:button="@animator/checkbox"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        android:layout_alignParentStart="true"
+        android:layout_marginEnd="7dp"
+        android:layout_centerVertical="true"
+         />
 
     <TextView
         android:id="@+id/textviewEnglish"
         android:layout_width="wrap_content"
-        android:layout_height="25dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="5dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
         android:gravity="start"
+        android:text="EngName"
         android:textSize="20sp"
         android:textStyle="bold"
-        android:text="EngName"
-        app:layout_constraintLeft_toRightOf="@id/checkboxStar"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_toEndOf="@id/checkboxStar"
+        android:layout_toStartOf="@id/checkboxSpeaker"
+        />
 
     <TextView
         android:id="@+id/textviewVietnam"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="5dp"
         android:textSize="15sp"
         android:textStyle="italic"
         android:text="Example"
-        app:layout_constraintLeft_toRightOf="@id/checkboxStar"
-        app:layout_constraintTop_toBottomOf="@id/textviewEnglish"/>
+        android:justificationMode="inter_word"
+        android:layout_toEndOf="@id/checkboxStar"
+        android:layout_below="@id/textviewEnglish"
+        android:layout_toStartOf="@id/checkboxSpeaker"
+        tools:ignore="UnusedAttribute" />
 
     <CheckBox
         android:id="@+id/checkboxSpeaker"
         android:layout_width="wrap_content"
         android:layout_height="48dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="10dp"
+        android:layout_marginEnd="7dp"
+        android:layout_marginStart="7dp"
         android:button="@animator/speaker"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"></CheckBox>
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

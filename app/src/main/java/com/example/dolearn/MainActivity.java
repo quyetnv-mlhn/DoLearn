@@ -3,6 +3,7 @@ package com.example.dolearn;
 import android.content.DialogInterface;
 import android.content.Intent;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
@@ -31,7 +32,9 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        actionBar();
         setContentView(R.layout.activity_main);
+
         anhxa();
 
         loadDataFromFile();
@@ -117,5 +120,10 @@ public class MainActivity extends AppCompatActivity {
 
         AlertDialog alertDialog = alertDialogBuilder.create();
         alertDialog.show();
+    }
+
+    public void actionBar() {
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.hide();
     }
 }

@@ -1,5 +1,7 @@
 package com.example.dolearn;
 
+import static android.speech.tts.TextToSpeech.Engine.ACTION_CHECK_TTS_DATA;
+
 import android.content.Context;
 import android.speech.tts.TextToSpeech;
 import android.widget.CheckBox;
@@ -38,10 +40,10 @@ public class HandleClass {
             public void onInit(int status) {
                 if (status == TextToSpeech.SUCCESS) {
                     tts.setLanguage(Locale.US);
-                    tts.setSpeechRate(1.0f);
-                    tts.speak(engName.getText().toString().split(" ")[0], TextToSpeech.QUEUE_FLUSH, null, "");
+                    tts.setSpeechRate(1.0f); //0.5, 1.0, 2.0
+                    tts.speak(engName.getText().toString().split("\\(")[0], TextToSpeech.QUEUE_FLUSH, null, "");
                 }
             }
-        });
+        }, ACTION_CHECK_TTS_DATA);
     }
 }

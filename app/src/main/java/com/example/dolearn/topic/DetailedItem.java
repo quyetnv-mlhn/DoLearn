@@ -1,8 +1,11 @@
 package com.example.dolearn.topic;
 import android.content.Intent;
+
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.KeyEvent;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
@@ -18,6 +21,9 @@ public class DetailedItem extends AppCompatActivity {
     TextView textView_engName,textView_vieName,textView_pronounce,textView_exampleEn,textView_exampleVi;
     CheckBox checkBox_star,checkBox_speaker;
     int itemNumber;
+    String fileName;
+    Intent intent;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,7 +31,9 @@ public class DetailedItem extends AppCompatActivity {
         anhxa();
         Intent getI = getIntent();
         itemNumber = getI.getIntExtra("ItemNumber",0);
+        fileName = getI.getStringExtra("FileName");
         ArrayList<Item> arrayList = (ArrayList<Item>) Dictionary.listItem.clone();
+        actionBar();
         textView_engName.setText(arrayList.get(itemNumber).getEngName());
         textView_vieName.setText(arrayList.get(itemNumber).getVieName());
         textView_pronounce.setText(arrayList.get(itemNumber).getPronoun());
@@ -83,13 +91,21 @@ public class DetailedItem extends AppCompatActivity {
         }
     }
 
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if (keyCode == KeyEvent.KEYCODE_BACK) {
-            Intent intent = new Intent(DetailedItem.this, ItemActivity.class);
-            startActivity(intent);
-            return true;
-        }
+    public void actionBar() {
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setTitle(Dictionary.listItem.get(itemNumber).getEngName().split("\\(")[0]);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+    }
 
-        return super.onKeyDown(keyCode, event);
+    //Handle click backIcon
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId())
+        {
+            case android.R.id.home:
+                onBackPressed();
+                return true;
+            default:break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
