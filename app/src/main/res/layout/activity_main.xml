@@ -110,7 +110,7 @@
                             android:layout_alignParentRight="true"
                             android:layout_centerVertical="true"
                             android:scaleType="centerCrop"
-                            android:src="@drawable/tudienviet_anh" />
+                            android:src="@drawable/tudienvietanh" />
 
                     </RelativeLayout>
                 </androidx.cardview.widget.CardView>

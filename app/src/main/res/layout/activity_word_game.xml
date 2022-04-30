@@ -1,99 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".test.WordGame">
+    tools:context=".test.WordGame"
+    android:weightSum="10"
+    android:orientation="vertical">
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.5" />
-
-    <TextView
-        android:id="@+id/textViewWordGameTitle"
-        android:layout_width="200dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="152dp"
-        android:text="Sắp xếp các chữ thành từ có nghĩa là:"
-        android:textAlignment="center"
-        android:textSize="18sp"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="5"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent">
 
-    <TextView
-        android:id="@+id/textViewWordGameVie"
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:layout_marginTop="20dp"
-        android:hint="Đẹp trai"
-        android:textAlignment="center"
-        android:textColor="@color/cerise"
-        android:textSize="30sp"
-        android:textStyle="italic"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewWordGameTitle" />
+        <TextView
+            android:id="@+id/textViewWordGameTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="100dp"
+            android:text="Ghép từ có nghĩa là:"
+            android:textSize="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"></TextView>
 
-    <EditText
-        android:textAlignment="center"
-        android:id="@+id/editTextWordGame"
-        android:focusable="false"
-        android:clickable="false"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="30dp"
-        android:hint="ghép từ ở đây"
-        android:background="@color/cerise"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewWordGameVie"
-        app:layout_constraintVertical_bias="0.171" />
+        <TextView
+            android:id="@+id/textViewWordGameVie"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nghĩa Tiếng Việt"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toTopOf="@+id/guideline3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewWordGameTitle"></TextView>
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        <EditText
+            android:id="@+id/editTextWordGame"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="56dp"
+            android:background="@android:color/transparent"
+            android:clickable="false"
+            android:focusable="false"
+            android:gravity="center"
+            android:hint="Nghĩa Tiếng Anh"
+            android:textColor="@color/cerise"
+            android:textSize="40sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.181"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewWordGameVie" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.5" />
+
+        <Button
+            android:id="@+id/buttonWordGameDelete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="52dp"
+            android:text="Reset"
+            app:layout_constraintStart_toEndOf="@+id/editTextWordGame"
+            app:layout_constraintTop_toTopOf="@+id/guideline3" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <GridLayout
+        android:id="@+id/gridLayoutWordGame"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="5"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.5"/>
-
-    <Button
-        android:id="@+id/buttonWordGameNext"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:text="Từ tiếp theo"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextWordGame"
-        app:layout_constraintVertical_bias="0.946"
+        android:columnCount="5"
+        android:rowCount="3"
+        android:useDefaultMargins="true"
         />
 
-    <LinearLayout
-        android:id="@+id/linearLayoutWordGame"
-        android:layout_marginStart="5dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="4dp"
-        app:layout_constraintBottom_toTopOf="@+id/buttonWordGameNext"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextWordGame"
-        app:layout_constraintVertical_bias="1.0"
-        android:orientation="horizontal">
-
-    </LinearLayout>
+        
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

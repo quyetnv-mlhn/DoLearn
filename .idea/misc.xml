@@ -5,8 +5,6 @@
       <map>
         <entry key="..\:/Document/QUYET3.2/MobileDevelopment/work/DoLearn-main/DoLearn/app/src/main/res/drawable/ic_mic.xml" value="0.29" />
         <entry key="..\:/Document/QUYET3.2/MobileDevelopment/work/DoLearn-main/DoLearn/app/src/main/res/font/roboto.xml" value="0.1984375" />
-        <entry key="..\:/Document/QUYET3.2/MobileDevelopment/work/DoLearn-main/DoLearn/app/src/main/res/layout-v26/activity_detailed_item.xml" value="0.36666666666666664" />
-        <entry key="..\:/Document/QUYET3.2/MobileDevelopment/work/DoLearn-main/DoLearn/app/src/main/res/layout-v26/item.xml" value="0.36666666666666664" />
         <entry key="..\:/Document/QUYET3.2/MobileDevelopment/work/DoLearn-main/DoLearn/app/src/main/res/layout/activity_detail_note.xml" value="0.27760416666666665" />
         <entry key="..\:/Document/QUYET3.2/MobileDevelopment/work/DoLearn-main/DoLearn/app/src/main/res/layout/activity_detailed_item.xml" value="0.22" />
         <entry key="..\:/Document/QUYET3.2/MobileDevelopment/work/DoLearn-main/DoLearn/app/src/main/res/layout/activity_item.xml" value="0.22" />
@@ -18,9 +16,7 @@
         <entry key="..\:/Document/QUYET3.2/MobileDevelopment/work/DoLearn-main/DoLearn/app/src/main/res/layout/activity_translate.xml" value="0.36666666666666664" />
         <entry key="..\:/Document/QUYET3.2/MobileDevelopment/work/DoLearn-main/DoLearn/app/src/main/res/layout/activity_translate_acivity.xml" value="0.2484375" />
         <entry key="..\:/Document/QUYET3.2/MobileDevelopment/work/DoLearn-main/DoLearn/app/src/main/res/layout/activity_translate_activity.xml" value="0.36666666666666664" />
-        <entry key="..\:/Document/QUYET3.2/MobileDevelopment/work/DoLearn-main/DoLearn/app/src/main/res/layout/activity_word_game.xml" value="0.3009833262077811" />
-        <entry key="..\:/Document/QUYET3.2/MobileDevelopment/work/DoLearn-main/DoLearn/app/src/main/res/layout/item.xml" value="0.25" />
-        <entry key="..\:/Document/QUYET3.2/MobileDevelopment/work/DoLearn-main/DoLearn/app/src/main/res/layout/quiz_layout.xml" value="0.22445489525438223" />
+        <entry key="..\:/Document/QUYET3.2/MobileDevelopment/work/DoLearn-main/DoLearn/app/src/main/res/layout/item.xml" value="0.22" />
         <entry key="..\:/Document/QUYET3.2/MobileDevelopment/work/DoLearn-main/DoLearn/app/src/main/res/layout/translate.xml" value="0.36666666666666664" />
         <entry key="..\:/Document/QUYET3.2/MobileDevelopment/work/DoLearn-main/DoLearn/app/src/main/res/mipmap-anydpi-v26/ic_icon.xml" value="0.1635" />
         <entry key="..\:/Document/QUYET3.2/MobileDevelopment/work/DoLearn-main/DoLearn/app/src/main/res/mipmap-anydpi-v26/ic_icon_round.xml" value="0.1635" />
@@ -33,21 +29,21 @@
         <entry key="..\:/Document/QUYET3.2/MobileDevelopment/work/DoLearn-main/app/src/main/res/layout/item.xml" value="0.17831813576494426" />
         <entry key="..\:/Document/QUYET3.2/MobileDevelopment/work/DoLearn/app/src/main/res/layout/activity_main.xml" value="0.22" />
         <entry key="..\:/Document/QUYET3.2/MobileDevelopment/work/LearnEnglish-main/app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/Users/letansang/AndroidStudioProjects/Do Learn/app/src/main/res/drawable/custom_wordgame.xml" value="0.156" />
+        <entry key="..\:/Users/letansang/AndroidStudioProjects/Do Learn/app/src/main/res/layout/activity_detailed_item.xml" value="0.22" />
+        <entry key="..\:/Users/letansang/AndroidStudioProjects/Do Learn/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/letansang/AndroidStudioProjects/Do Learn/app/src/main/res/layout/activity_note.xml" value="0.36041666666666666" />
+        <entry key="..\:/Users/letansang/AndroidStudioProjects/Do Learn/app/src/main/res/layout/activity_result_word_game.xml" value="0.25" />
+        <entry key="..\:/Users/letansang/AndroidStudioProjects/Do Learn/app/src/main/res/layout/activity_word_game.xml" value="0.3287037037037037" />
+        <entry key="..\:/Users/letansang/AndroidStudioProjects/Do Learn/app/src/main/res/layout/item.xml" value="0.12777777777777777" />
+        <entry key="..\:/Users/letansang/AndroidStudioProjects/Do Learn/app/src/main/res/layout/quiz_layout.xml" value="0.12777777777777777" />
         <entry key="..\:/Users/letansang/DoLearn/app/src/main/res/layout/activity_detailed_item.xml" value="0.22" />
         <entry key="..\:/Users/letansang/DoLearn/app/src/main/res/layout/activity_item.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/letansang/DoLearn/app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="..\:/Users/letansang/DoLearn/app/src/main/res/layout/activity_topic.xml" value="0.21212121212121213" />
         <entry key="..\:/Users/letansang/DoLearn/app/src/main/res/layout/activity_topic_item.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/letansang/DoLearn/app/src/main/res/layout/item.xml" value="0.2" />
-        <entry key="app/src/main/res/layout/activity_detailed_item.xml" value="0.1286231884057971" />
-        <entry key="app/src/main/res/layout/activity_item.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.1286231884057971" />
-        <entry key="app/src/main/res/layout/activity_note.xml" value="0.16" />
-        <entry key="app/src/main/res/layout/activity_topic.xml" value="0.22" />
-        <entry key="app/src/main/res/layout/activity_topic_item.xml" value="0.1286231884057971" />
         <entry key="app/src/main/res/layout/activity_translate.xml" value="0.1286231884057971" />
-        <entry key="app/src/main/res/layout/item.xml" value="0.1286231884057971" />
-        <entry key="app/src/main/res/layout/quiz_layout.xml" value="0.22" />
       </map>
     </option>
   </component>

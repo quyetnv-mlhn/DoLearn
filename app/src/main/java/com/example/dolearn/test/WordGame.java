@@ -1,18 +1,21 @@
 package com.example.dolearn.test;
+import static android.webkit.ConsoleMessage.MessageLevel.LOG;
 import static com.example.dolearn.R.drawable.custom_wordgame;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.LinearLayout;
+import android.widget.GridLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,38 +26,35 @@ import java.util.Random;
 
 public class WordGame extends AppCompatActivity {
     int presCounter = 0;
-    private int maxPresCounter = 4;
-    private String[] keys = {"R", "I", "B", "D", "X","Q","A","B"};
-    private String textAnswer = "BIRD" ;
+    private int maxPresCounter;
+    private String[] keys = new String[50];
+    private String textAnswer;
     TextView textViewWordGameTitle,textViewWordGameVie;
     EditText editTextWordGame;
-    Button buttonWordGameNext;
-    Animation smallbigforth;
-    LinearLayout linearLayoutWordGame;
+    Button  buttonWordGameDelete;
+    Animation scale;
+    GridLayout gridLayoutWordGame;
     int i;
+    int point;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_word_game);
         anhxa();
-        smallbigforth = AnimationUtils.loadAnimation(this, R.anim.smallbigforth);
+
         Intent intent = getIntent();
         int check = intent.getIntExtra("flags",0);
         if (check == 1){
             i = 0;
+            point = 0;
         }else if(check == 0){
             i = getIntent().getIntExtra("i",i);
+            point = getIntent().getIntExtra("Point",point);
         }
-        textViewWordGameVie.setText(NoteActivity.listNote.get(i).getVieName().toString());
-        // textAnswer = NoteActivity.listNote.get(i).getEngName();
-        for (String key : keys) {
-            addView(((LinearLayout) findViewById(R.id.linearLayoutWordGame)), key, ((EditText) findViewById(R.id.editTextWordGame)));
-        }
-        buttonWordGameNext.setOnClickListener(new View.OnClickListener() {
+        buttonWordGameDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (i < NoteActivity.listNote.size()-1) {
-                    i += 1;
+                if (i < NoteActivity.listNote.size()) {
                     getIntent().putExtra("i", i);
                     finish();
                     startActivity(getIntent());
@@ -63,18 +63,31 @@ public class WordGame extends AppCompatActivity {
                 }
             }
         });
+        scale = AnimationUtils.loadAnimation(this, R.anim.smallbigforth);
+
+        textViewWordGameVie.setText(NoteActivity.listNote.get(i).getVieName());
+
+        textAnswer = NoteActivity.listNote.get(i).getEngName().substring(0, NoteActivity.listNote.get(i).getEngName().indexOf(' '));
+        maxPresCounter = textAnswer.length();
+        for (int j = 0; j < NoteActivity.listNote.get(i).getEngName().length(); j++) {
+            keys[j] = String.valueOf(NoteActivity.listNote.get(i).getEngName().charAt(j));
+        }
+        keys = shuffleArray(keys,maxPresCounter);
+        for (int j =0;j<maxPresCounter;j++) {
+            addView(((GridLayout) findViewById(R.id.gridLayoutWordGame)),keys[j], ((EditText) findViewById(R.id.editTextWordGame)));
+        }
     }
 
     private void anhxa() {
         textViewWordGameTitle = findViewById(R.id.textViewWordGameTitle);
         textViewWordGameVie = findViewById(R.id.textViewWordGameVie);
         editTextWordGame = findViewById(R.id.editTextWordGame);
-        buttonWordGameNext = findViewById(R.id.buttonWordGameNext);
-        linearLayoutWordGame = findViewById(R.id.linearLayoutWordGame);
+        gridLayoutWordGame = findViewById(R.id.gridLayoutWordGame);
+        buttonWordGameDelete = findViewById(R.id.buttonWordGameDelete);
     }
-    private String[] shuffleArray(String[] ar) {
+    private String[] shuffleArray(String[] ar,int maxPresCounter) {
         Random rnd = new Random();
-        for (int i = ar.length - 1; i > 0; i--) {
+        for (int i = maxPresCounter-1; i > 0; i--) {
             int index = rnd.nextInt(i + 1);
             String a = ar[index];
             ar[index] = ar[i];
@@ -82,17 +95,15 @@ public class WordGame extends AppCompatActivity {
         }
         return ar;
     }
-    private void addView(LinearLayout viewParent, final String text, final EditText editText) {
-        LinearLayout.LayoutParams linearLayoutParams = new LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.WRAP_CONTENT,
-                LinearLayout.LayoutParams.WRAP_CONTENT
+    private void addView(GridLayout viewParent, final String text, final EditText editText) {
+        GridLayout.LayoutParams gridLayoutParams = new GridLayout.LayoutParams(
         );
 
-        linearLayoutParams.rightMargin = 20;
+        gridLayoutParams.rightMargin = 20;
 
         final TextView textView = new TextView(this);
 
-        textView.setLayoutParams(linearLayoutParams);
+        textView.setLayoutParams(gridLayoutParams);
         textView.setGravity(Gravity.CENTER);
         textView.setText(text);
         textView.setClickable(true);
@@ -111,7 +122,8 @@ public class WordGame extends AppCompatActivity {
                         editText.setText("");
 
                     editText.setText(editText.getText().toString() + text);
-                    textView.startAnimation(smallbigforth);
+                    textView.setClickable(false);
+                    textView.startAnimation(scale);
                     textView.animate().alpha(0).setDuration(300);
                     presCounter++;
 
@@ -127,22 +139,27 @@ public class WordGame extends AppCompatActivity {
 
     private void doValidate() {
         presCounter = 0;
-
-
-        if(editTextWordGame.getText().toString().equals(textAnswer)) {
-
+        Log.d("edit",editTextWordGame.getText()+"");
+        Log.d("textAnswer",textAnswer+"");
+        if (editTextWordGame.getText().toString().equals(textAnswer)) {
+            point ++;
             editTextWordGame.setText("");
             Toast.makeText(this, "Congratulations!", Toast.LENGTH_SHORT).show();
         } else {
             Toast.makeText(this, "Wrong!", Toast.LENGTH_SHORT).show();
         }
-
-        keys = shuffleArray(keys);
-        linearLayoutWordGame.removeAllViews();
-        for (String key : keys) {
-            addView(linearLayoutWordGame, key, editTextWordGame);
+        i += 1;
+        if(i<NoteActivity.listNote.size()) {
+            getIntent().putExtra("Point", point);
+            getIntent().putExtra("i", i);
+            finish();
+            startActivity(getIntent());
+        }else if(i==NoteActivity.listNote.size()){
+            Intent intentResult = new Intent(WordGame.this,ResultWordGame.class);
+            intentResult.putExtra("Point",point);
+            startActivity(intentResult);
         }
 
     }
 
-}
+    }
