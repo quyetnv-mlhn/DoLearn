@@ -13,6 +13,7 @@
     <color name="pale_white">#EFEFEF</color>
     <color name="primary_color">#48a2e3</color>
     <color name="black_shade_1">#292D36</color>
-    <color name="right_answer_color">#00c34d</color>
-    <color name="wrong_andswer_color">#fb2525</color>
+    <color name="right_answer_color">#4CAF50</color>
+    <color name="wrong_andswer_color">#F44336</color>
+    <color name="colorPrimaryDark">#0062A8</color>
 </resources>

@@ -16,7 +16,13 @@ import com.example.dolearn.MainActivity;
 import com.example.dolearn.R;
 import com.example.dolearn.test.QuizActivity;
 import com.example.dolearn.test.WordGame;
+import com.example.dolearn.topic.DetailedItem;
+import com.example.dolearn.topic.Dictionary;
 import com.example.dolearn.topic.Item;
+import com.example.dolearn.topic.ItemActivity;
+import com.example.dolearn.topic.ItemAdapter;
+import com.example.dolearn.topic.TopicActivity;
+import com.example.dolearn.topic.TopicItemActivity;
 
 
 import java.util.ArrayList;
@@ -25,16 +31,16 @@ public class NoteActivity extends AppCompatActivity {
     public static ArrayList<Item> listNote = new ArrayList<Item>();
     ListView listView_item;
     NoteAdapter adapter;
-    Button buttonPractice;
     Button buttonWordGame;
+    Button buttonQuiz;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         actionBar();
         setContentView(R.layout.activity_note);
         listView_item = findViewById(R.id.listView_item);
-        buttonPractice = findViewById(R.id.buttonPractice);
         buttonWordGame = findViewById(R.id.buttonWordGame);
+        buttonQuiz = findViewById(R.id.buttonPractice);
         adapter = new NoteAdapter(this, R.layout.item, listNote);
         listView_item.setAdapter(adapter);
         listView_item.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -45,13 +51,15 @@ public class NoteActivity extends AppCompatActivity {
                 startActivity(intent_detailedItem);
             }
         });
-        buttonPractice.setOnClickListener(new View.OnClickListener() {
+
+        buttonQuiz.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent practiceIntent = new Intent(NoteActivity.this, QuizActivity.class);
-                startActivity(practiceIntent);
+                Intent intentQuiz = new Intent(NoteActivity.this, QuizActivity.class);
+                startActivity(intentQuiz);
             }
         });
+
         buttonWordGame.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -80,14 +88,12 @@ public class NoteActivity extends AppCompatActivity {
 
     //Handle click backIcon
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
+        switch (item.getItemId())
+        {
             case android.R.id.home:
-                Intent intent = new Intent(NoteActivity.this, MainActivity.class);
-                intent.putExtra("flags",1);
-                startActivity(intent);
+                onBackPressed();
                 return true;
-            default:
-                break;
+            default:break;
         }
         return super.onOptionsItemSelected(item);
     }

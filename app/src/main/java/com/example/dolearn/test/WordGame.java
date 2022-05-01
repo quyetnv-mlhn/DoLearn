@@ -2,6 +2,7 @@ package com.example.dolearn.test;
 import static android.webkit.ConsoleMessage.MessageLevel.LOG;
 import static com.example.dolearn.R.drawable.custom_wordgame;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
@@ -10,6 +11,7 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -21,7 +23,10 @@ import android.widget.Toast;
 
 import com.example.dolearn.R;
 import com.example.dolearn.note.NoteActivity;
+import com.example.dolearn.topic.Item;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Random;
 
 public class WordGame extends AppCompatActivity {
@@ -34,14 +39,18 @@ public class WordGame extends AppCompatActivity {
     Button  buttonWordGameDelete;
     Animation scale;
     GridLayout gridLayoutWordGame;
+    ArrayList<Item> listNote;
     int i;
     int point;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        actionBar();
         setContentView(R.layout.activity_word_game);
         anhxa();
 
+        listNote = (ArrayList<Item>) NoteActivity.listNote.clone();
+        Collections.shuffle(listNote);
         Intent intent = getIntent();
         int check = intent.getIntExtra("flags",0);
         if (check == 1){
@@ -54,7 +63,7 @@ public class WordGame extends AppCompatActivity {
         buttonWordGameDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (i < NoteActivity.listNote.size()) {
+                if (i < listNote.size()) {
                     getIntent().putExtra("i", i);
                     finish();
                     startActivity(getIntent());
@@ -65,12 +74,12 @@ public class WordGame extends AppCompatActivity {
         });
         scale = AnimationUtils.loadAnimation(this, R.anim.smallbigforth);
 
-        textViewWordGameVie.setText(NoteActivity.listNote.get(i).getVieName());
+        textViewWordGameVie.setText(listNote.get(i).getVieName());
 
-        textAnswer = NoteActivity.listNote.get(i).getEngName().substring(0, NoteActivity.listNote.get(i).getEngName().indexOf(' '));
+        textAnswer = listNote.get(i).getEngName().substring(0, listNote.get(i).getEngName().indexOf(' '));
         maxPresCounter = textAnswer.length();
-        for (int j = 0; j < NoteActivity.listNote.get(i).getEngName().length(); j++) {
-            keys[j] = String.valueOf(NoteActivity.listNote.get(i).getEngName().charAt(j));
+        for (int j = 0; j < listNote.get(i).getEngName().length(); j++) {
+            keys[j] = String.valueOf(listNote.get(i).getEngName().charAt(j));
         }
         keys = shuffleArray(keys,maxPresCounter);
         for (int j =0;j<maxPresCounter;j++) {
@@ -149,12 +158,12 @@ public class WordGame extends AppCompatActivity {
             Toast.makeText(this, "Wrong!", Toast.LENGTH_SHORT).show();
         }
         i += 1;
-        if(i<NoteActivity.listNote.size()) {
+        if(i<listNote.size()) {
             getIntent().putExtra("Point", point);
             getIntent().putExtra("i", i);
             finish();
             startActivity(getIntent());
-        }else if(i==NoteActivity.listNote.size()){
+        }else if(i==listNote.size()){
             Intent intentResult = new Intent(WordGame.this,ResultWordGame.class);
             intentResult.putExtra("Point",point);
             startActivity(intentResult);
@@ -162,4 +171,22 @@ public class WordGame extends AppCompatActivity {
 
     }
 
+    public void actionBar() {
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setTitle("Game");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
+
+    //Handle click backIcon
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId())
+        {
+            case android.R.id.home:
+                onBackPressed();
+                return true;
+            default:break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+}

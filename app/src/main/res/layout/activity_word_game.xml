@@ -8,23 +8,28 @@
     android:weightSum="10"
     android:orientation="vertical">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="5"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        android:padding="20dp"
+        >
 
         <TextView
             android:id="@+id/textViewWordGameTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="100dp"
-            android:text="Ghép từ có nghĩa là:"
+            android:layout_marginTop="20dp"
+            android:text="Sắp xếp theo thứ tự đúng:"
             android:textSize="20dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"></TextView>
+            android:textColor="@color/blue_pastel"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentTop="true"
+            android:textStyle="bold"
+            android:fontFamily="@font/roboto_regular"
+            />
 
         <TextView
             android:id="@+id/textViewWordGameVie"
@@ -32,27 +37,29 @@
             android:layout_height="wrap_content"
             android:text="Nghĩa Tiếng Việt"
             android:textSize="30sp"
-            app:layout_constraintBottom_toTopOf="@+id/guideline3"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewWordGameTitle"></TextView>
+            android:layout_marginTop="25dp"
+            android:layout_marginBottom="10dp"
+            android:layout_below="@+id/textViewWordGameTitle"
+            android:layout_above="@+id/editTextWordGame"
+            android:layout_centerHorizontal="true"
+            android:justificationMode="inter_word"
+            android:overScrollMode="ifContentScrolls"
+            tools:ignore="UnusedAttribute"
+            />
 
         <EditText
             android:id="@+id/editTextWordGame"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="56dp"
+            android:layout_alignParentBottom="true"
             android:background="@android:color/transparent"
             android:clickable="false"
             android:focusable="false"
-            android:gravity="center"
             android:hint="Nghĩa Tiếng Anh"
             android:textColor="@color/cerise"
-            android:textSize="40sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.181"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewWordGameVie" />
+            android:gravity="center"
+            android:textSize="30sp"
+            />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline2"
@@ -72,12 +79,14 @@
             android:id="@+id/buttonWordGameDelete"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="52dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_centerInParent="true"
+            android:layout_marginStart="10dp"
+            android:layout_toEndOf="@+id/editTextWordGame"
             android:text="Reset"
-            app:layout_constraintStart_toEndOf="@+id/editTextWordGame"
-            app:layout_constraintTop_toTopOf="@+id/guideline3" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            />
+    </RelativeLayout>
 
     <GridLayout
         android:id="@+id/gridLayoutWordGame"

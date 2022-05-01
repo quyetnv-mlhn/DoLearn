@@ -30,15 +30,15 @@ import java.util.concurrent.TimeUnit;
 
 public class QuizActivity extends AppCompatActivity implements View.OnClickListener {
     TextView total_question_tv, question_tv;
-    Button ans_a_btn, ans_b_btn, ans_c_btn, ans_d_btn, submit_btn;
+    Button ans_a_btn, ans_b_btn, ans_c_btn, ans_d_btn;
 
     ArrayList<Item> noteList = (ArrayList<Item>) NoteActivity.listNote.clone();
     ArrayList<Boolean> addedChoice = new ArrayList<Boolean>(Arrays.asList(new Boolean[noteList.size()]));
     ArrayList<String> words = new ArrayList<String>();
-    ArrayList<String> shuffledList = new ArrayList<String>();
     ArrayList<String> choices = new ArrayList<String>();
 
     int score = 0;
+
     int totalQuestion = noteList.size();
     int currentQuestionIndex = 0;
     boolean allowPress = true;
@@ -47,8 +47,8 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        actionBar();
-        setContentView(R.layout.quiz_layout);
+//        actionBar();
+        setContentView(R.layout.activity_quiz);
 
         total_question_tv = findViewById(R.id.total_question_tv);
         question_tv = findViewById(R.id.question_tv);
@@ -74,9 +74,10 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
 //        System.out.println(noteList.size());
 //        Random random = new Random();
 //        System.out.println(random.nextInt(5));
+        Collections.shuffle(noteList);
 
         for(int i = 0; i < noteList.size(); i++){
-            String[] tokens = noteList.get(i).getEngName().split(" ");
+            String[] tokens = noteList.get(i).getEngName().split("\\(");
             words.add(tokens[0]);
 //            shuffledList.add(noteList.get(i).getVieName());
         }
@@ -162,7 +163,7 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     void loadNewQuestion(){
-        if(currentQuestionIndex == totalQuestion){
+        if (currentQuestionIndex == totalQuestion) {
             finishQuiz();
             return;
         }
@@ -235,11 +236,11 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
         Collections.shuffle(choices);
     }
 
-    public void actionBar() {
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.setTitle("Quiz");
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-    }
+//    public void actionBar() {
+//        ActionBar actionBar = getSupportActionBar();
+//        actionBar.setTitle("Quiz");
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//    }
 
     //Handle click backIcon
     public boolean onOptionsItemSelected(MenuItem item) {

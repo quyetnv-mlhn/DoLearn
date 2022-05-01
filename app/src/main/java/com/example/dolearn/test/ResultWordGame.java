@@ -1,5 +1,6 @@
 package com.example.dolearn.test;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.dolearn.MainActivity;
@@ -9,6 +10,7 @@ import com.example.dolearn.note.NoteActivity;
 import android.content.Intent;
 import android.graphics.Point;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -19,6 +21,7 @@ public class ResultWordGame extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        actionBar();
         setContentView(R.layout.activity_result_word_game);
         textViewResultPoint = findViewById(R.id.textViewResultPoint);
         buttonResultBackHome=findViewById(R.id.buttonResultBackHome);
@@ -30,8 +33,25 @@ public class ResultWordGame extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intentBackHome = new Intent(ResultWordGame.this, MainActivity.class);
                 startActivity(intentBackHome);
-                }
+            }
         });
+    }
 
+    public void actionBar() {
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setTitle("Result");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+    }
+
+    //Handle click backIcon
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId())
+        {
+            case android.R.id.home:
+                onBackPressed();
+                return true;
+            default:break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

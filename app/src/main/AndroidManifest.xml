@@ -10,19 +10,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DoLearn">
         <activity
-            android:name=".test.ResultWordGame"
+            android:name=".test.QuizActivity"
             android:exported="false" />
         <activity
             android:name=".test.WordGame"
+            android:exported="false" />
+        <activity
+            android:name=".test.ResultWordGame"
             android:exported="false" />
         <activity
             android:name=".note.NoteDetailItem"
             android:exported="false" />
         <activity
             android:name=".note.NoteActivity"
-            android:exported="false" />
-        <activity
-            android:name=".test.QuizActivity"
             android:exported="false" />
         <activity
             android:name=".translate.TranslateActivity"

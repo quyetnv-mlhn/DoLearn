@@ -102,7 +102,6 @@ public class NoteAdapter extends BaseAdapter {
                 HandleClass.loadDataToFile(context);
             }
         });
-
         return view;
     }
 }

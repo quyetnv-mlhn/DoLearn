@@ -83,4 +83,11 @@ public class ItemActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
+    @Override
+    protected void onResume() {
+        adapter = new ItemAdapter(this,R.layout.item, Dictionary.listItem);
+        listView_item.setAdapter(adapter);
+        super.onResume();
+    }
 }

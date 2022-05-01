@@ -12,7 +12,6 @@ import android.widget.CheckBox;
 import android.widget.TextView;
 
 import com.example.dolearn.HandleClass;
-import com.example.dolearn.MainActivity;
 import com.example.dolearn.R;
 import com.example.dolearn.topic.DetailedItem;
 import com.example.dolearn.topic.Dictionary;
@@ -33,13 +32,13 @@ public class NoteDetailItem extends AppCompatActivity {
         anhxa();
         Intent getI = getIntent();
         itemNumber = getI.getIntExtra("NoteItemNumber", 0);
+        actionBar();
         ArrayList<Item> arrayList = (ArrayList<Item>) NoteActivity.listNote.clone();
         textView_engName.setText(arrayList.get(itemNumber).getEngName());
         textView_vieName.setText(arrayList.get(itemNumber).getVieName());
         textView_pronounce.setText(arrayList.get(itemNumber).getPronoun());
         textView_exampleEn.setText(arrayList.get(itemNumber).getExampleEn());
         textView_exampleVi.setText(arrayList.get(itemNumber).getExampleVi());
-        actionBar();
         checkBox_star.setChecked(true);
     }
 
@@ -77,32 +76,31 @@ public class NoteDetailItem extends AppCompatActivity {
         }
     }
 
-    public void actionBar() {
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.setTitle(textView_engName.getText().toString().split("\\(")[0]);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-    }
-
-    //Handle click backIcon
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                Intent intent = new Intent(NoteDetailItem.this, NoteActivity.class);
-                startActivity(intent);
-                return true;
-            default:
-                break;
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
-    //Handle click back in device
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK) {
             Intent intent = new Intent(NoteDetailItem.this, NoteActivity.class);
             startActivity(intent);
             return true;
         }
+
         return super.onKeyDown(keyCode, event);
+    }
+
+    public void actionBar() {
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setTitle(NoteActivity.listNote.get(itemNumber).getEngName().split("\\(")[0]);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+    }
+
+    //Handle click backIcon
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId())
+        {
+            case android.R.id.home:
+                onBackPressed();
+                return true;
+            default:break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

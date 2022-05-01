@@ -22,7 +22,6 @@ public class DetailedItem extends AppCompatActivity {
     CheckBox checkBox_star,checkBox_speaker;
     int itemNumber;
     String fileName;
-    Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
