@@ -7,6 +7,8 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.cardview.widget.CardView;
 
 import android.view.KeyEvent;
@@ -31,8 +33,9 @@ public class MainActivity extends AppCompatActivity {
     CardView cardView_topic, cardView_translate, cardView_note;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         super.onCreate(savedInstanceState);
-//        actionBar();
+        //actionBar();
         setContentView(R.layout.activity_main);
         anhxa();
 
