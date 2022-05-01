@@ -28,6 +28,7 @@ import com.example.dolearn.topic.Item;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
+import java.util.jar.JarOutputStream;
 
 public class WordGame extends AppCompatActivity {
     int presCounter = 0;
@@ -39,7 +40,7 @@ public class WordGame extends AppCompatActivity {
     Button  buttonWordGameDelete;
     Animation scale;
     GridLayout gridLayoutWordGame;
-    ArrayList<Item> listNote;
+
     int i;
     int point;
     @Override
@@ -49,8 +50,6 @@ public class WordGame extends AppCompatActivity {
         setContentView(R.layout.activity_word_game);
         anhxa();
 
-        listNote = (ArrayList<Item>) NoteActivity.listNote.clone();
-        Collections.shuffle(listNote);
         Intent intent = getIntent();
         int check = intent.getIntExtra("flags",0);
         if (check == 1){
@@ -63,7 +62,7 @@ public class WordGame extends AppCompatActivity {
         buttonWordGameDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (i < listNote.size()) {
+                if (i < NoteActivity.listNoteClone.size()) {
                     getIntent().putExtra("i", i);
                     finish();
                     startActivity(getIntent());
@@ -74,12 +73,12 @@ public class WordGame extends AppCompatActivity {
         });
         scale = AnimationUtils.loadAnimation(this, R.anim.smallbigforth);
 
-        textViewWordGameVie.setText(listNote.get(i).getVieName());
+        textViewWordGameVie.setText(NoteActivity.listNoteClone.get(i).getVieName());
 
-        textAnswer = listNote.get(i).getEngName().substring(0, listNote.get(i).getEngName().indexOf(' '));
+        textAnswer = NoteActivity.listNoteClone.get(i).getEngName().substring(0, NoteActivity.listNoteClone.get(i).getEngName().indexOf(' '));
         maxPresCounter = textAnswer.length();
-        for (int j = 0; j < listNote.get(i).getEngName().length(); j++) {
-            keys[j] = String.valueOf(listNote.get(i).getEngName().charAt(j));
+        for (int j = 0; j < NoteActivity.listNoteClone.get(i).getEngName().length(); j++) {
+            keys[j] = String.valueOf(NoteActivity.listNoteClone.get(i).getEngName().charAt(j));
         }
         keys = shuffleArray(keys,maxPresCounter);
         for (int j =0;j<maxPresCounter;j++) {
@@ -158,17 +157,16 @@ public class WordGame extends AppCompatActivity {
             Toast.makeText(this, "Wrong!", Toast.LENGTH_SHORT).show();
         }
         i += 1;
-        if(i<listNote.size()) {
+        if(i<NoteActivity.listNoteClone.size()) {
             getIntent().putExtra("Point", point);
             getIntent().putExtra("i", i);
             finish();
             startActivity(getIntent());
-        }else if(i==listNote.size()){
+        }else if(i==NoteActivity.listNoteClone.size()){
             Intent intentResult = new Intent(WordGame.this,ResultWordGame.class);
             intentResult.putExtra("Point",point);
             startActivity(intentResult);
         }
-
     }
 
     public void actionBar() {

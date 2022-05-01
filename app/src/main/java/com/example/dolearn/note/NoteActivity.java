@@ -26,9 +26,11 @@ import com.example.dolearn.topic.TopicItemActivity;
 
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class NoteActivity extends AppCompatActivity {
     public static ArrayList<Item> listNote = new ArrayList<Item>();
+    public static ArrayList<Item> listNoteClone;
     ListView listView_item;
     NoteAdapter adapter;
     Button buttonWordGame;
@@ -38,6 +40,11 @@ public class NoteActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         actionBar();
         setContentView(R.layout.activity_note);
+
+        //Create listNote for WordGame
+        listNoteClone = (ArrayList<Item>) listNote.clone();
+        Collections.shuffle(listNoteClone);
+
         listView_item = findViewById(R.id.listView_item);
         buttonWordGame = findViewById(R.id.buttonWordGame);
         buttonQuiz = findViewById(R.id.buttonPractice);
