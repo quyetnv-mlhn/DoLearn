@@ -47,7 +47,7 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        actionBar();
+        actionBar();
         setContentView(R.layout.activity_quiz);
 
         total_question_tv = findViewById(R.id.total_question_tv);
@@ -56,30 +56,19 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
         ans_b_btn = findViewById(R.id.ans_b_btn);
         ans_c_btn = findViewById(R.id.ans_c_btn);
         ans_d_btn = findViewById(R.id.ans_d_btn);
-//        submit_btn = findViewById(R.id.submit_btn);
 
         ans_a_btn.setOnClickListener(this);
         ans_b_btn.setOnClickListener(this);
         ans_c_btn.setOnClickListener(this);
         ans_d_btn.setOnClickListener(this);
-//        submit_btn.setOnClickListener(this);
 
-//        total_question_tv.setText("Total questions: " + totalQuestion);
         total_question_tv.setText("Tổng số câu hỏi: " + noteList.size());
 
-
-
-
-
-//        System.out.println(noteList.size());
-//        Random random = new Random();
-//        System.out.println(random.nextInt(5));
         Collections.shuffle(noteList);
 
         for(int i = 0; i < noteList.size(); i++){
             String[] tokens = noteList.get(i).getEngName().split("\\(");
             words.add(tokens[0]);
-//            shuffledList.add(noteList.get(i).getVieName());
         }
 
 
@@ -96,19 +85,6 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
 
             Button clickedButton = (Button) view;
 
-            //        if(clickedButton == submit_btn){
-            //            if(selectedAnswer == noteList.get(currentQuestionIndex).getVieName()){
-            //                score++;
-            //                System.out.println("Correct");
-            //            }
-            //
-            //            currentQuestionIndex++;
-            //            loadNewQuestion();
-            //        }else{
-            //            // choices button pressed
-            //            selectedAnswer = clickedButton.getText().toString();
-            //            clickedButton.setBackgroundResource(R.color.teal_700);
-            //        }
             String correctAnswer = noteList.get(currentQuestionIndex).getVieName();
 
             selectedAnswer = clickedButton.getText().toString();
@@ -130,21 +106,6 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
                     ans_d_btn.setBackgroundResource(R.color.right_answer_color);
                 }
             }
-
-            //        try {
-            //            Thread.sleep(1000);
-            //        } catch (InterruptedException e) {
-            //            e.printStackTrace();
-            //        }
-            //        int counter = 0;
-            //        TimerTask timerTask = new TimerTask() {
-            //            @Override
-            //            public void run() {
-            //                Log.e("Timer Task", String.valueOf(counter));
-            //                counter++;
-            //            }
-            //        }
-            //        Timer timer = new Timer(timerTask, 0, 1000);
 
             new CountDownTimer(2000, 1000) {
                 @Override
@@ -168,13 +129,6 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
             return;
         }
 
-//        question_tv.setText(QuestionAnswer.questions[currentQuestionIndex]);
-//
-//        ans_a_btn.setText(QuestionAnswer.choices[currentQuestionIndex][0]);
-//        ans_b_btn.setText(QuestionAnswer.choices[currentQuestionIndex][1]);
-//        ans_c_btn.setText(QuestionAnswer.choices[currentQuestionIndex][2]);
-//        ans_d_btn.setText(QuestionAnswer.choices[currentQuestionIndex][3]);
-
         ans_a_btn.setBackgroundColor(Color.WHITE);
         ans_b_btn.setBackgroundColor(Color.WHITE);
         ans_c_btn.setBackgroundColor(Color.WHITE);
@@ -188,25 +142,20 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
         ans_c_btn.setText(choices.get(2));
         ans_d_btn.setText(choices.get(3));
 
-
     }
 
     void finishQuiz(){
         String passStatus = "";
 
         if(score >= totalQuestion * 0.6){
-//            passStatus = "Pass";
             passStatus = "Đạt";
         }else{
-//            passStatus = "Failed";
             passStatus = "Không đạt";
         }
 
         new AlertDialog.Builder(this)
                 .setTitle(passStatus)
-//                .setMessage("Score is " + score + " out of " + totalQuestion)
                 .setMessage("Trả lời đúng " + score + " trong tổng số " + totalQuestion + " câu hỏi")
-//                .setPositiveButton("Restart", ((dialogInterface, i) -> restartQuiz()))
                 .setPositiveButton("Bắt đầu lại", ((dialogInterface, i) -> restartQuiz()))
                 .setCancelable(false)
                 .show();
@@ -236,11 +185,11 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
         Collections.shuffle(choices);
     }
 
-//    public void actionBar() {
-//        ActionBar actionBar = getSupportActionBar();
-//        actionBar.setTitle("Quiz");
-//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-//    }
+    public void actionBar() {
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setTitle("Quiz");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+    }
 
     //Handle click backIcon
     public boolean onOptionsItemSelected(MenuItem item) {
