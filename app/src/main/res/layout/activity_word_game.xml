@@ -11,7 +11,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="5"
+        android:layout_weight="6"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:padding="20dp"
@@ -22,8 +22,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:text="Sắp xếp theo thứ tự đúng:"
-            android:textSize="20dp"
+            android:text="Sắp xếp theo thứ tự thành từ đúng:"
+            android:textSize="20sp"
             android:textColor="@color/blue_pastel"
             android:layout_centerHorizontal="true"
             android:layout_alignParentTop="true"
@@ -35,46 +35,29 @@
             android:id="@+id/textViewWordGameVie"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Nghĩa Tiếng Việt"
-            android:textSize="30sp"
+            android:layout_above="@+id/textViewWordGame"
+            android:layout_below="@+id/textViewWordGameTitle"
+            android:layout_centerHorizontal="true"
             android:layout_marginTop="25dp"
             android:layout_marginBottom="10dp"
-            android:layout_below="@+id/textViewWordGameTitle"
-            android:layout_above="@+id/editTextWordGame"
-            android:layout_centerHorizontal="true"
             android:justificationMode="inter_word"
             android:overScrollMode="ifContentScrolls"
-            tools:ignore="UnusedAttribute"
-            />
+            android:text="Nghĩa Tiếng Việt"
+            android:textSize="30sp"
+            tools:ignore="UnusedAttribute" />
 
-        <EditText
-            android:id="@+id/editTextWordGame"
+        <TextView
+            android:id="@+id/textViewWordGame"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:background="@android:color/transparent"
-            android:clickable="false"
-            android:focusable="false"
             android:gravity="center"
             android:hint="Nghĩa Tiếng Anh"
             android:textColor="@color/sub"
             android:textSize="30sp" />
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.5" />
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.5" />
-
-        <Button
+        <ImageButton
             android:id="@+id/buttonWordGameDelete"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -82,22 +65,21 @@
             android:layout_alignParentBottom="true"
             android:layout_centerInParent="true"
             android:layout_marginStart="10dp"
-            android:layout_toEndOf="@+id/editTextWordGame"
-            android:text="Reset" />
+            android:layout_toEndOf="@+id/textViewWordGame"
+            android:background="@android:color/transparent"
+            android:text="Reset"
+            app:srcCompat="@drawable/reset" />
+
     </RelativeLayout>
 
     <GridLayout
         android:id="@+id/gridLayoutWordGame"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="5"
+        android:layout_weight="4"
         android:orientation="horizontal"
         android:columnCount="5"
         android:rowCount="3"
         android:useDefaultMargins="true"
         />
-
-
-
-
 </LinearLayout>

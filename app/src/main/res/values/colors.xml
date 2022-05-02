@@ -18,6 +18,6 @@
     <color name="colorPrimaryDark">#0062A8</color>
     <color name="sub">#47bcaa</color>
     <color name="main">#40e0d0</color>
-    <color name="green">#008000</color>
+    <color name="green">#00FF00</color>
     <color name="red">#FF0000</color>
 </resources>

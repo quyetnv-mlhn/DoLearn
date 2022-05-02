@@ -15,8 +15,8 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.GridLayout;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.example.dolearn.HandleClass;
@@ -29,9 +29,9 @@ public class WordGame extends AppCompatActivity {
     private String[] keys = new String[50];
     private String textAnswer;
     TextView textViewWordGameTitle,textViewWordGameVie;
-    EditText editTextWordGame;
-    Button  buttonWordGameDelete;
-    Animation scale;
+    TextView textViewWordGame;
+    ImageButton buttonWordGameDelete;
+    Animation scale,rotate;
     GridLayout gridLayoutWordGame;
 
     int i;
@@ -52,18 +52,8 @@ public class WordGame extends AppCompatActivity {
             i = getIntent().getIntExtra("i",i);
             point = getIntent().getIntExtra("Point",point);
         }
-        buttonWordGameDelete.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (i < NoteActivity.listNoteClone.size()) {
-                    getIntent().putExtra("i", i);
-                    finish();
-                    startActivity(getIntent());
-                }
-            }
-        });
         scale = AnimationUtils.loadAnimation(this, R.anim.smallbigforth);
-
+        rotate = AnimationUtils.loadAnimation(this,R.anim.rotate);
         textViewWordGameVie.setText(NoteActivity.listNoteClone.get(i).getVieName());
 
         textAnswer = NoteActivity.listNoteClone.get(i).getEngName().substring(0, NoteActivity.listNoteClone.get(i).getEngName().indexOf(' '));
@@ -73,14 +63,26 @@ public class WordGame extends AppCompatActivity {
         }
         keys = shuffleArray(keys,maxPresCounter);
         for (int j =0;j<maxPresCounter;j++) {
-            addView(((GridLayout) findViewById(R.id.gridLayoutWordGame)),keys[j], ((EditText) findViewById(R.id.editTextWordGame)));
+            addView(((GridLayout) findViewById(R.id.gridLayoutWordGame)),keys[j], ((TextView) findViewById(R.id.textViewWordGame)));
         }
-    }
+        buttonWordGameDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                presCounter = 0;
+                buttonWordGameDelete.startAnimation(rotate);
+                textViewWordGame.setText("");
+                gridLayoutWordGame.removeAllViews();
+                for (int j =0;j<maxPresCounter;j++) {
+                    addView(((GridLayout) findViewById(R.id.gridLayoutWordGame)),keys[j], ((TextView) findViewById(R.id.textViewWordGame)));
+                }
 
+            }
+        });
+    }
     private void anhxa() {
         textViewWordGameTitle = findViewById(R.id.textViewWordGameTitle);
         textViewWordGameVie = findViewById(R.id.textViewWordGameVie);
-        editTextWordGame = findViewById(R.id.editTextWordGame);
+        textViewWordGame = findViewById(R.id.textViewWordGame);
         gridLayoutWordGame = findViewById(R.id.gridLayoutWordGame);
         buttonWordGameDelete = findViewById(R.id.buttonWordGameDelete);
     }
@@ -94,7 +96,7 @@ public class WordGame extends AppCompatActivity {
         }
         return ar;
     }
-    private void addView(GridLayout viewParent, final String text, final EditText editText) {
+    private void addView(GridLayout viewParent, final String text, final TextView textViewWordGame) {
         GridLayout.LayoutParams gridLayoutParams = new GridLayout.LayoutParams(
         );
 
@@ -118,14 +120,13 @@ public class WordGame extends AppCompatActivity {
             public void onClick(View v) {
                 if(presCounter < maxPresCounter) {
                     if (presCounter == 0)
-                        editText.setText("");
+                        textViewWordGame.setText("");
 
-                    editText.setText(editText.getText().toString() + text);
+                    textViewWordGame.setText(textViewWordGame.getText().toString() + text);
                     textView.setClickable(false);
                     textView.startAnimation(scale);
                     textView.animate().alpha(0).setDuration(300);
                     presCounter++;
-
                     if (presCounter == maxPresCounter) {
                         HandleClass.textToSpeechString(WordGame.this, NoteActivity.listNoteClone.get(i).getEngName());
                         doValidate();
@@ -141,19 +142,20 @@ public class WordGame extends AppCompatActivity {
     @SuppressLint("ResourceAsColor")
     private void doValidate() {
         presCounter = 0;
-        if (editTextWordGame.getText().toString().equals(textAnswer)) {
+        if (textViewWordGame.getText().toString().equals(textAnswer)) {
             MediaPlayer mp = MediaPlayer.create(getApplicationContext(), R.raw.correct);
             mp.start();
-            editTextWordGame.setText(""+NoteActivity.listNoteClone.get(i).getEngName());
-            editTextWordGame.setTextColor(R.color.green);
+            textViewWordGame.setText(""+NoteActivity.listNoteClone.get(i).getEngName());
+            textViewWordGame.setTextColor(getResources().getColor(R.color.green));
             point++;
         } else {
-            editTextWordGame.setTextColor(R.color.red);
+            textViewWordGame.setTextColor(getResources().getColor(R.color.red));
             MediaPlayer mp = MediaPlayer.create(getApplicationContext(), R.raw.incorrect);
             mp.start();
         }
         i += 1;
         Handler handler = new Handler();
+
         handler.postDelayed(new Runnable() {
             public void run() {
                 if(i<NoteActivity.listNoteClone.size()) {
