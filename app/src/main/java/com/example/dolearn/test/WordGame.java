@@ -68,6 +68,8 @@ public class WordGame extends AppCompatActivity {
         buttonWordGameDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                MediaPlayer mp = MediaPlayer.create(getApplicationContext(), R.raw.refresh);
+                mp.start();
                 presCounter = 0;
                 buttonWordGameDelete.startAnimation(rotate);
                 textViewWordGame.setText("");
@@ -118,6 +120,8 @@ public class WordGame extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
+                MediaPlayer mp = MediaPlayer.create(getApplicationContext(), R.raw.click);
+                mp.start();
                 if(presCounter < maxPresCounter) {
                     if (presCounter == 0)
                         textViewWordGame.setText("");

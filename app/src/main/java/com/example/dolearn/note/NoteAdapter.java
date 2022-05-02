@@ -71,7 +71,7 @@ public class NoteAdapter extends BaseAdapter {
 
         //Load note from file to App
         for (int index = 0; index < NoteActivity.listNote.size(); index++) {
-                note.setChecked(true);
+            note.setChecked(true);
         }
 
         // Text to Speech

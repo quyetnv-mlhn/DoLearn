@@ -14,18 +14,23 @@ import android.widget.ListView;
 import com.example.dolearn.R;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class TopicActivity extends AppCompatActivity {
     ListView listView_topic;
-    ArrayList<String> topicList = new ArrayList<>();
+    List<String> topicList;
+    TopicAdapter adapter ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         actionBar();
         setContentView(R.layout.activity_topic);
+        String[] myResArray = getResources().getStringArray(R.array.topic_list);
+        List<String> topicList = Arrays.asList(myResArray);
         anhxa();
-        ArrayAdapter<CharSequence> topicAdapter = ArrayAdapter.createFromResource(this,R.array.topic_list, android.R.layout.simple_list_item_1);
-        listView_topic.setAdapter(topicAdapter);
+        adapter = new TopicAdapter(this,R.layout.topic,topicList);
+        listView_topic.setAdapter(adapter);
         listView_topic.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
