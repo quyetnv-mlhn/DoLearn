@@ -2,6 +2,7 @@ package com.example.dolearn.test;
 
 import android.app.AlertDialog;
 import android.graphics.Color;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.util.Log;
@@ -15,6 +16,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.dolearn.HandleClass;
 import com.example.dolearn.R;
 import com.example.dolearn.note.NoteActivity;
 import com.example.dolearn.topic.Dictionary;
@@ -90,9 +92,13 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
             selectedAnswer = clickedButton.getText().toString();
             if (selectedAnswer.equals(correctAnswer)) {
                 clickedButton.setBackgroundResource(R.color.right_answer_color);
+                MediaPlayer mp = MediaPlayer.create(getApplicationContext(), R.raw.correct);
+                mp.start();
                 score++;
             } else {
                 clickedButton.setBackgroundResource(R.color.wrong_andswer_color);
+                MediaPlayer mp = MediaPlayer.create(getApplicationContext(), R.raw.incorrect);
+                mp.start();
                 if (ans_a_btn.getText().toString().equals(correctAnswer)) {
                     ans_a_btn.setBackgroundResource(R.color.right_answer_color);
                 }
@@ -112,7 +118,6 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
                 public void onTick(long l) {
                     allowPress = false;
                 }
-
                 @Override
                 public void onFinish() {
                     allowPress = true;
@@ -145,6 +150,8 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     void finishQuiz(){
+        MediaPlayer mp = MediaPlayer.create(getApplicationContext(), R.raw.victory);
+        mp.start();
         String passStatus = "";
 
         if(score >= totalQuestion * 0.6){
