@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="5dp"
+    android:background="@drawable/border_ui"
     >
 
     <CheckBox
@@ -27,6 +28,7 @@
         android:text="EngName"
         android:textSize="20sp"
         android:textStyle="bold"
+        android:textColor="@color/white"
         android:layout_toEndOf="@id/checkboxStar"
         android:layout_toStartOf="@id/checkboxSpeaker"
         />
@@ -39,6 +41,7 @@
         android:textSize="15sp"
         android:textStyle="italic"
         android:text="Example"
+        android:textColor="@color/white"
         android:justificationMode="inter_word"
         android:layout_toEndOf="@id/checkboxStar"
         android:layout_below="@id/textviewEnglish"

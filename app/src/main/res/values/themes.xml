@@ -2,8 +2,8 @@
     <!-- Base application theme. -->
     <style name="Theme.DoLearn" parent="Theme.AppCompat.DayNight.DarkActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/primary_color</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorPrimary">@color/sub</item>
+        <item name="colorPrimaryDark">@color/sub</item>
         <item name="colorAccent">@color/teal_200</item>
         <!-- Customize your theme here. -->
     </style>
@@ -11,8 +11,8 @@
     <style name="Theme.MaterialTheme" parent="Theme.MaterialComponents.Light.DarkActionBar">
         <item name="windowNoTitle">true</item>
         <item name="windowActionBar">false</item>
-        <item name="colorPrimary">@color/purple_200</item>
-        <item name="colorPrimaryDark">@color/purple_200</item>
+        <item name="colorPrimary">@color/sub</item>
+        <item name="colorPrimaryDark">@color/sub</item>
         <item name="colorAccent">@color/white</item>
     </style>
 </resources>

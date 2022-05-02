@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/black_shade_1"
+    android:background="@color/white"
     android:theme="@style/Theme.MaterialComponents"
     tools:context=".translate.TranslateActivity">
 
@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Dịch từ/văn bản"
-        android:textColor="@color/yellow"
+        android:textColor="@color/sub"
         android:textAlignment="center"
         android:textSize="24sp"
         android:textStyle="bold"
@@ -37,7 +37,7 @@
             android:id="@+id/idFromTV"
             android:gravity="center"
             android:text="Tiếng Anh"
-            android:textColor="@color/white"
+            android:textColor="@color/sub"
             android:textAlignment="center"
             android:textSize="20sp"
             android:padding="4dp"/>
@@ -58,7 +58,7 @@
             android:layout_weight="1"
             android:src="@drawable/ic_swap"
             android:layout_gravity="center"
-            app:tint="@color/white" />
+            app:tint="@color/sub" />
 
         <TextView
             android:layout_width="0dp"
@@ -67,7 +67,7 @@
             android:id="@+id/idToTV"
             android:gravity="center"
             android:text="Tiếng Việt"
-            android:textColor="@color/white"
+            android:textColor="@color/sub"
             android:textAlignment="center"
             android:textSize="20sp"
             android:padding="4dp"/>
@@ -93,7 +93,7 @@
             android:importantForAutofill="no"
             android:ems="10"
             android:inputType="textImeMultiLine|textMultiLine"
-            android:textColor="@color/white"
+            android:textColor="@color/sub"
             android:textColorHint="@color/white"
             android:textSize="14sp"/>
 
@@ -106,7 +106,7 @@
         android:src="@drawable/ic_mic"
         android:layout_gravity="center"
         android:layout_marginTop="10dp"
-        app:tint="@color/yellow"
+        app:tint="@color/sub"
         android:id="@+id/idIVMic"/>
 
 
@@ -118,12 +118,13 @@
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:layout_marginTop="10dp"
-        android:id="@+id/idBtnTranslate"/>
+        android:id="@+id/idBtnTranslate"
+        android:background="@color/white"/>
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@color/white"
+        android:background="@color/sub"
         android:layout_marginTop="20dp"
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"/>
@@ -143,7 +144,7 @@
                 android:padding="5dp"
                 android:text=""
                 android:textAlignment="center"
-                android:textColor="@color/yellow"
+                android:textColor="@color/sub"
                 android:textSize="16sp"
                 android:id="@+id/idTVTranslatedTV"/>
         </LinearLayout>

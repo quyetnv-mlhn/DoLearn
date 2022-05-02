@@ -1,15 +1,14 @@
 package com.example.dolearn.test;
-import static android.webkit.ConsoleMessage.MessageLevel.LOG;
 import static com.example.dolearn.R.drawable.custom_wordgame;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Activity;
+import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.graphics.Typeface;
+import android.media.MediaPlayer;
 import android.os.Bundle;
-import android.util.Log;
+import android.os.Handler;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
@@ -19,17 +18,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.GridLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import com.example.dolearn.HandleClass;
 import com.example.dolearn.R;
 import com.example.dolearn.note.NoteActivity;
-import com.example.dolearn.topic.Item;
-
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Random;
-import java.util.jar.JarOutputStream;
-
 public class WordGame extends AppCompatActivity {
     int presCounter = 0;
     private int maxPresCounter;
@@ -66,8 +59,6 @@ public class WordGame extends AppCompatActivity {
                     getIntent().putExtra("i", i);
                     finish();
                     startActivity(getIntent());
-                }else {
-
                 }
             }
         });
@@ -135,8 +126,10 @@ public class WordGame extends AppCompatActivity {
                     textView.animate().alpha(0).setDuration(300);
                     presCounter++;
 
-                    if (presCounter == maxPresCounter)
+                    if (presCounter == maxPresCounter) {
+                        HandleClass.textToSpeechString(WordGame.this, NoteActivity.listNoteClone.get(i).getEngName());
                         doValidate();
+                    }
                 }
             }
         });
@@ -145,28 +138,37 @@ public class WordGame extends AppCompatActivity {
     }
 
 
+    @SuppressLint("ResourceAsColor")
     private void doValidate() {
         presCounter = 0;
-        Log.d("edit",editTextWordGame.getText()+"");
-        Log.d("textAnswer",textAnswer+"");
         if (editTextWordGame.getText().toString().equals(textAnswer)) {
-            point ++;
-            editTextWordGame.setText("");
-            Toast.makeText(this, "Congratulations!", Toast.LENGTH_SHORT).show();
+            MediaPlayer mp = MediaPlayer.create(getApplicationContext(), R.raw.correct);
+            mp.start();
+            editTextWordGame.setText(""+NoteActivity.listNoteClone.get(i).getEngName());
+            editTextWordGame.setTextColor(R.color.green);
+            point++;
         } else {
-            Toast.makeText(this, "Wrong!", Toast.LENGTH_SHORT).show();
+            editTextWordGame.setTextColor(R.color.red);
+            MediaPlayer mp = MediaPlayer.create(getApplicationContext(), R.raw.incorrect);
+            mp.start();
         }
         i += 1;
-        if(i<NoteActivity.listNoteClone.size()) {
-            getIntent().putExtra("Point", point);
-            getIntent().putExtra("i", i);
-            finish();
-            startActivity(getIntent());
-        }else if(i==NoteActivity.listNoteClone.size()){
-            Intent intentResult = new Intent(WordGame.this,ResultWordGame.class);
-            intentResult.putExtra("Point",point);
-            startActivity(intentResult);
-        }
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            public void run() {
+                if(i<NoteActivity.listNoteClone.size()) {
+                    getIntent().putExtra("Point", point);
+                    getIntent().putExtra("i", i);
+                    finish();
+                    startActivity(getIntent());
+
+                }else if(i==NoteActivity.listNoteClone.size()){
+                    Intent intentResult = new Intent(WordGame.this,ResultWordGame.class);
+                    intentResult.putExtra("Point",point);
+                    startActivity(intentResult);
+                }
+            }
+        }, 2000);
     }
 
     public void actionBar() {

@@ -43,4 +43,16 @@ public class HandleClass {
             }
         });
     }
+    public static void textToSpeechString(Context context, String engName) {
+        tts = new TextToSpeech(context.getApplicationContext(), new TextToSpeech.OnInitListener() {
+            @Override
+            public void onInit(int status) {
+                if (status == TextToSpeech.SUCCESS) {
+                    tts.setLanguage(Locale.US);
+                    tts.setSpeechRate(1.0f);
+                    tts.speak(engName.split("\\(")[0], TextToSpeech.QUEUE_FLUSH, null, "");
+                }
+            }
+        });
+    }
 }

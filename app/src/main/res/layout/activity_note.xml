@@ -23,7 +23,11 @@
         <ListView
             android:id="@+id/listView_item"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:divider="@color/white"
+            android:dividerHeight="10dp"
+            android:layout_margin="10dp"
+            >
         </ListView>
     </LinearLayout>
 

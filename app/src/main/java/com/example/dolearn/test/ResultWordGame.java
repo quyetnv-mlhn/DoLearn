@@ -9,6 +9,7 @@ import com.example.dolearn.note.NoteActivity;
 
 import android.content.Intent;
 import android.graphics.Point;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -28,6 +29,8 @@ public class ResultWordGame extends AppCompatActivity {
         Intent intent = getIntent();
         int point = intent.getIntExtra("Point",0);
         textViewResultPoint.setText(point+"/"+ NoteActivity.listNote.size());
+        MediaPlayer mp = MediaPlayer.create(getApplicationContext(), R.raw.victory);
+        mp.start();
         buttonResultBackHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
