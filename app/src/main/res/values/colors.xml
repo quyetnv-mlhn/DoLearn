@@ -16,9 +16,9 @@
     <color name="right_answer_color">#4CAF50</color>
     <color name="wrong_andswer_color">#F44336</color>
     <color name="colorPrimaryDark">#0062A8</color>
-    <color name="sub">#47bcaa</color>
+    <color name="sub">#68D69D</color>
     <color name="main">#40e0d0</color>
     <color name="green">#00FF00</color>
     <color name="red">#FF0000</color>
-    <color name="navy">#009</color>
+    <color name="navy">#401D83</color>
 </resources>

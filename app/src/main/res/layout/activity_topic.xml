@@ -12,6 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="3"
+        android:padding="10dp"
         android:orientation="vertical">
 
 
@@ -19,9 +20,8 @@
             android:id="@+id/imageViewTopic"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:srcCompat="@drawable/topic"
             android:scaleType="fitXY"
-            android:paddingBottom="5dp"/>
+            app:srcCompat="@drawable/topic" />
     </LinearLayout>
 
     <LinearLayout

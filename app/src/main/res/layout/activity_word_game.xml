@@ -26,7 +26,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="5.8"
+        android:layout_weight="6.8"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:padding="20dp"
@@ -65,25 +65,40 @@
             android:id="@+id/textViewWordGame"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
+            android:layout_centerInParent="true"
+            android:layout_above="@+id/buttonBlock"
+            android:layout_marginBottom="90dp"
             android:background="@android:color/transparent"
             android:gravity="center"
             android:hint="Nghĩa Tiếng Anh"
             android:textColor="@color/sub"
             android:textSize="30sp" />
 
-        <ImageButton
-            android:id="@+id/buttonWordGameDelete"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:id="@+id/buttonBlock"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
-            android:layout_centerInParent="true"
-            android:layout_marginStart="10dp"
-            android:layout_toEndOf="@+id/textViewWordGame"
-            android:background="@android:color/transparent"
-            android:text="Reset"
-            app:srcCompat="@drawable/reset" />
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:layout_marginBottom="20dp">
+
+            <ImageButton
+                android:id="@+id/buttonWordGameDelete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="70dp"
+                android:background="@android:color/transparent"
+                app:srcCompat="@drawable/ic_backspace" />
+
+            <ImageButton
+                android:id="@+id/buttonWordGameReset"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:text="Reset"
+                app:srcCompat="@drawable/reset" />
+        </LinearLayout>
 
     </RelativeLayout>
 

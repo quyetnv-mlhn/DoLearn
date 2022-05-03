@@ -24,14 +24,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="2dp"
+        android:layout_toStartOf="@id/checkboxSpeaker"
+        android:layout_toEndOf="@id/checkboxStar"
         android:gravity="start"
         android:text="EngName"
-        android:textSize="20sp"
-        android:textStyle="bold"
         android:textColor="@color/navy"
-        android:layout_toEndOf="@id/checkboxStar"
-        android:layout_toStartOf="@id/checkboxSpeaker"
-        />
+        android:textSize="20sp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/textviewVietnam"

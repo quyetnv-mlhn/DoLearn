@@ -31,7 +31,7 @@ public class WordGame extends AppCompatActivity {
     private String textAnswer;
     TextView textViewWordGameTitle,textViewWordGameVie;
     TextView textViewWordGame;
-    ImageButton buttonWordGameDelete;
+    ImageButton buttonWordGameReset;
     Animation scale,rotate;
     GridLayout gridLayoutWordGame;
     ProgressBar progressBarWordGame;
@@ -67,13 +67,13 @@ public class WordGame extends AppCompatActivity {
         for (int j =0;j<maxPresCounter;j++) {
             addView(((GridLayout) findViewById(R.id.gridLayoutWordGame)),keys[j], ((TextView) findViewById(R.id.textViewWordGame)));
         }
-        buttonWordGameDelete.setOnClickListener(new View.OnClickListener() {
+        buttonWordGameReset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 MediaPlayer mp = MediaPlayer.create(getApplicationContext(), R.raw.refresh);
                 mp.start();
                 presCounter = 0;
-                buttonWordGameDelete.startAnimation(rotate);
+                buttonWordGameReset.startAnimation(rotate);
                 textViewWordGame.setText("");
                 gridLayoutWordGame.removeAllViews();
                 for (int j =0;j<maxPresCounter;j++) {
@@ -88,7 +88,7 @@ public class WordGame extends AppCompatActivity {
         textViewWordGameVie = findViewById(R.id.textViewWordGameVie);
         textViewWordGame = findViewById(R.id.textViewWordGame);
         gridLayoutWordGame = findViewById(R.id.gridLayoutWordGame);
-        buttonWordGameDelete = findViewById(R.id.buttonWordGameDelete);
+        buttonWordGameReset = findViewById(R.id.buttonWordGameReset);
         progressBarWordGame = findViewById(R.id.progressBarWordGame);
     }
     private String[] shuffleArray(String[] ar,int maxPresCounter) {
