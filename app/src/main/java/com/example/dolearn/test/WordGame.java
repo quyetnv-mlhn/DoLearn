@@ -17,6 +17,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.GridLayout;
 import android.widget.ImageButton;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.example.dolearn.HandleClass;
@@ -33,7 +34,7 @@ public class WordGame extends AppCompatActivity {
     ImageButton buttonWordGameDelete;
     Animation scale,rotate;
     GridLayout gridLayoutWordGame;
-
+    ProgressBar progressBarWordGame;
     int i;
     int point;
     @Override
@@ -42,7 +43,7 @@ public class WordGame extends AppCompatActivity {
         actionBar();
         setContentView(R.layout.activity_word_game);
         anhxa();
-
+        progressBarWordGame.setMax(NoteActivity.listNoteClone.size());
         Intent intent = getIntent();
         int check = intent.getIntExtra("flags",0);
         if (check == 1){
@@ -52,6 +53,7 @@ public class WordGame extends AppCompatActivity {
             i = getIntent().getIntExtra("i",i);
             point = getIntent().getIntExtra("Point",point);
         }
+        progressBarWordGame.setProgress(i+1);
         scale = AnimationUtils.loadAnimation(this, R.anim.smallbigforth);
         rotate = AnimationUtils.loadAnimation(this,R.anim.rotate);
         textViewWordGameVie.setText(NoteActivity.listNoteClone.get(i).getVieName());
@@ -87,6 +89,7 @@ public class WordGame extends AppCompatActivity {
         textViewWordGame = findViewById(R.id.textViewWordGame);
         gridLayoutWordGame = findViewById(R.id.gridLayoutWordGame);
         buttonWordGameDelete = findViewById(R.id.buttonWordGameDelete);
+        progressBarWordGame = findViewById(R.id.progressBarWordGame);
     }
     private String[] shuffleArray(String[] ar,int maxPresCounter) {
         Random rnd = new Random();

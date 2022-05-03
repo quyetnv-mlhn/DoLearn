@@ -41,7 +41,7 @@
         android:textSize="15sp"
         android:textStyle="italic"
         android:text="Example"
-        android:textColor="@color/cerise"
+        android:textColor="@color/white"
         android:justificationMode="inter_word"
         android:layout_toEndOf="@id/checkboxStar"
         android:layout_below="@id/textviewEnglish"

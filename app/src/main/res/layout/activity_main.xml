@@ -166,7 +166,7 @@
                             android:layout_alignParentLeft="true"
                             android:layout_centerVertical="true"
                             android:scaleType="centerCrop"
-                            android:src="@drawable/topic" />
+                            android:src="@drawable/img" />
 
                     </RelativeLayout>
                 </androidx.cardview.widget.CardView>
