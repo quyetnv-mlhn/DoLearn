@@ -3,18 +3,25 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Android/DoLearn/app/src/main/res/drawable-v24/mybutton_correct.xml" value="0.1" />
+        <entry key="..\:/Android/DoLearn/app/src/main/res/drawable-v24/mybutton_wrong.xml" value="0.1" />
         <entry key="..\:/Android/DoLearn/app/src/main/res/drawable/border_ui.xml" value="0.108" />
         <entry key="..\:/Android/DoLearn/app/src/main/res/drawable/gradient_background.xml" value="0.1355" />
         <entry key="..\:/Android/DoLearn/app/src/main/res/drawable/gradient_drawable.xml" value="0.1" />
         <entry key="..\:/Android/DoLearn/app/src/main/res/drawable/ic_backspace_foreground.xml" value="0.17" />
+        <entry key="..\:/Android/DoLearn/app/src/main/res/drawable/mybutton.xml" value="0.1895" />
+        <entry key="..\:/Android/DoLearn/app/src/main/res/layout/activity_item.xml" value="0.36666666666666664" />
         <entry key="..\:/Android/DoLearn/app/src/main/res/layout/activity_main.xml" value="0.33106884057971014" />
+        <entry key="..\:/Android/DoLearn/app/src/main/res/layout/activity_note.xml" value="0.33" />
         <entry key="..\:/Android/DoLearn/app/src/main/res/layout/activity_quiz.xml" value="0.36666666666666664" />
         <entry key="..\:/Android/DoLearn/app/src/main/res/layout/activity_result_word_game.xml" value="0.36666666666666664" />
         <entry key="..\:/Android/DoLearn/app/src/main/res/layout/activity_topic.xml" value="0.28020833333333334" />
+        <entry key="..\:/Android/DoLearn/app/src/main/res/layout/activity_topic_item.xml" value="0.33" />
         <entry key="..\:/Android/DoLearn/app/src/main/res/layout/activity_translate.xml" value="0.36666666666666664" />
         <entry key="..\:/Android/DoLearn/app/src/main/res/layout/activity_word_game.xml" value="0.36666666666666664" />
         <entry key="..\:/Android/DoLearn/app/src/main/res/layout/item.xml" value="0.3220108695652174" />
         <entry key="..\:/Android/DoLearn/app/src/main/res/layout/topic.xml" value="0.36666666666666664" />
+        <entry key="..\:/Android/DoLearn/app/src/main/res/mipmap-anydpi-v26/ic_backspace.xml" value="0.2185" />
         <entry key="..\:/Document/QUYET3.2/MobileDevelopment/work/DoLearn-main/DoLearn/app/src/main/res/drawable/ic_mic.xml" value="0.29" />
         <entry key="..\:/Document/QUYET3.2/MobileDevelopment/work/DoLearn-main/DoLearn/app/src/main/res/font/roboto.xml" value="0.1984375" />
         <entry key="..\:/Document/QUYET3.2/MobileDevelopment/work/DoLearn-main/DoLearn/app/src/main/res/layout/activity_detail_note.xml" value="0.27760416666666665" />
@@ -46,17 +53,6 @@
         <entry key="..\:/Users/letansang/AndroidStudioProjects/Do Learn/app/src/main/res/layout/activity_detailed_item.xml" value="0.22" />
         <entry key="..\:/Users/letansang/AndroidStudioProjects/Do Learn/app/src/main/res/layout/activity_note.xml" value="0.36041666666666666" />
         <entry key="..\:/Users/letansang/AndroidStudioProjects/Do Learn/app/src/main/res/layout/activity_word_game.xml" value="0.33" />
-        <entry key="..\:/Users/letansang/AndroidStudioProjects/DoLearn/app/src/main/res/drawable/custom_progressbar.xml" value="0.1" />
-        <entry key="..\:/Users/letansang/AndroidStudioProjects/DoLearn/app/src/main/res/drawable/custom_wordgame.xml" value="0.1" />
-        <entry key="..\:/Users/letansang/AndroidStudioProjects/DoLearn/app/src/main/res/drawable/custom_wordgame_transparent.xml" value="0.136" />
-        <entry key="..\:/Users/letansang/AndroidStudioProjects/DoLearn/app/src/main/res/drawable/ic_mic.xml" value="0.1105" />
-        <entry key="..\:/Users/letansang/AndroidStudioProjects/DoLearn/app/src/main/res/drawable/ic_right_arrow.xml" value="0.1105" />
-        <entry key="..\:/Users/letansang/AndroidStudioProjects/DoLearn/app/src/main/res/drawable/ic_swap.xml" value="0.1105" />
-        <entry key="..\:/Users/letansang/AndroidStudioProjects/DoLearn/app/src/main/res/layout/activity_note.xml" value="0.16203703703703703" />
-        <entry key="..\:/Users/letansang/AndroidStudioProjects/DoLearn/app/src/main/res/layout/activity_quiz.xml" value="0.2234375" />
-        <entry key="..\:/Users/letansang/AndroidStudioProjects/DoLearn/app/src/main/res/layout/activity_result_word_game.xml" value="0.25052083333333336" />
-        <entry key="..\:/Users/letansang/AndroidStudioProjects/DoLearn/app/src/main/res/layout/activity_topic.xml" value="0.14814814814814814" />
-        <entry key="..\:/Users/letansang/AndroidStudioProjects/DoLearn/app/src/main/res/layout/activity_word_game.xml" value="0.175" />
         <entry key="..\:/Users/letansang/DoLearn/app/src/main/res/layout/activity_detailed_item.xml" value="0.22" />
         <entry key="..\:/Users/letansang/DoLearn/app/src/main/res/layout/activity_item.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/letansang/DoLearn/app/src/main/res/layout/activity_main.xml" value="0.33" />

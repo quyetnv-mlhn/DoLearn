@@ -57,8 +57,8 @@
             android:layout_height="wrap_content"
             android:text="Ans A"
             android:id="@+id/ans_a_btn"
-            android:background="@color/sub"
-            android:textColor="@color/navy"
+            android:background="@drawable/mybutton"
+            android:textColor="@color/white"
             android:layout_margin="5dp"
             android:fontFamily="@font/roboto_regular" />
 
@@ -67,8 +67,8 @@
             android:layout_height="wrap_content"
             android:text="Ans B"
             android:id="@+id/ans_b_btn"
-            android:background="@color/sub"
-            android:textColor="@color/navy"
+            android:background="@drawable/mybutton"
+            android:textColor="@color/white"
             android:layout_margin="5dp"
             android:fontFamily="@font/roboto_regular"/>
 
@@ -77,8 +77,8 @@
             android:layout_height="wrap_content"
             android:text="Ans C"
             android:id="@+id/ans_c_btn"
-            android:background="@color/sub"
-            android:textColor="@color/navy"
+            android:background="@drawable/mybutton"
+            android:textColor="@color/white"
             android:layout_margin="5dp"
             android:fontFamily="@font/roboto_regular"/>
 
@@ -87,8 +87,8 @@
             android:layout_height="wrap_content"
             android:text="Ans D"
             android:id="@+id/ans_d_btn"
-            android:background="@color/sub"
-            android:textColor="@color/navy"
+            android:background="@drawable/mybutton"
+            android:textColor="@color/white"
             android:layout_margin="5dp"
             android:fontFamily="@font/roboto_regular"/>
     </LinearLayout>

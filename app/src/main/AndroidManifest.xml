@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DoLearn">
         <activity
+            android:name=".setting.SettingActivity"
+            android:exported="false" />
+        <activity
             android:name=".test.QuizActivity"
             android:exported="false" />
         <activity

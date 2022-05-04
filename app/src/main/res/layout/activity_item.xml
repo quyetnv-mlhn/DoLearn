@@ -11,14 +11,21 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="2"
-        android:orientation="vertical"
-        ></LinearLayout>
+        android:layout_weight="3"
+        android:padding="1dp"
+        >
+        <ImageView
+            android:id="@+id/imageViewTopic"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/topic" />
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="8"
+        android:layout_weight="6"
         >
         <ListView
             android:id="@+id/listView_item"
@@ -28,6 +35,44 @@
             android:dividerHeight="10dp"
             android:layout_margin="10dp">
         </ListView>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:weightSum="2"
+        android:padding="5dp"
+        >
+
+        <Button
+            android:id="@+id/buttonPractice"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:text="Luyện tập"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:layout_weight="1"
+            android:background="@drawable/mybutton"
+            />
+
+        <Button
+            android:layout_weight="1"
+            android:id="@+id/buttonWordGame"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:text="Thực hành"
+            android:textSize="20sp"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/mybutton"
+            />
 
     </LinearLayout>
 </LinearLayout>

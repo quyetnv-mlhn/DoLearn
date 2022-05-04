@@ -1,5 +1,6 @@
 package com.example.dolearn.test;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.graphics.Color;
 import android.media.MediaPlayer;
@@ -91,25 +92,25 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
 
             selectedAnswer = clickedButton.getText().toString();
             if (selectedAnswer.equals(correctAnswer)) {
-                clickedButton.setBackgroundResource(R.color.right_answer_color);
+                clickedButton.setBackground(this.getResources().getDrawable(R.drawable.mybutton_correct));
                 MediaPlayer mp = MediaPlayer.create(getApplicationContext(), R.raw.correct);
                 mp.start();
                 score++;
             } else {
-                clickedButton.setBackgroundResource(R.color.wrong_andswer_color);
+                clickedButton.setBackground(this.getResources().getDrawable(R.drawable.mybutton_wrong));
                 MediaPlayer mp = MediaPlayer.create(getApplicationContext(), R.raw.incorrect);
                 mp.start();
                 if (ans_a_btn.getText().toString().equals(correctAnswer)) {
-                    ans_a_btn.setBackgroundResource(R.color.right_answer_color);
+                    ans_a_btn.setBackground(this.getResources().getDrawable(R.drawable.mybutton_correct));
                 }
                 if (ans_b_btn.getText().toString().equals(correctAnswer)) {
-                    ans_b_btn.setBackgroundResource(R.color.right_answer_color);
+                    ans_b_btn.setBackground(this.getResources().getDrawable(R.drawable.mybutton_correct));
                 }
                 if (ans_c_btn.getText().toString().equals(correctAnswer)) {
-                    ans_c_btn.setBackgroundResource(R.color.right_answer_color);
+                    ans_c_btn.setBackground(this.getResources().getDrawable(R.drawable.mybutton_correct));
                 }
                 if (ans_d_btn.getText().toString().equals(correctAnswer)) {
-                    ans_d_btn.setBackgroundResource(R.color.right_answer_color);
+                    ans_d_btn.setBackground(this.getResources().getDrawable(R.drawable.mybutton_correct));
                 }
             }
 
@@ -134,10 +135,10 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
             return;
         }
 
-        ans_a_btn.setBackgroundColor(getColor(R.color.sub));
-        ans_b_btn.setBackgroundColor(getColor(R.color.sub));
-        ans_c_btn.setBackgroundColor(getColor(R.color.sub));
-        ans_d_btn.setBackgroundColor(getColor(R.color.sub));
+        ans_a_btn.setBackground(this.getResources().getDrawable(R.drawable.mybutton));
+        ans_b_btn.setBackground(this.getResources().getDrawable(R.drawable.mybutton));
+        ans_c_btn.setBackground(this.getResources().getDrawable(R.drawable.mybutton));
+        ans_d_btn.setBackground(this.getResources().getDrawable(R.drawable.mybutton));
 
         question_tv.setText(words.get(currentQuestionIndex));
 

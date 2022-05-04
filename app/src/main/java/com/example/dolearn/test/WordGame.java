@@ -22,6 +22,7 @@ import android.widget.TextView;
 import com.example.dolearn.HandleClass;
 import com.example.dolearn.R;
 import com.example.dolearn.note.NoteActivity;
+import com.example.dolearn.topic.Item;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -39,6 +40,7 @@ public class WordGame extends AppCompatActivity {
     int i;
     int point;
     ArrayList<Integer> orderClick = new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
