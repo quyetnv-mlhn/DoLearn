@@ -135,8 +135,6 @@ public class WordGame extends AppCompatActivity {
 
 
         textView.setOnClickListener(v -> {
-            MediaPlayer mp = MediaPlayer.create(getApplicationContext(), R.raw.click);
-            mp.start();
             orderClick.add(j);
             if(presCounter < maxPresCounter) {
                 if (presCounter == 0)
