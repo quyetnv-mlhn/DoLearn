@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/teal_200"
+    android:background="@color/white"
     android:padding="20dp"
     >
 
@@ -41,8 +41,8 @@
         android:fontFamily="@font/roboto_regular"
         android:text="This will be a question"
         android:textAlignment="center"
-        android:textColor="#401D83"
         android:textSize="30sp"
+        android:textColor="#C20000"
         android:textStyle="bold" />
 
     <LinearLayout
@@ -57,18 +57,18 @@
             android:layout_height="wrap_content"
             android:text="Ans A"
             android:id="@+id/ans_a_btn"
-            android:background="@color/white"
-            android:textColor="@color/black"
+            android:background="@color/sub"
+            android:textColor="@color/navy"
             android:layout_margin="5dp"
-            android:fontFamily="@font/roboto_regular"/>
+            android:fontFamily="@font/roboto_regular" />
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Ans B"
             android:id="@+id/ans_b_btn"
-            android:background="@color/white"
-            android:textColor="@color/black"
+            android:background="@color/sub"
+            android:textColor="@color/navy"
             android:layout_margin="5dp"
             android:fontFamily="@font/roboto_regular"/>
 
@@ -77,8 +77,8 @@
             android:layout_height="wrap_content"
             android:text="Ans C"
             android:id="@+id/ans_c_btn"
-            android:background="@color/white"
-            android:textColor="@color/black"
+            android:background="@color/sub"
+            android:textColor="@color/navy"
             android:layout_margin="5dp"
             android:fontFamily="@font/roboto_regular"/>
 
@@ -87,8 +87,8 @@
             android:layout_height="wrap_content"
             android:text="Ans D"
             android:id="@+id/ans_d_btn"
-            android:background="@color/white"
-            android:textColor="@color/black"
+            android:background="@color/sub"
+            android:textColor="@color/navy"
             android:layout_margin="5dp"
             android:fontFamily="@font/roboto_regular"/>
     </LinearLayout>

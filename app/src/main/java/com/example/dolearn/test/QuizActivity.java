@@ -134,10 +134,10 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
             return;
         }
 
-        ans_a_btn.setBackgroundColor(Color.WHITE);
-        ans_b_btn.setBackgroundColor(Color.WHITE);
-        ans_c_btn.setBackgroundColor(Color.WHITE);
-        ans_d_btn.setBackgroundColor(Color.WHITE);
+        ans_a_btn.setBackgroundColor(getColor(R.color.sub));
+        ans_b_btn.setBackgroundColor(getColor(R.color.sub));
+        ans_c_btn.setBackgroundColor(getColor(R.color.sub));
+        ans_d_btn.setBackgroundColor(getColor(R.color.sub));
 
         question_tv.setText(words.get(currentQuestionIndex));
 
