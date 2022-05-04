@@ -22,7 +22,7 @@
         android:id="@+id/textViewResultPoint"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="82dp"
+        android:layout_marginTop="84dp"
         android:hint="99/99"
         android:textColor="@color/cerise"
         android:textSize="50sp"

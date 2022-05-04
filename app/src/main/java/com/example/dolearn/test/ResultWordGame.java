@@ -16,9 +16,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 public class ResultWordGame extends AppCompatActivity {
     TextView textViewResultPoint;
-    Button buttonResultBackHome;
+    Button buttonResultBackHome,buttonResultRedo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,6 +29,7 @@ public class ResultWordGame extends AppCompatActivity {
         textViewResultPoint = findViewById(R.id.textViewResultPoint);
         buttonResultBackHome=findViewById(R.id.buttonResultBackHome);
         Intent intent = getIntent();
+        ArrayList<Integer> falseList = intent.getIntegerArrayListExtra("falseList");
         int point = intent.getIntExtra("Point",0);
         textViewResultPoint.setText(point+"/"+ NoteActivity.listNote.size());
         MediaPlayer mp = MediaPlayer.create(getApplicationContext(), R.raw.victory);

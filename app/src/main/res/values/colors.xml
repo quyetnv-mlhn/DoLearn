@@ -22,4 +22,5 @@
     <color name="red">#FF0000</color>
     <color name="navy">#401D83</color>
     <color name="xam">#D9D9D9</color>
+    <color name="transparent">#FFFFFF</color>
 </resources>

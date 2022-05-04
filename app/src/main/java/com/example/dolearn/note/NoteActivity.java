@@ -40,8 +40,7 @@ public class NoteActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         actionBar();
         setContentView(R.layout.activity_note);
-
-        //Create listNote for WordGame
+        //listNote clone shuffle
         listNoteClone = (ArrayList<Item>) listNote.clone();
         Collections.shuffle(listNoteClone);
 
@@ -79,7 +78,6 @@ public class NoteActivity extends AppCompatActivity {
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK) {
             Intent intent = new Intent(NoteActivity.this, MainActivity.class);
-            intent.putExtra("flags",1);
             startActivity(intent);
             return true;
         }
