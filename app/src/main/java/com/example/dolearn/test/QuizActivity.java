@@ -12,6 +12,8 @@ import android.util.TimeUtils;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -35,13 +37,15 @@ import java.util.TimerTask;
 import java.util.concurrent.TimeUnit;
 
 public class QuizActivity extends AppCompatActivity implements View.OnClickListener {
-    TextView total_question_tv, question_tv;
+    TextView total_question_tv, question_tv, pronounce_tv;
     Button ans_a_btn, ans_b_btn, ans_c_btn, ans_d_btn;
     ProgressBar progressBar;
+    CheckBox checkBoxSpeak;
 
     ArrayList<Item> noteList = (ArrayList<Item>) NoteActivity.listNote.clone();
     ArrayList<Boolean> addedChoice = new ArrayList<Boolean>(Arrays.asList(new Boolean[noteList.size()]));
     ArrayList<String> words = new ArrayList<String>();
+    ArrayList<String> pronounceList = new ArrayList<String>();
     ArrayList<String> choices = new ArrayList<String>();
 
     int score = 0;
@@ -60,6 +64,8 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
 //        total_question_tv = findViewById(R.id.total_question_tv);
         progressBar = findViewById(R.id.progressBar);
         question_tv = findViewById(R.id.question_tv);
+        pronounce_tv = findViewById(R.id.TVPronounce);
+        checkBoxSpeak = findViewById(R.id.checkboxSpeaker);
         ans_a_btn = findViewById(R.id.ans_a_btn);
         ans_b_btn = findViewById(R.id.ans_b_btn);
         ans_c_btn = findViewById(R.id.ans_c_btn);
@@ -78,6 +84,7 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
         for(int i = 0; i < noteList.size(); i++){
             String[] tokens = noteList.get(i).getEngName().split("\\(");
             words.add(tokens[0]);
+            pronounceList.add(noteList.get(i).getPronoun().toString());
         }
 
 
@@ -149,12 +156,21 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
         ans_d_btn.setBackground(this.getResources().getDrawable(R.drawable.mybutton));
 
         question_tv.setText(words.get(currentQuestionIndex));
+        pronounce_tv.setText(pronounceList.get(currentQuestionIndex));
 
         randomChoice();
         ans_a_btn.setText(choices.get(0));
         ans_b_btn.setText(choices.get(1));
         ans_c_btn.setText(choices.get(2));
         ans_d_btn.setText(choices.get(3));
+
+        checkBoxSpeak.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                HandleClass.textToSpeech(getApplicationContext(), question_tv);
+                checkBoxSpeak.setChecked(false);
+            }
+        });
 
     }
 
@@ -173,7 +189,7 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
                 .setTitle(passStatus)
                 .setMessage("Trả lời đúng " + score + " trong tổng số " + totalQuestion + " câu hỏi")
                 .setPositiveButton("Bắt đầu lại", ((dialogInterface, i) -> restartQuiz()))
-                .setNegativeButton("Trở về màn hình chính", (((dialogInterface, i) -> backToMenu())))
+                .setNegativeButton("Trở về", (((dialogInterface, i) -> backToMenu())))
                 .setCancelable(false)
                 .show();
     }
@@ -203,13 +219,13 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     void backToMenu(){
-        Intent intentBackHome = new Intent(QuizActivity.this, MainActivity.class);
+        Intent intentBackHome = new Intent(QuizActivity.this, NoteActivity.class);
         startActivity(intentBackHome);
     }
 
     public void actionBar() {
         ActionBar actionBar = getSupportActionBar();
-        actionBar.setTitle("Quiz");
+        actionBar.setTitle("Quiz: Chọn nghĩa đúng của từ");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 

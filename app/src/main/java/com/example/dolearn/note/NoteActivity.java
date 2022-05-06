@@ -101,7 +101,8 @@ public class NoteActivity extends AppCompatActivity {
         switch (item.getItemId())
         {
             case android.R.id.home:
-                onBackPressed();
+                Intent intent = new Intent(NoteActivity.this, MainActivity.class);
+                startActivity(intent);
                 return true;
             default:break;
         }

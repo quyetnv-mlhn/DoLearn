@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-
+    android:layout_rowWeight="3"
     >
 
 <!--    <TextView-->
@@ -20,31 +20,30 @@
         android:id="@+id/progressBar"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="match_parent"
-        android:layout_height="20dp"
+        android:layout_height="15dp"
         android:outlineAmbientShadowColor="@color/sub"
         android:progressDrawable="@drawable/custom_progressbar" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/question_tv"
-        android:layout_centerHorizontal="true"
-        android:text="Chọn nghĩa đúng của từ:"
-        android:textAlignment="center"
-        android:textColor="@color/blue_pastel"
-        android:textSize="25sp"
-        android:textStyle="bold"
-        android:fontFamily="@font/roboto_regular" />
+<!--    <TextView-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_above="@+id/question_tv"-->
+<!--        android:layout_centerHorizontal="true"-->
+<!--        android:text="Chọn nghĩa đúng của từ:"-->
+<!--        android:textAlignment="center"-->
+<!--        android:textColor="@color/blue_pastel"-->
+<!--        android:textSize="25sp"-->
+<!--        android:textStyle="bold"-->
+<!--        android:fontFamily="@font/roboto_regular" />-->
 
     <TextView
         android:id="@+id/question_tv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@id/choices_ll"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp"
+        android:layout_above="@id/pronounce"
+        android:layout_alignParentTop="true"
         android:fontFamily="@font/roboto_regular"
+        android:gravity="center"
         android:text="This will be a question"
         android:textAlignment="center"
         android:textColor="#C20000"
@@ -52,52 +51,82 @@
         android:textStyle="bold" />
 
     <LinearLayout
+        android:id="@+id/pronounce"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_above="@+id/choices_ll"
+        >
+
+        <CheckBox
+            android:id="@+id/checkboxSpeaker"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_marginStart="7dp"
+            android:layout_marginEnd="7dp"
+            android:button="@animator/speaker"
+            />
+
+        <TextView
+            android:id="@+id/TVPronounce"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="pronounce"
+            android:textSize="20sp"
+            android:textStyle="italic"
+            android:layout_marginStart="10dp"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
         android:id="@+id/choices_ll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:orientation="vertical"
         android:padding="20dp">
 
         <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Ans A"
             android:id="@+id/ans_a_btn"
-            android:background="@drawable/mybutton"
-            android:textColor="@color/white"
-            android:layout_margin="5dp"
-            android:fontFamily="@font/roboto_regular" />
-
-        <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Ans B"
+            android:layout_margin="5dp"
+            android:background="@drawable/mybutton"
+            android:fontFamily="@font/roboto_regular"
+            android:text="Ans A"
+            android:textColor="@color/white" />
+
+        <Button
             android:id="@+id/ans_b_btn"
-            android:background="@drawable/mybutton"
-            android:textColor="@color/white"
-            android:layout_margin="5dp"
-            android:fontFamily="@font/roboto_regular"/>
-
-        <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Ans C"
+            android:layout_margin="5dp"
+            android:background="@drawable/mybutton"
+            android:fontFamily="@font/roboto_regular"
+            android:text="Ans B"
+            android:textColor="@color/white" />
+
+        <Button
             android:id="@+id/ans_c_btn"
-            android:background="@drawable/mybutton"
-            android:textColor="@color/white"
-            android:layout_margin="5dp"
-            android:fontFamily="@font/roboto_regular"/>
-
-        <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Ans D"
-            android:id="@+id/ans_d_btn"
-            android:background="@drawable/mybutton"
-            android:textColor="@color/white"
             android:layout_margin="5dp"
-            android:fontFamily="@font/roboto_regular"/>
+            android:background="@drawable/mybutton"
+            android:fontFamily="@font/roboto_regular"
+            android:text="Ans C"
+            android:textColor="@color/white" />
+
+        <Button
+            android:id="@+id/ans_d_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="@drawable/mybutton"
+            android:fontFamily="@font/roboto_regular"
+            android:text="Ans D"
+            android:textColor="@color/white" />
     </LinearLayout>
 
 
