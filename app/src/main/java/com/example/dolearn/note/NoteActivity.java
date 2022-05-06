@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.dolearn.MainActivity;
 import com.example.dolearn.R;
@@ -61,8 +62,12 @@ public class NoteActivity extends AppCompatActivity {
         buttonQuiz.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intentQuiz = new Intent(NoteActivity.this, QuizActivity.class);
-                startActivity(intentQuiz);
+                if(listNote.size() > 3){
+                    Intent intentQuiz = new Intent(NoteActivity.this, QuizActivity.class);
+                    startActivity(intentQuiz);
+                }else{
+                    Toast.makeText(NoteActivity.this, "Cần ít nhất 4 từ để luyện tập!", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 

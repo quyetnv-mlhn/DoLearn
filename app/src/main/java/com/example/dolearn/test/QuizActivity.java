@@ -2,6 +2,7 @@ package com.example.dolearn.test;
 
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
+import android.content.Intent;
 import android.graphics.Color;
 import android.media.MediaPlayer;
 import android.os.Bundle;
@@ -11,6 +12,7 @@ import android.util.TimeUtils;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
@@ -18,6 +20,7 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.dolearn.HandleClass;
+import com.example.dolearn.MainActivity;
 import com.example.dolearn.R;
 import com.example.dolearn.note.NoteActivity;
 import com.example.dolearn.topic.Dictionary;
@@ -34,6 +37,7 @@ import java.util.concurrent.TimeUnit;
 public class QuizActivity extends AppCompatActivity implements View.OnClickListener {
     TextView total_question_tv, question_tv;
     Button ans_a_btn, ans_b_btn, ans_c_btn, ans_d_btn;
+    ProgressBar progressBar;
 
     ArrayList<Item> noteList = (ArrayList<Item>) NoteActivity.listNote.clone();
     ArrayList<Boolean> addedChoice = new ArrayList<Boolean>(Arrays.asList(new Boolean[noteList.size()]));
@@ -53,7 +57,8 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
         actionBar();
         setContentView(R.layout.activity_quiz);
 
-        total_question_tv = findViewById(R.id.total_question_tv);
+//        total_question_tv = findViewById(R.id.total_question_tv);
+        progressBar = findViewById(R.id.progressBar);
         question_tv = findViewById(R.id.question_tv);
         ans_a_btn = findViewById(R.id.ans_a_btn);
         ans_b_btn = findViewById(R.id.ans_b_btn);
@@ -65,7 +70,8 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
         ans_c_btn.setOnClickListener(this);
         ans_d_btn.setOnClickListener(this);
 
-        total_question_tv.setText("Tổng số câu hỏi: " + noteList.size());
+//        total_question_tv.setText("Tổng số câu hỏi: " + noteList.size());
+        progressBar.setMax(noteList.size());
 
         Collections.shuffle(noteList);
 
@@ -77,8 +83,8 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
 
         loadNewQuestion();
 
-        System.out.println(words);
-        System.out.println(choices);
+//        System.out.println(words);
+//        System.out.println(choices);
 
     }
 
@@ -135,6 +141,8 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
             return;
         }
 
+        progressBar.setProgress(currentQuestionIndex + 1);
+
         ans_a_btn.setBackground(this.getResources().getDrawable(R.drawable.mybutton));
         ans_b_btn.setBackground(this.getResources().getDrawable(R.drawable.mybutton));
         ans_c_btn.setBackground(this.getResources().getDrawable(R.drawable.mybutton));
@@ -165,6 +173,7 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
                 .setTitle(passStatus)
                 .setMessage("Trả lời đúng " + score + " trong tổng số " + totalQuestion + " câu hỏi")
                 .setPositiveButton("Bắt đầu lại", ((dialogInterface, i) -> restartQuiz()))
+                .setNegativeButton("Trở về màn hình chính", (((dialogInterface, i) -> backToMenu())))
                 .setCancelable(false)
                 .show();
     }
@@ -191,6 +200,11 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
             addedChoice.set(randomPos, true);
         }
         Collections.shuffle(choices);
+    }
+
+    void backToMenu(){
+        Intent intentBackHome = new Intent(QuizActivity.this, MainActivity.class);
+        startActivity(intentBackHome);
     }
 
     public void actionBar() {

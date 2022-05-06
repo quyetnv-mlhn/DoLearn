@@ -3,18 +3,26 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    android:padding="20dp"
+
     >
 
-    <TextView
-        android:id="@+id/total_question_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:text="Total Questions"
-        android:textSize="24sp"
-        android:fontFamily="@font/roboto_regular"
-        />
+<!--    <TextView-->
+<!--        android:id="@+id/total_question_tv"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_centerHorizontal="true"-->
+<!--        android:text="Total Questions"-->
+<!--        android:textSize="24sp"-->
+<!--        android:fontFamily="@font/roboto_regular"-->
+<!--        />-->
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:outlineAmbientShadowColor="@color/sub"
+        android:progressDrawable="@drawable/custom_progressbar" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -23,11 +31,10 @@
         android:layout_centerHorizontal="true"
         android:text="Chọn nghĩa đúng của từ:"
         android:textAlignment="center"
-        android:textColor="@color/white"
+        android:textColor="@color/blue_pastel"
         android:textSize="25sp"
         android:textStyle="bold"
-        android:fontFamily="@font/roboto_regular"
-        />
+        android:fontFamily="@font/roboto_regular" />
 
     <TextView
         android:id="@+id/question_tv"
@@ -37,12 +44,11 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginBottom="20dp"
         android:fontFamily="@font/roboto_regular"
         android:text="This will be a question"
         android:textAlignment="center"
-        android:textSize="30sp"
         android:textColor="#C20000"
+        android:textSize="30sp"
         android:textStyle="bold" />
 
     <LinearLayout
@@ -50,7 +56,8 @@
         android:layout_height="wrap_content"
         android:id="@+id/choices_ll"
         android:layout_centerInParent="true"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="20dp">
 
         <Button
             android:layout_width="match_parent"
