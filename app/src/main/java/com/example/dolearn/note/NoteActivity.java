@@ -64,6 +64,7 @@ public class NoteActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if(listNote.size() > 3){
                     Intent intentQuiz = new Intent(NoteActivity.this, QuizActivity.class);
+                    intentQuiz.putExtra("sourceList", "fromNote");
                     startActivity(intentQuiz);
                 }else{
                     Toast.makeText(NoteActivity.this, "Cần ít nhất 4 từ để luyện tập!", Toast.LENGTH_SHORT).show();

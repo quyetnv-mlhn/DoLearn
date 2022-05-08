@@ -9,9 +9,11 @@ import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 
 import com.example.dolearn.R;
+import com.example.dolearn.test.QuizActivity;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -21,6 +23,7 @@ import java.util.Scanner;
 
 public class ItemActivity extends AppCompatActivity {
     ListView listView_item;
+    Button practiceButton;
     ItemAdapter adapter;
     String filename;
 
@@ -31,6 +34,7 @@ public class ItemActivity extends AppCompatActivity {
         handle();
         actionBar();
         listView_item = findViewById(R.id.listView_item);
+        practiceButton = findViewById(R.id.buttonPractice);
         adapter = new ItemAdapter(this,R.layout.item, Dictionary.listItem);
         listView_item.setAdapter(adapter);
         listView_item.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -39,6 +43,15 @@ public class ItemActivity extends AppCompatActivity {
                 Intent intent_detailedItem = new Intent(ItemActivity.this, DetailedItem.class);
                 intent_detailedItem.putExtra("ItemNumber", i);
                 startActivity(intent_detailedItem);
+            }
+        });
+
+        practiceButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent quizIntent = new Intent(ItemActivity.this, QuizActivity.class);
+                quizIntent.putExtra("sourceList", "fromItem");
+                startActivity(quizIntent);
             }
         });
     }

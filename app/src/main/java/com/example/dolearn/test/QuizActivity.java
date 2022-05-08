@@ -27,6 +27,7 @@ import com.example.dolearn.R;
 import com.example.dolearn.note.NoteActivity;
 import com.example.dolearn.topic.Dictionary;
 import com.example.dolearn.topic.Item;
+import com.example.dolearn.topic.ItemActivity;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -42,15 +43,29 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
     ProgressBar progressBar;
     CheckBox checkBoxSpeak;
 
-    ArrayList<Item> noteList = (ArrayList<Item>) NoteActivity.listNote.clone();
-    ArrayList<Boolean> addedChoice = new ArrayList<Boolean>(Arrays.asList(new Boolean[noteList.size()]));
+//    ArrayList<Item> noteList = getIntent().getStringExtra("sourceList").equals("fromNote") ?
+//            (ArrayList<Item>) NoteActivity.listNote.clone() :
+//            (ArrayList<Item>) Dictionary.listItem.clone();
+
+//    ArrayList<Item> noteList = (ArrayList<Item>) NoteActivity.listNote.clone();
+//    ArrayList<Boolean> addedChoice = new ArrayList<Boolean>(Arrays.asList(new Boolean[noteList.size()]));
+//    ArrayList<String> words = new ArrayList<String>();
+//    ArrayList<String> pronounceList = new ArrayList<String>();
+//    ArrayList<String> choices = new ArrayList<String>();
+
+    ArrayList<Item> noteList = new ArrayList<Item>();
+    ArrayList<Boolean> addedChoice = new ArrayList<Boolean>();
     ArrayList<String> words = new ArrayList<String>();
     ArrayList<String> pronounceList = new ArrayList<String>();
     ArrayList<String> choices = new ArrayList<String>();
 
+//    ArrayList<Item> noteList;
+//    ArrayList<Boolean> addedChoice;
+//    ArrayList<String> words, pronounceList, choices;
+
     int score = 0;
 
-    int totalQuestion = noteList.size();
+    int totalQuestion;
     int currentQuestionIndex = 0;
     boolean allowPress = true;
     String selectedAnswer = "";
@@ -60,6 +75,13 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         actionBar();
         setContentView(R.layout.activity_quiz);
+
+        noteList = getIntent().getStringExtra("sourceList").equals("fromNote") ?
+                (ArrayList<Item>) NoteActivity.listNote.clone() :
+                (ArrayList<Item>) Dictionary.listItem.clone();
+        totalQuestion = noteList.size();
+//        addedChoice = (ArrayList<Boolean>)(Arrays.asList(new Boolean[noteList.size()]));
+//        System.out.println(getIntent().getStringExtra("sourceList"));
 
 //        total_question_tv = findViewById(R.id.total_question_tv);
         progressBar = findViewById(R.id.progressBar);
@@ -85,12 +107,13 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
             String[] tokens = noteList.get(i).getEngName().split("\\(");
             words.add(tokens[0]);
             pronounceList.add(noteList.get(i).getPronoun().toString());
+            addedChoice.add(false);
         }
 
 
         loadNewQuestion();
 
-//        System.out.println(words);
+//        System.out.println(noteList);
 //        System.out.println(choices);
 
     }
@@ -208,7 +231,7 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
         int randomPos = random.nextInt(noteList.size());
 
         Collections.fill(addedChoice, Boolean.FALSE);
-        System.out.println(addedChoice);
+//        System.out.println(addedChoice);
         for(int i = 0; i < 3; i++){
             while (randomPos == currentQuestionIndex || addedChoice.get(randomPos))
                 randomPos = random.nextInt(noteList.size());
@@ -219,8 +242,14 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     void backToMenu(){
-        Intent intentBackHome = new Intent(QuizActivity.this, NoteActivity.class);
-        startActivity(intentBackHome);
+        if(getIntent().getStringExtra("sourceList").equals("fromNote")){
+            Intent intentBackNote = new Intent(QuizActivity.this, NoteActivity.class);
+            startActivity(intentBackNote);
+        }else{
+            Intent intentBackItem = new Intent(QuizActivity.this, ItemActivity.class);
+            startActivity(intentBackItem);
+        }
+
     }
 
     public void actionBar() {
