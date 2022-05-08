@@ -7,7 +7,10 @@
     android:orientation="vertical"
     android:background="@color/white"
     android:theme="@style/Theme.MaterialComponents"
-    tools:context=".translate.TranslateActivity">
+    tools:context=".translate.TranslateActivity"
+    android:clickable="true"
+    android:focusableInTouchMode="true"
+    >
 
     <TextView
         android:layout_width="match_parent"

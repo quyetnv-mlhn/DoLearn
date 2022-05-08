@@ -6,6 +6,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -26,12 +27,16 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.FirebaseApp;
+import com.google.firebase.crashlytics.buildtools.reloc.org.apache.http.HttpResponse;
+import com.google.firebase.crashlytics.buildtools.reloc.org.apache.http.client.HttpClient;
 import com.google.firebase.ml.common.modeldownload.FirebaseModelDownloadConditions;
 import com.google.firebase.ml.naturallanguage.FirebaseNaturalLanguage;
 import com.google.firebase.ml.naturallanguage.translate.FirebaseTranslateLanguage;
 import com.google.firebase.ml.naturallanguage.translate.FirebaseTranslator;
 import com.google.firebase.ml.naturallanguage.translate.FirebaseTranslatorOptions;
+import com.google.logging.type.HttpRequest;
 
+import java.net.URI;
 import java.util.ArrayList;
 import java.util.Locale;
 
@@ -62,8 +67,6 @@ public class TranslateActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 translatedTV.setText("");
-                InputMethodManager imm = (InputMethodManager) getSystemService((Context.INPUT_METHOD_SERVICE));
-                imm.hideSoftInputFromWindow(sourceEdit.getWindowToken(), 0);
                 if(sourceEdit.getText().toString().isEmpty()) {
                     Toast.makeText(TranslateActivity.this, "Vui lòng nhập từ/văn bản cần dịch", Toast.LENGTH_SHORT).show();
                 }else{
@@ -96,6 +99,16 @@ public class TranslateActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 swapLanguage();
+            }
+        });
+
+        sourceEdit.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean b) {
+                if (!b) {
+                    InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                    imm.hideSoftInputFromWindow(sourceEdit.getWindowToken(), 0);
+                }
             }
         });
     }
@@ -155,6 +168,18 @@ public class TranslateActivity extends AppCompatActivity {
         int tempLanguageCode = fromLanguageCode;
         fromLanguageCode = toLanguageCode;
         toLanguageCode = tempLanguageCode;
+    }
+
+    public static void hideSoftKeyboard(Activity activity) {
+        InputMethodManager inputMethodManager =
+                (InputMethodManager) activity.getSystemService(
+                        Activity.INPUT_METHOD_SERVICE);
+        if(inputMethodManager.isAcceptingText()){
+            inputMethodManager.hideSoftInputFromWindow(
+                    activity.getCurrentFocus().getWindowToken(),
+                    0
+            );
+        }
     }
 
     public void actionBar() {

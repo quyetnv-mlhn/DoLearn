@@ -35,6 +35,7 @@
             android:layout_height="match_parent"
             android:dividerHeight="10.0dp"
             android:divider="@color/pale_white"
+            android:scrollbars="none"
             >
         </ListView>
 

@@ -104,8 +104,8 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
         Collections.shuffle(noteList);
 
         for(int i = 0; i < noteList.size(); i++){
-            String[] tokens = noteList.get(i).getEngName().split("\\(");
-            words.add(tokens[0]);
+            String tokens = noteList.get(i).getEngName().toString();
+            words.add(tokens);
             pronounceList.add(noteList.get(i).getPronoun().toString());
             addedChoice.add(false);
         }
