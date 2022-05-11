@@ -8,10 +8,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/border_ui"
-        android:gravity="center"
-        android:padding="15sp"
+        android:padding="15dp"
         android:text="TextView"
         android:textColor="#009"
         android:textSize="20sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:fontFamily="@font/roboto_regular"
+        />
 </RelativeLayout>

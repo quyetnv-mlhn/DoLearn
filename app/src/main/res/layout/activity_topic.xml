@@ -29,16 +29,17 @@
         android:layout_weight="7"
         android:layout_margin="10dp"
         >
-        <ListView
+        <ExpandableListView
             android:id="@+id/listView_topic"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:dividerHeight="10.0dp"
-            android:divider="@color/pale_white"
+            android:divider="#FFFFFF"
+            android:childDivider="#FFFFFF"
             android:scrollbars="none"
-            >
 
-        </ListView>
+            >
+        </ExpandableListView>
 
     </LinearLayout>
 </LinearLayout>

@@ -17,13 +17,7 @@ import com.example.dolearn.MainActivity;
 import com.example.dolearn.R;
 import com.example.dolearn.test.QuizActivity;
 import com.example.dolearn.test.WordGame;
-import com.example.dolearn.topic.DetailedItem;
-import com.example.dolearn.topic.Dictionary;
 import com.example.dolearn.topic.Item;
-import com.example.dolearn.topic.ItemActivity;
-import com.example.dolearn.topic.ItemAdapter;
-import com.example.dolearn.topic.TopicActivity;
-import com.example.dolearn.topic.TopicItemActivity;
 
 
 import java.util.ArrayList;

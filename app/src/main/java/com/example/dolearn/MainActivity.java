@@ -17,7 +17,6 @@ import android.view.View;
 import com.example.dolearn.note.NoteActivity;
 import com.example.dolearn.topic.Dictionary;
 import com.example.dolearn.topic.Item;
-import com.example.dolearn.topic.TopicItemActivity;
 import com.example.dolearn.translate.TranslateActivity;
 
 import com.example.dolearn.topic.TopicActivity;

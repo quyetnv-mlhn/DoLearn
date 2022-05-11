@@ -13,11 +13,7 @@ import android.widget.TextView;
 
 import com.example.dolearn.HandleClass;
 import com.example.dolearn.R;
-import com.example.dolearn.topic.DetailedItem;
-import com.example.dolearn.topic.Dictionary;
 import com.example.dolearn.topic.Item;
-import com.example.dolearn.topic.TopicActivity;
-import com.example.dolearn.topic.TopicItemActivity;
 
 import java.util.ArrayList;
 
