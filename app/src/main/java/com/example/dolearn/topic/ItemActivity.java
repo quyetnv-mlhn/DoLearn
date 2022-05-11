@@ -19,14 +19,14 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 
 public class ItemActivity extends AppCompatActivity {
     ListView listView_item;
-    Button practiceButton;
+    Button practiceButton,buttonWordGame;
     ItemAdapter adapter;
     String filename;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,6 +35,7 @@ public class ItemActivity extends AppCompatActivity {
         actionBar();
         listView_item = findViewById(R.id.listView_item);
         practiceButton = findViewById(R.id.buttonPractice);
+        buttonWordGame = findViewById(R.id.buttonWordGame);
         adapter = new ItemAdapter(this,R.layout.item, Dictionary.listItem);
         listView_item.setAdapter(adapter);
         listView_item.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -52,6 +53,13 @@ public class ItemActivity extends AppCompatActivity {
                 Intent quizIntent = new Intent(ItemActivity.this, QuizActivity.class);
                 quizIntent.putExtra("sourceList", "fromItem");
                 startActivity(quizIntent);
+            }
+        });
+        buttonWordGame.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentWordGame = new Intent(ItemActivity.this,WordGameTopic.class);
+                startActivity(intentWordGame);
             }
         });
     }
