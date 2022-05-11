@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".test.WordGame"
+    android:weightSum="10"
+    android:orientation="vertical"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.2"
+        >
+
+        <ProgressBar
+            android:id="@+id/progressBarWordGame"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:outlineAmbientShadowColor="@color/sub"
+            android:progressDrawable="@drawable/custom_progressbar"
+            />
+    </LinearLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="6.8"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:padding="20dp"
+        >
+
+        <TextView
+            android:id="@+id/textViewWordGameTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Sắp xếp theo thứ tự thành từ đúng:"
+            android:textSize="20sp"
+            android:textColor="@color/blue_pastel"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentTop="true"
+            android:textStyle="bold"
+            android:fontFamily="@font/roboto_regular"
+            />
+
+        <TextView
+            android:id="@+id/textViewWordGameVie"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/textViewWordGame"
+            android:layout_below="@+id/textViewWordGameTitle"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="25dp"
+            android:layout_marginBottom="10dp"
+            android:justificationMode="inter_word"
+            android:overScrollMode="ifContentScrolls"
+            android:text="Nghĩa Tiếng Việt"
+            android:textSize="30sp"
+            tools:ignore="UnusedAttribute" />
+
+        <TextView
+            android:id="@+id/textViewWordGame"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/buttonBlock"
+            android:layout_centerInParent="true"
+            android:layout_marginBottom="90dp"
+            android:background  ="@android:color/transparent"
+            android:gravity="center"
+            android:textColor="@color/sub"
+            android:textSize="40sp"
+            android:textStyle="bold"/>
+
+        <LinearLayout
+            android:id="@+id/buttonBlock"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:layout_marginBottom="20dp">
+
+            <ImageButton
+                android:id="@+id/buttonWordGameDelete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="70dp"
+                android:background="@android:color/transparent"
+                app:srcCompat="@drawable/ic_backspace" />
+
+            <ImageButton
+                android:id="@+id/buttonWordGameReset"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:text="Reset"
+                app:srcCompat="@drawable/reset" />
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <GridLayout
+        android:id="@+id/gridLayoutWordGame"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3"
+        android:orientation="horizontal"
+        android:columnCount="5"
+        android:rowCount="3"
+        android:useDefaultMargins="false"
+        />
+</LinearLayout>
