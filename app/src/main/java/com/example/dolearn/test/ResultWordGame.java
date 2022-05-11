@@ -4,6 +4,7 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.dolearn.HandleClass;
 import com.example.dolearn.MainActivity;
 import com.example.dolearn.R;
 import com.example.dolearn.note.NoteActivity;
@@ -53,7 +54,7 @@ public class ResultWordGame extends AppCompatActivity {
              public void run() {
                  AddItemToNoteDialog();
              }
-         }, 2000);
+         }, 1000);
 
      }
     }
@@ -80,15 +81,19 @@ public class ResultWordGame extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
            NoteActivity.listNote.addAll(Dictionary.wrongWordGame);
-                Dictionary.wrongWordGame.removeAll(Dictionary.wrongWordGame);
+                Dictionary.wrongWordGame.clear();
+                HandleClass.loadDataToFile(getApplicationContext());
             }
         });
         alertDialog.setPositiveButton("Không", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                Dictionary.wrongWordGame.removeAll(Dictionary.wrongWordGame);
+                Dictionary.wrongWordGame.clear();
+                HandleClass.loadDataToFile(getApplicationContext());
+
             }
         });
         alertDialog.show();
+
     }
 }
