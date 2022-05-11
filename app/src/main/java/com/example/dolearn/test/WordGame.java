@@ -179,7 +179,6 @@ public class WordGame extends AppCompatActivity {
                     getIntent().putExtra("i", i);
                     finish();
                     startActivity(getIntent());
-
                 }else if(i==NoteActivity.listNoteClone.size()){
                     Intent intentResult = new Intent(WordGame.this,ResultWordGame.class);
                     intentResult.putExtra("Point",point);

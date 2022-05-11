@@ -17,7 +17,12 @@ import com.example.dolearn.MainActivity;
 import com.example.dolearn.R;
 import com.example.dolearn.test.QuizActivity;
 import com.example.dolearn.test.WordGame;
+import com.example.dolearn.topic.DetailedItem;
+import com.example.dolearn.topic.Dictionary;
 import com.example.dolearn.topic.Item;
+import com.example.dolearn.topic.ItemActivity;
+import com.example.dolearn.topic.ItemAdapter;
+import com.example.dolearn.topic.TopicActivity;
 
 
 import java.util.ArrayList;
@@ -35,9 +40,6 @@ public class NoteActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         actionBar();
         setContentView(R.layout.activity_note);
-        //listNote clone shuffle
-        listNoteClone = (ArrayList<Item>) listNote.clone();
-        Collections.shuffle(listNoteClone);
 
         listView_item = findViewById(R.id.listView_item);
         buttonWordGame = findViewById(R.id.buttonWordGame);
@@ -70,6 +72,9 @@ public class NoteActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intentWordGame = new Intent(NoteActivity.this, WordGame.class);
+                //listNote clone shuffle
+                listNoteClone = (ArrayList<Item>) listNote.clone();
+                Collections.shuffle(listNoteClone);
                 startActivity(intentWordGame);
             }
         });
