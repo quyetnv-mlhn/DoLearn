@@ -17,8 +17,8 @@
         <item>Công việc</item>
         <item>Nghệ thuật</item>
         <item>Truyền thông</item>
-        <item>Liên Lạc, Tin tức</item>
-        <item>Các từ chỉ trạng, mức độ</item>
+        <item>Liên lạc, Tin tức</item>
+        <item>Các từ chỉ trạng thái, mức độ</item>
     </string-array>
     <string-array name="tunhien_list">
         <item>Động vật</item>

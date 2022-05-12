@@ -130,7 +130,7 @@ public class TopicActivity extends AppCompatActivity {
                 loadTopicItem(art);
             } else if (topic.equals("Truyền thông")) {
                 loadTopicItem(communication);
-            } else if (topic.equals("Liên lạc, tin tức")) {
+            } else if (topic.equals("Liên lạc, Tin tức")) {
                 loadTopicItem(telephoneLetter);
             } else if (topic.equals("Các từ chỉ trạng thái, mức độ")) {
                 loadTopicItem(adverb);
