@@ -87,7 +87,9 @@
         android:hint="Từ/Văn bản cần dịch"
         android:padding="5dp"
         android:textColorHint="@color/sub"
-        app:hintTextColor="@color/sub">
+        app:hintTextColor="@color/sub"
+        android:clickable="false"
+        >
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
@@ -98,7 +100,7 @@
             android:inputType="textImeMultiLine|textMultiLine"
             android:textColor="@color/sub"
             android:textColorHint="@color/white"
-            android:textSize="14sp"/>
+            android:textSize="20sp"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -132,25 +134,47 @@
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"/>
 
-    <ScrollView
+<!--    <ScrollView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:layout_marginTop="10dp"-->
+<!--        android:fillViewport="true">-->
+<!--       -->
+<!--    </ScrollView>-->
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:fillViewport="true">
-        <LinearLayout
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        >
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center">
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            android:layout_weight="8">
+
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:padding="5dp"
-                android:text=""
                 android:textAlignment="center"
                 android:textColor="@color/sub"
-                android:textSize="16sp"
-                android:id="@+id/idTVTranslatedTV"/>
-        </LinearLayout>
-    </ScrollView>
+                android:textSize="20sp"
+                android:id="@+id/idTVTranslatedTV"
+                />
+        </ScrollView>
 
+
+        <ImageButton
+            android:id="@+id/addButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/transparent"
+            android:src="@drawable/add"
+            android:layout_weight="2"
+            android:padding="10dp"
+            android:layout_margin="15dp"
+            />
+    </LinearLayout>
 </LinearLayout>

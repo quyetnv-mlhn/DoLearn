@@ -55,4 +55,12 @@ public class HandleClass {
             }
         });
     }
+
+    //Viet hoa chu cai dau tien
+    public static String upperCaseFirst(String string) {
+        String firstLetter = string.substring(0, 1);
+        String remainingLetters = string.substring(1, string.length());
+        firstLetter = firstLetter.toUpperCase();
+        return firstLetter + remainingLetters;
+    }
 }

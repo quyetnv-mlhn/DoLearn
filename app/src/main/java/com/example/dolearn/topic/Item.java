@@ -12,6 +12,14 @@ public class Item implements Serializable {
     private int note;
     private int speak;
 
+    public Item(String engName, String vieName) {
+        this.engName = engName;
+        this.vieName = vieName;
+        this.pronoun = "...";
+        this.exampleEn = "...";
+        this.exampleVi = "...";
+    }
+
     public Item(String engName, String vieName, String pronoun, String exampleEn, String exampleVi) {
         this.engName = engName;
         this.vieName = vieName;

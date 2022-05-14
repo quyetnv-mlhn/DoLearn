@@ -249,7 +249,6 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
             Intent intentBackItem = new Intent(QuizActivity.this, ItemActivity.class);
             startActivity(intentBackItem);
         }
-
     }
 
     public void actionBar() {

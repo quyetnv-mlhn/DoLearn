@@ -14,27 +14,24 @@ import android.speech.RecognizerIntent;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
+import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.dolearn.HandleClass;
 import com.example.dolearn.R;
+import com.example.dolearn.note.NoteActivity;
+import com.example.dolearn.topic.Item;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
-import com.google.firebase.FirebaseApp;
-import com.google.firebase.crashlytics.buildtools.reloc.org.apache.http.HttpResponse;
-import com.google.firebase.crashlytics.buildtools.reloc.org.apache.http.client.HttpClient;
 import com.google.firebase.ml.common.modeldownload.FirebaseModelDownloadConditions;
 import com.google.firebase.ml.naturallanguage.FirebaseNaturalLanguage;
 import com.google.firebase.ml.naturallanguage.translate.FirebaseTranslateLanguage;
 import com.google.firebase.ml.naturallanguage.translate.FirebaseTranslator;
 import com.google.firebase.ml.naturallanguage.translate.FirebaseTranslatorOptions;
-import com.google.logging.type.HttpRequest;
 
 import java.net.URI;
 import java.util.ArrayList;
@@ -47,8 +44,10 @@ public class TranslateActivity extends AppCompatActivity {
     private MaterialButton translateBtn;
     private TextView translatedTV, fromTV, toTV;
     private static final int REQUEST_PERMISSION_CODE = 1;
+    private ImageButton addButton;
     int fromLanguageCode = FirebaseTranslateLanguage.EN;
     int toLanguageCode = FirebaseTranslateLanguage.VI;
+    Boolean flags = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,10 +61,13 @@ public class TranslateActivity extends AppCompatActivity {
         translatedTV = findViewById(R.id.idTVTranslatedTV);
         fromTV = findViewById(R.id.idFromTV);
         toTV = findViewById(R.id.idToTV);
+        addButton = findViewById(R.id.addButton);
 
         translateBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(sourceEdit.getWindowToken(), 0);
                 translatedTV.setText("");
                 if(sourceEdit.getText().toString().isEmpty()) {
                     Toast.makeText(TranslateActivity.this, "Vui lòng nhập từ/văn bản cần dịch", Toast.LENGTH_SHORT).show();
@@ -111,6 +113,24 @@ public class TranslateActivity extends AppCompatActivity {
                 }
             }
         });
+
+        addButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (flags) {
+                    Boolean check = false;
+                    for (Item item : NoteActivity.listNote) {
+                        if (item.getEngName().equals(sourceEdit.getText().toString())) {
+                            check = true;
+                        }
+                    }
+                    if (!check) {
+                        NoteActivity.listNote.add(new Item(HandleClass.upperCaseFirst(sourceEdit.getText().toString() + " (???)"), HandleClass.upperCaseFirst(translatedTV.getText().toString())));
+                        HandleClass.loadDataToFile(getApplicationContext());
+                    }
+                }
+            }
+        });
     }
 
     @Override
@@ -143,11 +163,13 @@ public class TranslateActivity extends AppCompatActivity {
                     @Override
                     public void onSuccess(String s) {
                         translatedTV.setText(s);
+                        flags = true;
                     }
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
                         Toast.makeText(TranslateActivity.this, "Xảy ra lỗi khi dịch", Toast.LENGTH_SHORT).show();
+                        flags = false;
                     }
                 });
             }

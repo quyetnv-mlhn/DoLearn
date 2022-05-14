@@ -55,7 +55,6 @@ public class ResultWordGame extends AppCompatActivity {
                  AddItemToNoteDialog();
              }
          }, 1000);
-
      }
     }
     public void actionBar() {
@@ -94,6 +93,5 @@ public class ResultWordGame extends AppCompatActivity {
             }
         });
         alertDialog.show();
-
     }
 }

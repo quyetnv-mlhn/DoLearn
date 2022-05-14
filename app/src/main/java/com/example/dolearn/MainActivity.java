@@ -15,6 +15,7 @@ import android.view.KeyEvent;
 import android.view.View;
 
 import com.example.dolearn.note.NoteActivity;
+import com.example.dolearn.setting.SettingActivity;
 import com.example.dolearn.topic.Dictionary;
 import com.example.dolearn.topic.Item;
 import com.example.dolearn.translate.TranslateActivity;
@@ -29,7 +30,7 @@ import java.io.InputStreamReader;
 
 
 public class MainActivity extends AppCompatActivity {
-    CardView cardView_topic, cardView_translate, cardView_note;
+    CardView cardView_topic, cardView_translate, cardView_note, cartView_setting;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
@@ -69,12 +70,21 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        cartView_setting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, SettingActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void anhxa() {
         cardView_translate = findViewById(R.id.cardView_translate);
         cardView_topic = findViewById(R.id.cardView_topic);
         cardView_note = findViewById(R.id.cardView_note);
+        cartView_setting = findViewById(R.id.cardView_setting);
     }
 
     //Load data from file in device to listNote
