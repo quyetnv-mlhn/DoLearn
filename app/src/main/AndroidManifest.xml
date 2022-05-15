@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.dolearn" >
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
     <application
         android:allowBackup="true"
@@ -22,9 +21,6 @@
             android:name=".test.WordGame"
             android:exported="false" />
         <activity
-            android:name=".test.ResultWordGame"
-            android:exported="false" />
-        <activity
             android:name=".note.NoteDetailItem"
             android:exported="false" />
         <activity
@@ -38,9 +34,6 @@
             android:exported="false" />
         <activity
             android:name=".topic.ItemActivity"
-            android:exported="false" />
-        <activity
-            android:name=".topic.TopicItemActivity"
             android:exported="false" />
         <activity
             android:name=".topic.TopicActivity"
