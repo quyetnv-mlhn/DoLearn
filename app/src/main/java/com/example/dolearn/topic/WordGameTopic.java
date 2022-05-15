@@ -4,9 +4,11 @@ import static com.example.dolearn.R.drawable.custom_wordgame;
 import static com.example.dolearn.R.drawable.custom_wordgame_transparent;
 
 import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
@@ -21,7 +23,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.example.dolearn.HandleClass;
 import com.example.dolearn.R;
-import com.example.dolearn.test.ResultWordGame;
+import com.example.dolearn.note.NoteActivity;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -181,14 +183,35 @@ public class WordGameTopic extends AppCompatActivity {
                     startActivity(getIntent());
 
                 }else if(i==list.size()){
-                    Intent intentResult = new Intent(WordGameTopic.this, ResultWordGame.class);
-                    intentResult.putExtra("Point",point);
-                    intentResult.putExtra("MaxPoint",list.size());
-                    intentResult.putExtra("check",true);
-                    startActivity(intentResult);
+                    AddItemToNoteDialog();
                 }
             }
         }, 2000);
+    }
+    private void AddItemToNoteDialog(){
+        Intent intentBack = new Intent(WordGameTopic.this, ItemActivity.class);
+        AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
+        alertDialog.setTitle("Xin chúc mừng!");
+        alertDialog.setCancelable(false);
+        alertDialog.setMessage("Số điểm của bạn là: "+point+"/"+list.size()+"\nBạn có muốn thêm từ đã sai vào Note hay không?");
+        alertDialog.setNegativeButton("Có", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                NoteActivity.listNote.addAll(Dictionary.wrongWordGame);
+                Dictionary.wrongWordGame.clear();
+                HandleClass.loadDataToFile(getApplicationContext());
+                startActivity(intentBack);
+            }
+        });
+        alertDialog.setPositiveButton("Không", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Dictionary.wrongWordGame.clear();
+                HandleClass.loadDataToFile(getApplicationContext());
+                startActivity(intentBack);
+            }
+        });
+        alertDialog.show();
     }
 
     public void actionBar() {

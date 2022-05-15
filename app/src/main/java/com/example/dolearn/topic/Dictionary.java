@@ -23,4 +23,5 @@ import java.util.ArrayList;
 public class Dictionary extends AppCompatActivity {
     public static ArrayList<Item> listItem = new ArrayList<Item>();
     public static ArrayList<Item> wrongWordGame = new ArrayList<Item>();
+    public static ArrayList<Item> correctWordGame = new ArrayList<Item>();
 }

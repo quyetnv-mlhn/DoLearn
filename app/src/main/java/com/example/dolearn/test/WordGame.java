@@ -3,9 +3,11 @@ import static com.example.dolearn.R.drawable.custom_wordgame;
 import static com.example.dolearn.R.drawable.custom_wordgame_transparent;
 
 import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
@@ -22,7 +24,10 @@ import android.widget.TextView;
 import com.example.dolearn.HandleClass;
 import com.example.dolearn.R;
 import com.example.dolearn.note.NoteActivity;
+import com.example.dolearn.topic.Dictionary;
 import com.example.dolearn.topic.Item;
+import com.example.dolearn.topic.ItemActivity;
+import com.example.dolearn.topic.WordGameTopic;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -163,6 +168,7 @@ public class WordGame extends AppCompatActivity {
             textViewWordGame.setText(""+NoteActivity.listNoteClone.get(i).getEngName());
             textViewWordGame.setTextColor(getResources().getColor(R.color.green));
             point++;
+            Dictionary.correctWordGame.add(NoteActivity.listNoteClone.get(i));
         } else {
             textViewWordGame.setText(""+NoteActivity.listNoteClone.get(i).getEngName());
             textViewWordGame.setTextColor(getResources().getColor(R.color.red));
@@ -180,16 +186,36 @@ public class WordGame extends AppCompatActivity {
                     finish();
                     startActivity(getIntent());
                 }else if(i==NoteActivity.listNoteClone.size()){
-                    Intent intentResult = new Intent(WordGame.this,ResultWordGame.class);
-                    intentResult.putExtra("Point",point);
-                    intentResult.putExtra("MaxPoint",NoteActivity.listNote.size());
-                    intentResult.putExtra("check",false);
-                    startActivity(intentResult);
+                    RemoveItemToNoteDialog();
                 }
             }
         }, 2000);
     }
-
+    private void RemoveItemToNoteDialog(){
+        Intent intentBack = new Intent(WordGame.this, NoteActivity.class);
+        AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
+        alertDialog.setTitle("Xin chúc mừng!");
+        alertDialog.setCancelable(false);
+        alertDialog.setMessage("Số điểm của bạn là: "+point+"/"+NoteActivity.listNote.size()+"\nBạn có muốn loại bỏ từ đã làm đúng khỏi Note hay không?");
+        alertDialog.setNegativeButton("Có", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                NoteActivity.listNote.removeAll(Dictionary.correctWordGame);
+                Dictionary.correctWordGame.clear();
+                HandleClass.loadDataToFile(getApplicationContext());
+                startActivity(intentBack);
+            }
+        });
+        alertDialog.setPositiveButton("Không", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Dictionary.correctWordGame.clear();
+                HandleClass.loadDataToFile(getApplicationContext());
+                startActivity(intentBack);
+            }
+        });
+        alertDialog.show();
+    }
     public void actionBar() {
         ActionBar actionBar = getSupportActionBar();
         assert actionBar != null;
