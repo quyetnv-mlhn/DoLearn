@@ -118,14 +118,9 @@ public class TranslateActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (flags) {
-                    Boolean check = false;
-                    for (Item item : NoteActivity.listNote) {
-                        if (item.getEngName().equals(sourceEdit.getText().toString())) {
-                            check = true;
-                        }
-                    }
-                    if (!check) {
-                        NoteActivity.listNote.add(new Item(HandleClass.upperCaseFirst(sourceEdit.getText().toString() + " (???)"), HandleClass.upperCaseFirst(translatedTV.getText().toString())));
+                    Item item = new Item(HandleClass.upperCaseFirst(sourceEdit.getText().toString() + " (???)"), HandleClass.upperCaseFirst(translatedTV.getText().toString()));
+                    if (!HandleClass.checkExist(item)) {
+                        NoteActivity.listNote.add(item);
                         HandleClass.loadDataToFile(getApplicationContext());
                     }
                 }

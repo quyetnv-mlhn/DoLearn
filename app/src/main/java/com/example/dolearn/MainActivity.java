@@ -44,6 +44,9 @@ public class MainActivity extends AppCompatActivity {
         if (NoteActivity.listNote.isEmpty()) {
             NoteActivity.listNote.add(item);
         }
+        for (Item item1 : NoteActivity.listNote) {
+            NoteActivity.listEngName.add(item1.getEngName());
+        }
 
         cardView_translate.setOnClickListener(new View.OnClickListener() {
             @Override

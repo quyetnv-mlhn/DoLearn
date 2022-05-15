@@ -31,6 +31,7 @@ import java.util.Collections;
 public class NoteActivity extends AppCompatActivity {
     public static ArrayList<Item> listNote = new ArrayList<Item>();
     public static ArrayList<Item> listNoteClone;
+    public static ArrayList<String> listEngName = new ArrayList<>();
     ListView listView_item;
     NoteAdapter adapter;
     Button buttonWordGame;
@@ -44,6 +45,7 @@ public class NoteActivity extends AppCompatActivity {
         listView_item = findViewById(R.id.listView_item);
         buttonWordGame = findViewById(R.id.buttonWordGame);
         buttonQuiz = findViewById(R.id.buttonPractice);
+
         adapter = new NoteAdapter(this, R.layout.item, listNote);
         listView_item.setAdapter(adapter);
         listView_item.setOnItemClickListener(new AdapterView.OnItemClickListener() {

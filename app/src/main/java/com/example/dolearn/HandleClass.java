@@ -63,4 +63,8 @@ public class HandleClass {
         firstLetter = firstLetter.toUpperCase();
         return firstLetter + remainingLetters;
     }
+
+    public static Boolean checkExist(Item item) {
+        return NoteActivity.listEngName.contains(item.getEngName());
+    }
 }
