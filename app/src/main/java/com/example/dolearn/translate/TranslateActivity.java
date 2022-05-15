@@ -119,7 +119,7 @@ public class TranslateActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if (flags) {
                     Item item = new Item(HandleClass.upperCaseFirst(sourceEdit.getText().toString() + " (???)"), HandleClass.upperCaseFirst(translatedTV.getText().toString()));
-                    if (!HandleClass.checkExist(item)) {
+                    if (!HandleClass.checkExistInNote(item)) {
                         NoteActivity.listNote.add(item);
                         HandleClass.loadDataToFile(getApplicationContext());
                     }

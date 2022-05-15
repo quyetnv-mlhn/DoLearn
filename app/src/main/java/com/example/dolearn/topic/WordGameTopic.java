@@ -197,7 +197,11 @@ public class WordGameTopic extends AppCompatActivity {
         alertDialog.setNegativeButton("Có", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                NoteActivity.listNote.addAll(Dictionary.wrongWordGame);
+                for (Item item : Dictionary.wrongWordGame) {
+                    if (!HandleClass.checkExistInNote(item)) {
+                        NoteActivity.listNote.add(item);
+                    }
+                }
                 Dictionary.wrongWordGame.clear();
                 HandleClass.loadDataToFile(getApplicationContext());
                 startActivity(intentBack);
@@ -207,7 +211,6 @@ public class WordGameTopic extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 Dictionary.wrongWordGame.clear();
-                HandleClass.loadDataToFile(getApplicationContext());
                 startActivity(intentBack);
             }
         });

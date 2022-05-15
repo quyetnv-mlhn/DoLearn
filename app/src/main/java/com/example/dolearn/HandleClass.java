@@ -64,7 +64,8 @@ public class HandleClass {
         return firstLetter + remainingLetters;
     }
 
-    public static Boolean checkExist(Item item) {
+    //Kiem tra item co tom tai trong listNote hay khong
+    public static Boolean checkExistInNote(Item item) {
         return NoteActivity.listEngName.contains(item.getEngName());
     }
 }
