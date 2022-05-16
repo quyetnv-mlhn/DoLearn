@@ -47,6 +47,7 @@ public class TranslateActivity extends AppCompatActivity {
     private ImageButton addButton;
     int fromLanguageCode = FirebaseTranslateLanguage.EN;
     int toLanguageCode = FirebaseTranslateLanguage.VI;
+    String fromText = "eng";
     Boolean flags = false;
 
     @Override
@@ -117,13 +118,15 @@ public class TranslateActivity extends AppCompatActivity {
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (flags) {
-                    Item item = new Item(HandleClass.upperCaseFirst(sourceEdit.getText().toString() + " (???)"), HandleClass.upperCaseFirst(translatedTV.getText().toString()));
-                    if (!HandleClass.checkExistInNote(item)) {
-                        NoteActivity.listNote.add(item);
-                        HandleClass.loadDataToFile(getApplicationContext());
-                    }
-                }
+                    Bundle bundle = new Bundle();
+                    bundle.putString("FromText", fromText);
+                    bundle.putString("engName", sourceEdit.getText().toString());
+                    bundle.putString("vieName", translatedTV.getText().toString());
+
+
+                    AddItemDialog addItemDialog = new AddItemDialog();
+                    addItemDialog.setArguments(bundle);
+                    addItemDialog.show(getSupportFragmentManager(), "add item dialog");
             }
         });
     }
@@ -185,6 +188,8 @@ public class TranslateActivity extends AppCompatActivity {
         int tempLanguageCode = fromLanguageCode;
         fromLanguageCode = toLanguageCode;
         toLanguageCode = tempLanguageCode;
+
+        fromText = fromText.equals("eng") ? "vie" : "eng";
     }
 
     public void actionBar() {

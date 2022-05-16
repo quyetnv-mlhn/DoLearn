@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".translate.AddItemDialog"
+    android:orientation="vertical"
+    android:padding="10dp"
+    >
+    
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:hint="@string/engName"
+        android:id="@+id/engNameED"
+        android:textColorHint="@color/xam"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:hint="@string/vieName"
+        android:id="@+id/vieNameED"
+        android:textColorHint="@color/xam"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:hint="@string/type"
+        android:id="@+id/typeED"
+        android:textColorHint="@color/xam"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:hint="@string/pron"
+        android:id="@+id/pronED"
+        android:textColorHint="@color/xam"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:hint="@string/engExample"
+        android:id="@+id/engExampleED"
+        android:textColorHint="@color/xam"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:hint="@string/vieExample"
+        android:id="@+id/vieExampleED"
+        android:textColorHint="@color/xam"
+        />
+</LinearLayout>

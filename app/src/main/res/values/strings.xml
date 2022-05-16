@@ -142,6 +142,7 @@
         <item>TVs and Newspaper</item>
     </string-array>
     <string-array name="cactuchitrangthaimucdo_eng_list">
+
         <item>Measurement</item>
         <item>Speed</item>
         <item>Frequency</item>
@@ -149,4 +150,12 @@
         <item>Places</item>
         <item>Others</item>
     </string-array>
+
+    <string name="engName"><font size="15">* Từ tiếng Anh</font></string>
+    <string name="vieName"><font size="15">* Nghĩa tiếng Việt!</font></string>
+    <string name="type"><font size="15">* Loại từ</font></string>
+    <string name="pron"><font size="15">Phát âm</font></string>
+    <string name="engExample"><font size="15">Ví dụ tiếng Anh</font></string>
+    <string name="vieExample"><font size="15">Ví dụ tiếng Việt</font></string>
+
 </resources>
