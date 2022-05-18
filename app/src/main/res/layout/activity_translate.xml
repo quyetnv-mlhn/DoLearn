@@ -45,15 +45,6 @@
             android:textSize="20sp"
             android:padding="4dp"/>
 
-        <!--        <Spinner-->
-        <!--            android:layout_width="0dp"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:layout_weight="1"-->
-        <!--            android:id="@+id/idFromSpinner"-->
-        <!--            android:gravity="center"-->
-        <!--            android:layout_margin="3dp"-->
-        <!--            android:padding="3dp"/>-->
-
         <ImageView
             android:id="@+id/idSwapBtn"
             android:layout_width="0dp"
@@ -97,22 +88,41 @@
             android:id="@+id/idEditSource"
             android:importantForAutofill="no"
             android:ems="10"
-            android:inputType="textImeMultiLine|textMultiLine"
+            android:inputType="text"
             android:textColor="@color/sub"
             android:textColorHint="@color/white"
-            android:textSize="20sp"/>
+            android:textSize="20sp"
+            android:imeOptions="actionDone"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        android:layout_marginTop="10dp"
+        android:layout_marginHorizontal="20dp">
+
     <ImageView
-        android:layout_width="70dp"
+        android:layout_width="0dp"
         android:layout_height="70dp"
+        android:layout_weight="1"
         android:src="@drawable/ic_mic"
         android:layout_gravity="center"
-        android:layout_marginTop="10dp"
         app:tint="@color/sub"
         android:id="@+id/idIVMic"/>
+
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="70dp"
+        android:layout_weight="1"
+        android:src="@drawable/ic_camera"
+        android:layout_gravity="center"
+        app:tint="@color/sub"
+        android:id="@+id/idIVCam"/>
+    </LinearLayout>
 
 
     <com.google.android.material.button.MaterialButton
@@ -133,14 +143,6 @@
         android:layout_marginTop="20dp"
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"/>
-
-<!--    <ScrollView-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"-->
-<!--        android:layout_marginTop="10dp"-->
-<!--        android:fillViewport="true">-->
-<!--       -->
-<!--    </ScrollView>-->
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -164,7 +166,6 @@
                 android:id="@+id/idTVTranslatedTV"
                 />
         </ScrollView>
-
 
         <ImageButton
             android:id="@+id/addButton"
