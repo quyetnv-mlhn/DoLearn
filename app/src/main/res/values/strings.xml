@@ -8,6 +8,9 @@
     <string name="do_learn">Do Learn</string>
     <string name="learn_english_so_easy">Learn English so easy</string>
     <string name="logo">logo</string>
+    <string name="channel_name">Channel 1</string>
+    <string name="channel_description">This is Channel 1</string>
+
     <string-array name="topic_list">
         <item>Tự nhiên</item>
         <item>Con người</item>

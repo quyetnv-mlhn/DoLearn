@@ -107,7 +107,7 @@
 
     <ImageView
         android:layout_width="0dp"
-        android:layout_height="70dp"
+        android:layout_height="50dp"
         android:layout_weight="1"
         android:src="@drawable/ic_mic"
         android:layout_gravity="center"
@@ -116,7 +116,7 @@
 
     <ImageView
         android:layout_width="0dp"
-        android:layout_height="70dp"
+        android:layout_height="50dp"
         android:layout_weight="1"
         android:src="@drawable/ic_camera"
         android:layout_gravity="center"
