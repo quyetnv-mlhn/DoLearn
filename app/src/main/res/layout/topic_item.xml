@@ -23,5 +23,6 @@
         android:paddingTop="12dp"
         android:paddingBottom="12dp"
         android:text="TextView"
+        android:textStyle="bold"
         android:textSize="16sp" />
 </RelativeLayout>
