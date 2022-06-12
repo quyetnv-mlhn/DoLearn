@@ -3,8 +3,9 @@
     <style name="Theme.DoLearn" parent="Theme.AppCompat.DayNight.DarkActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/main</item>
-        <item name="colorPrimaryDark">#3700b3</item>
+        <item name="colorPrimaryDark">#47bcaa</item>
         <item name="colorAccent">@color/teal_200</item>
+        <item name="colorPrimaryVariant">#47bcaa</item>
         <!-- Customize your theme here. -->
     </style>
 
