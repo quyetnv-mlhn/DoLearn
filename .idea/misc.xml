@@ -16,6 +16,7 @@
         <entry key="..\:/Android/DoLearn/app/src/main/res/layout/activity_translate.xml" value="0.22" />
         <entry key="..\:/Android/DoLearn/app/src/main/res/layout/activity_word_game.xml" value="0.25" />
         <entry key="..\:/Android/DoLearn/app/src/main/res/layout/item.xml" value="0.22010869565217392" />
+        <entry key="..\:/Android/DoLearn/app/src/main/res/layout/table_row.xml" value="0.36666666666666664" />
         <entry key="..\:/Android/DoLearn/app/src/main/res/layout/topic.xml" value="0.17831813576494426" />
         <entry key="..\:/Android/DoLearn/app/src/main/res/layout/topic_item.xml" value="0.3645833333333333" />
         <entry key="..\:/Android/DoLearn/app/src/main/res/menu/menu.xml" value="0.36666666666666664" />
@@ -52,17 +53,6 @@
         <entry key="..\:/Users/Le Tan Sang/StudioProjects/DoLearn/app/src/main/res/layout/activity_word_game.xml" value="0.1" />
         <entry key="..\:/Users/Le Tan Sang/StudioProjects/DoLearn/app/src/main/res/layout/activity_word_game_topic.xml" value="0.1" />
         <entry key="..\:/Users/Le Tan Sang/StudioProjects/DoLearn/app/src/main/res/layout/topic_item.xml" value="0.8015075376884422" />
-        <entry key="..\:/Users/letan/StudioProjects/DoLearn/app/src/main/res/drawable/border_ui.xml" value="0.1" />
-        <entry key="..\:/Users/letan/StudioProjects/DoLearn/app/src/main/res/drawable/custom_progressbar.xml" value="0.1" />
-        <entry key="..\:/Users/letan/StudioProjects/DoLearn/app/src/main/res/drawable/custom_wordgame.xml" value="0.1" />
-        <entry key="..\:/Users/letan/StudioProjects/DoLearn/app/src/main/res/drawable/custom_wordgame_transparent.xml" value="0.1" />
-        <entry key="..\:/Users/letan/StudioProjects/DoLearn/app/src/main/res/drawable/gradient_background.xml" value="0.1" />
-        <entry key="..\:/Users/letan/StudioProjects/DoLearn/app/src/main/res/layout/activity_add_item_dialog.xml" value="0.1641337386018237" />
-        <entry key="..\:/Users/letan/StudioProjects/DoLearn/app/src/main/res/layout/activity_detailed_item.xml" value="0.1641337386018237" />
-        <entry key="..\:/Users/letan/StudioProjects/DoLearn/app/src/main/res/layout/activity_main.xml" value="0.1" />
-        <entry key="..\:/Users/letan/StudioProjects/DoLearn/app/src/main/res/layout/activity_translate.xml" value="0.25" />
-        <entry key="..\:/Users/letan/StudioProjects/DoLearn/app/src/main/res/layout/activity_word_game.xml" value="0.1" />
-        <entry key="..\:/Users/letan/StudioProjects/DoLearn/app/src/main/res/layout/activity_word_game_topic.xml" value="0.1" />
         <entry key="..\:/Users/letansang/AndroidStudioProjects/Do Learn/app/src/main/res/drawable/custom_wordgame.xml" value="0.156" />
         <entry key="..\:/Users/letansang/AndroidStudioProjects/Do Learn/app/src/main/res/layout/activity_detailed_item.xml" value="0.22" />
         <entry key="..\:/Users/letansang/AndroidStudioProjects/Do Learn/app/src/main/res/layout/activity_note.xml" value="0.36041666666666666" />

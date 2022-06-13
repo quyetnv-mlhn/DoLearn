@@ -14,6 +14,78 @@
         android:visibility="gone"
         />
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        >
+
+        <TextView
+            android:id="@+id/infinitive"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Thường"
+            android:textStyle="bold"
+            android:fontFamily="@font/roboto_regular"
+            android:padding="5dp"
+            android:textSize="20dp"
+            android:textColor="@color/cerise"
+            android:layout_gravity="center_vertical"
+            android:background="@color/xam"
+
+            />
+        <TextView
+            android:id="@+id/past"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Quá khứ"
+            android:textStyle="bold"
+            android:fontFamily="@font/roboto_regular"
+            android:padding="5dp"
+            android:textSize="20dp"
+            android:textColor="@color/cerise"
+            android:layout_gravity="center_vertical"
+            android:background="@color/xam"
+
+            />
+        <TextView
+            android:id="@+id/pastParticiple"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Phân từ II"
+            android:textStyle="bold"
+            android:fontFamily="@font/roboto_regular"
+            android:padding="5dp"
+            android:textSize="20dp"
+            android:textColor="@color/cerise"
+            android:layout_gravity="center_vertical"
+            android:background="@color/xam"
+
+            />
+        <TextView
+            android:id="@+id/vieName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Nghĩa"
+            android:textStyle="bold"
+            android:fontFamily="@font/roboto_regular"
+            android:padding="5dp"
+            android:textSize="20dp"
+            android:textColor="@color/cerise"
+            android:layout_gravity="center_vertical"
+            android:background="@color/xam"
+
+            />
+    </LinearLayout>
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -31,7 +103,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                TextVi
             </TableRow>
         </TableLayout>
     </ScrollView>
