@@ -2,25 +2,22 @@ package com.example.dolearn;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import android.os.Bundle;
-
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.cardview.widget.CardView;
 
-import android.view.KeyEvent;
-import android.view.View;
-
+import com.example.dolearn.irregularVerbs.IrregularVerbs;
 import com.example.dolearn.note.NoteActivity;
 import com.example.dolearn.setting.SettingActivity;
 import com.example.dolearn.topic.Dictionary;
 import com.example.dolearn.topic.Item;
-import com.example.dolearn.translate.TranslateActivity;
-
 import com.example.dolearn.topic.TopicActivity;
+import com.example.dolearn.translate.TranslateActivity;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;
@@ -30,7 +27,7 @@ import java.io.InputStreamReader;
 
 
 public class MainActivity extends AppCompatActivity {
-    CardView cardView_topic, cardView_translate, cardView_note, cartView_setting;
+    CardView cardView_topic, cardView_translate, cardView_note, cartView_setting, cardView_irregular;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
@@ -81,6 +78,14 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        cardView_irregular.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, IrregularVerbs.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void anhxa() {
@@ -88,6 +93,7 @@ public class MainActivity extends AppCompatActivity {
         cardView_topic = findViewById(R.id.cardView_topic);
         cardView_note = findViewById(R.id.cardView_note);
         cartView_setting = findViewById(R.id.cardView_setting);
+        cardView_irregular = findViewById(R.id.cardView_irregular);
     }
 
     //Load data from file in device to listNote

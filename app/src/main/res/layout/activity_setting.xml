@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -9,17 +8,95 @@
     >
 
     <TextView
+        android:id="@+id/tvTocDoDoc"
+        android:layout_marginTop="10dp"
+        android:paddingLeft="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Tốc độ đọc"
-        android:textSize="20sp"
+        android:textSize="22sp"
+        android:fontFamily="@font/roboto_regular"
         />
 
-    <TextView
+    <RadioGroup
+        android:id="@+id/speedRate"
+        android:layout_marginLeft="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <RadioButton
+            android:id="@+id/speedRate1"
+            android:text="x0.5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <RadioButton
+            android:id="@+id/speedRate2"
+            android:text="x1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <RadioButton
+            android:id="@+id/speedRate3"
+            android:text="x2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RadioGroup>
+
+
+    <LinearLayout
+        android:paddingLeft="20dp"
+        android:paddingRight="25dp"
+        android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Đặt thời gian nhắc nhở"
-        android:textSize="20sp"
-        />
-    
+        android:layout_below="@+id/tvTocDoDoc"
+        android:orientation="horizontal"
+        android:weightSum="10"
+        tools:ignore="UseSwitchCompatOrMaterialXml">
+
+        <TextView
+            android:layout_weight="8"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:text="Thời gian nhắc nhở"
+            android:textSize="22sp"
+            android:fontFamily="@font/roboto_regular"
+            />
+        
+        <Switch
+            android:layout_weight="2"
+            android:id="@+id/swNotify"
+            android:textSize="22dp"
+            android:layout_marginLeft="60dp"
+            android:scaleX="1.5"
+            android:scaleY="1.5"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"/>
+    </LinearLayout>
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_marginLeft="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <RadioButton
+            android:id="@+id/radio_1"
+            android:text="1 phút"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <RadioButton
+            android:id="@+id/radio_5"
+            android:text="5 phút"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <RadioButton
+            android:id="@+id/radio_10"
+            android:text="10 phút"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RadioGroup>
+
+
 </LinearLayout>

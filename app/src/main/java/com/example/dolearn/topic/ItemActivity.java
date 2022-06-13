@@ -1,5 +1,6 @@
 package com.example.dolearn.topic;
 
+import android.content.Context;
 import android.content.Intent;
 
 import androidx.appcompat.app.ActionBar;
@@ -10,6 +11,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 
 import com.example.dolearn.R;
@@ -27,10 +29,12 @@ public class ItemActivity extends AppCompatActivity {
     Button practiceButton,buttonWordGame;
     ItemAdapter adapter;
     String filename;
+    ImageView imgViewTopic;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_item);
+        imgViewTopic = findViewById(R.id.imageViewTopic);
         handle();
         actionBar();
         listView_item = findViewById(R.id.listView_item);
@@ -69,6 +73,13 @@ public class ItemActivity extends AppCompatActivity {
             Intent intent = getIntent();
             filename = intent.getStringExtra("filename");
             InputStream is = getAssets().open(filename+".txt");
+
+            String s = filename.toLowerCase();
+            String[] s1 = s.split("\\ ");
+            Context c = getApplicationContext();
+            int id = c.getResources().getIdentifier("drawable/" + s1[0], null, c.getPackageName());
+            imgViewTopic.setImageResource(id);
+
             int size = is.available();
             byte[] buffer = new byte[size];
             is.read(buffer);

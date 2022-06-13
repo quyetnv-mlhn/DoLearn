@@ -3,8 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Android/DoLearn/app/src/main/res/drawable/ic_baseline_search_24.xml" value="0.184" />
         <entry key="..\:/Android/DoLearn/app/src/main/res/drawable/mybutton.xml" value="0.2" />
         <entry key="..\:/Android/DoLearn/app/src/main/res/layout/activity_add_item_dialog.xml" value="0.25" />
+        <entry key="..\:/Android/DoLearn/app/src/main/res/layout/activity_irregular_verbs.xml" value="0.2875" />
         <entry key="..\:/Android/DoLearn/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Android/DoLearn/app/src/main/res/layout/activity_note.xml" value="0.36666666666666664" />
         <entry key="..\:/Android/DoLearn/app/src/main/res/layout/activity_quiz.xml" value="0.25" />
@@ -16,6 +18,7 @@
         <entry key="..\:/Android/DoLearn/app/src/main/res/layout/item.xml" value="0.22010869565217392" />
         <entry key="..\:/Android/DoLearn/app/src/main/res/layout/topic.xml" value="0.17831813576494426" />
         <entry key="..\:/Android/DoLearn/app/src/main/res/layout/topic_item.xml" value="0.3645833333333333" />
+        <entry key="..\:/Android/DoLearn/app/src/main/res/menu/menu.xml" value="0.36666666666666664" />
         <entry key="..\:/Document/QUYET3.2/MobileDevelopment/work/DoLearn-main/DoLearn/app/src/main/res/drawable/ic_mic.xml" value="0.29" />
         <entry key="..\:/Document/QUYET3.2/MobileDevelopment/work/DoLearn-main/DoLearn/app/src/main/res/font/roboto.xml" value="0.1984375" />
         <entry key="..\:/Document/QUYET3.2/MobileDevelopment/work/DoLearn-main/DoLearn/app/src/main/res/layout/activity_detail_note.xml" value="0.27760416666666665" />

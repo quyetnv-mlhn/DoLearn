@@ -13,6 +13,9 @@ import java.util.Locale;
 
 public class HandleClass {
     public static TextToSpeech tts;
+    public static Boolean onOffSwitch;
+    public static int minute;
+    public static float speedRate = 1;
 
     //Overwrite data from App to fileNote
     public static void loadDataToFile(Context context) {
@@ -37,7 +40,7 @@ public class HandleClass {
             public void onInit(int status) {
                 if (status == TextToSpeech.SUCCESS) {
                     tts.setLanguage(Locale.US);
-                    tts.setSpeechRate(1.0f);
+                    tts.setSpeechRate(speedRate);
                     tts.speak(engName.getText().toString().split("\\(")[0], TextToSpeech.QUEUE_FLUSH, null, "");
                 }
             }
@@ -49,7 +52,7 @@ public class HandleClass {
             public void onInit(int status) {
                 if (status == TextToSpeech.SUCCESS) {
                     tts.setLanguage(Locale.US);
-                    tts.setSpeechRate(1.0f);
+                    tts.setSpeechRate(speedRate);
                     tts.speak(engName.split("\\(")[0], TextToSpeech.QUEUE_FLUSH, null, "");
                 }
             }
