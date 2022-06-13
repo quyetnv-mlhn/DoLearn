@@ -47,6 +47,9 @@
             android:name=".topic.TopicActivity"
             android:exported="false" />
         <activity
+            android:name=".irregularVerbs.IrregularVerbs"
+            android:exported="false"/>
+        <activity
             android:name=".MainActivity"
             android:exported="true"
              >

@@ -162,7 +162,7 @@ public class SettingActivity extends AppCompatActivity {
 
         AlarmManager alarmMgr = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
         Intent intent = new Intent(this, AlarmReceiver.class);
-        PendingIntent alarmIntent = PendingIntent.getBroadcast(this, 0, intent, 0);
+        PendingIntent alarmIntent = PendingIntent.getBroadcast(this, 0, intent, PendingIntent.FLAG_MUTABLE);
 
         alarmMgr.setRepeating(AlarmManager.RTC_WAKEUP, timeInMillis,
                 1000 * 60 * minute, alarmIntent);
