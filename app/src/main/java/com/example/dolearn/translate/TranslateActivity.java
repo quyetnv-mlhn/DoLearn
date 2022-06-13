@@ -27,6 +27,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -64,7 +65,7 @@ public class TranslateActivity extends AppCompatActivity {
 
     private TextInputEditText sourceEdit;
     private ImageView micIV, swapIV, camIV;
-    private MaterialButton translateBtn;
+    private Button translateBtn;
     private TextView translatedTV, fromTV, toTV;
     private static final int REQUEST_MIC_CAPTURE = 1;
     private ImageButton addButton;
