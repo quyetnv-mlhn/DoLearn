@@ -48,6 +48,7 @@ public class AddItemDialog extends AppCompatDialogFragment {
             vieNameED.setText(engName);
         }
 
+
         builder.setView(view)
                 .setTitle("Thêm từ vào Note")
                 .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
@@ -68,28 +69,33 @@ public class AddItemDialog extends AppCompatDialogFragment {
 
 
     public void confirmAddItem() {
+        engName = engNameED.getText().toString();
+        vieName = vieNameED.getText().toString();
+
         engName = engName.equals("") ? "" : HandleClass.upperCaseFirst(engNameED.getText().toString());
         type = typeED.getText().toString();
         vieName = vieName.equals("") ? "" : HandleClass.upperCaseFirst(vieNameED.getText().toString());
-        pron = pronED.getText().toString();
-        engExample = engExampleED.getText().toString();
-        vieExample = vieExampleED.getText().toString();
+        pron = pronED.getText().toString().equals("") ? "-" : pronED.getText().toString();
+        engExample = engExampleED.getText().toString().equals("") ? "-" : engExampleED.getText().toString();
+        vieExample = vieExampleED.getText().toString().equals("") ? "-" : vieExampleED.getText().toString();
 
-        if (!(engName.equals("") || engName.split(" ").length > 3 || vieName.equals("") || type.equals(""))) {
-            Item item = new Item(engName + " (" + type + ")", vieName, pron, engExample, vieExample);
-            if (!HandleClass.checkExistInNote(item)) {
-                NoteActivity.listNote.add(item);
-                HandleClass.loadDataToFile(getContext());
-                Toast.makeText(getContext(), "Success", Toast.LENGTH_SHORT).show();
-            }
+        if (engName.equals("") || vieName.equals("") || type.equals("")) {
+            Toast.makeText(getContext(), "Vui lòng điền ít nhất các trường *", Toast.LENGTH_LONG).show();
+            FragmentActivity intent = getActivity();
+            intent.recreate();
         } else if (engName.split(" ").length > 3) {
             Toast.makeText(getContext(), "Trường 1 không quá 3 từ", Toast.LENGTH_LONG).show();
             FragmentActivity intent = getActivity();
             intent.recreate();
         } else {
-            Toast.makeText(getContext(), "Vui lòng điền ít nhất các trường *", Toast.LENGTH_LONG).show();
-            FragmentActivity intent = getActivity();
-            intent.recreate();
+            Item item = new Item(engName + " (" + type + ")", vieName, pron, engExample, vieExample);
+            if (!HandleClass.checkExistInNote(item)) {
+                NoteActivity.listNote.add(item);
+                HandleClass.loadDataToFile(getContext());
+                Toast.makeText(getContext(), "Success", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(getContext(), "Đã tồn tại", Toast.LENGTH_SHORT).show();
+            }
         }
     }
 }
